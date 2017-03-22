@@ -23,11 +23,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = Magnetic(size: self.view.frame.size)
+        let scene = Magnetic(size: self.view.bounds.size)
         skView.presentScene(scene)
         
         for _ in 0..<20 {
-            let node = Node.make(radius: 30, color: .red, text: "Hello")
+            let node = Node.make(radius: 30, color: UIColor(red: 1, green: 0.16, blue: 0.29, alpha: 1), text: "Hello")
             scene.addChild(node)
         }
     }
@@ -52,10 +52,14 @@ class Magnetic: SKScene {
         super.init(size: size)
         
         self.backgroundColor = .white
-//        self.scaleMode = .aspectFill
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
-        _ = magneticField
+        
+        self.physicsBody = {
+            var bodyFrame = frame
+            bodyFrame.size.width = CGFloat(magneticField.minimumRadius)
+            bodyFrame.origin.x -= bodyFrame.size.width / 2
+            return SKPhysicsBody(edgeLoopFrom: bodyFrame)
+        }()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,39 +67,26 @@ class Magnetic: SKScene {
     }
     
     override func addChild(_ node: SKNode) {
-//        var x = CGFloat.random(min: -bottomOffset, max: -node.frame.size.width)
-//        let y = CGFloat.random(
-//            min: frame.size.height - bottomOffset - node.frame.size.height,
-//            max: frame.size.height - topOffset - node.frame.size.height
-//        )
-//        
-//        if floatingNodes.count % 2 == 0 || floatingNodes.isEmpty {
-//            x = CGFloat.random(
-//                min: frame.size.width + node.frame.size.width,
-//                max: frame.size.width + bottomOffset
-//            )
-//        }
-//        node.position = CGPoint(x: x, y: y)
-        
+        var x = CGFloat.random(min: 0, max: -node.frame.width)
+        let y = CGFloat.random(
+            min: frame.height - node.frame.height,
+            max: frame.height - node.frame.height
+        )
+        if children.count % 2 == 0 || children.isEmpty {
+            x = CGFloat.random(
+                min: frame.width + node.frame.width,
+                max: frame.width
+            )
+        }
+        node.position = CGPoint(x: x, y: y)
         
         node.physicsBody?.isDynamic = true
         node.physicsBody?.affectedByGravity = false
         node.physicsBody?.allowsRotation = false
-        node.physicsBody?.mass = 0.3
         node.physicsBody?.friction = 0
         node.physicsBody?.linearDamping = 3
+        
         super.addChild(node)
-    }
-    
-    override func update(_ currentTime: TimeInterval) {
-        children.forEach { node in
-            let distanceFromCenter = self.magneticField.position.distance(from: node.position)
-            node.physicsBody?.linearDamping = 2
-            
-            if distanceFromCenter <= 100 {
-                node.physicsBody?.linearDamping += ((100 - distanceFromCenter) / 10)
-            }
-        }
     }
     
 }
@@ -103,7 +94,7 @@ class Magnetic: SKScene {
 class Node: SKShapeNode {
     
     lazy var label: SKLabelNode = { [unowned self] in
-        let label = SKLabelNode()
+        let label = SKLabelNode(fontNamed: "Avenir")
         label.fontSize = 14
         label.verticalAlignmentMode = .center
         self.addChild(label)
@@ -119,7 +110,7 @@ class Node: SKShapeNode {
     class func make(radius: CGFloat, color: UIColor, text: String) -> Node {
 //    class func make(radius: CGFloat, color: UIColor, text: String, image: UIImage) -> Node {
         let node = Node(circleOfRadius: radius)
-        node.physicsBody = SKPhysicsBody(circleOfRadius: radius + 2)
+        node.physicsBody = SKPhysicsBody(circleOfRadius: radius + 1)
         node.fillColor = color
         node.strokeColor = .clear
         node.label.text = text
@@ -132,6 +123,18 @@ extension CGPoint {
     
     func distance(from point: CGPoint) -> CGFloat {
         return hypot(point.x - self.x, point.y - self.y)
+    }
+    
+}
+
+extension CGFloat {
+    
+    static func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    static func random(min: CGFloat, max: CGFloat) -> CGFloat {
+        return CGFloat.random() * (max - min) + min
     }
     
 }
