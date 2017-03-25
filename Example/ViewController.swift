@@ -9,14 +9,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     var skView: SKView {
         return view as! SKView
     }
     
     override func loadView() {
         super.loadView()
-
+        
         self.view = SKView(frame: self.view.bounds)
     }
     
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         skView.presentScene(scene)
         
         for _ in 0..<20 {
-            let node = Node.make(radius: 30, color: UIColor(red: 1, green: 0.16, blue: 0.29, alpha: 1), text: "Hello")
+            let node = Node.make(radius: 30, color: UIColor(red: 255 / 255, green: 59 / 255, blue: 48 / 255, alpha: 1), text: "Hello")
             scene.addChild(node)
         }
     }
@@ -38,44 +38,52 @@ import SpriteKit
 
 class Magnetic: SKScene {
     
+    let bottomOffset: CGFloat = 200
+    
     lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 10000)
         field.minimumRadius = 10000
         field.strength = 8000
-        field.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         self.addChild(field)
         return field
     }()
     
-    override init(size: CGSize) {
-        super.init(size: size)
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
         
         self.backgroundColor = .white
+        self.scaleMode = .aspectFill
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        
-        self.physicsBody = {
-            var bodyFrame = frame
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
+            var bodyFrame = self.frame
             bodyFrame.size.width = CGFloat(magneticField.minimumRadius)
             bodyFrame.origin.x -= bodyFrame.size.width / 2
-            return SKPhysicsBody(edgeLoopFrom: bodyFrame)
-        }()
+            bodyFrame.size.height = self.frame.size.height - bottomOffset
+            bodyFrame.origin.y = self.frame.size.height - bodyFrame.size.height
+            return bodyFrame
+        }())
+        magneticField.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2 + bottomOffset / 2)
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    override init(size: CGSize) {
+//        super.init(size: size)
+//    }
+    
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     override func addChild(_ node: SKNode) {
-        var x = CGFloat.random(min: 0, max: -node.frame.width)
+        var x = CGFloat.random(min: -bottomOffset, max: -node.frame.width)
         let y = CGFloat.random(
-            min: frame.height - node.frame.height,
+            min: frame.height - bottomOffset - node.frame.height,
             max: frame.height - node.frame.height
         )
         if children.count % 2 == 0 || children.isEmpty {
             x = CGFloat.random(
                 min: frame.width + node.frame.width,
-                max: frame.width
+                max: frame.width + bottomOffset
             )
         }
         node.position = CGPoint(x: x, y: y)
@@ -89,9 +97,56 @@ class Magnetic: SKScene {
         super.addChild(node)
     }
     
+    var touchPoint: CGPoint?
+    var moving: Bool = false
+    
+    override func atPoint(_ p: CGPoint) -> SKNode {
+        let node = super.atPoint(p)
+        if let node = node.parent as? Node {
+            return node
+        }
+        return node
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            touchPoint = touch.location(in: self)
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !moving, let point = touchPoint, let node = atPoint(point) as? Node {
+            node.selected = !node.selected
+        }
+        moving = false
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        moving = false
+    }
+    
 }
 
 class Node: SKShapeNode {
+    
+    var selected: Bool = false {
+        didSet {
+            guard selected != oldValue else { return }
+            let action: SKAction
+            if selected {
+                action = SKAction.scale(to: 1.3, duration: 0.2)
+            } else {
+                action = SKAction.scale(to: 1, duration: 0.2)
+            }
+            run(action)
+        }
+    }
     
     lazy var label: SKLabelNode = { [unowned self] in
         let label = SKLabelNode(fontNamed: "Avenir")
