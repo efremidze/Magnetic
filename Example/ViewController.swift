@@ -156,11 +156,15 @@ class Node: SKShapeNode {
         return label
     }()
     
-//    lazy var sprite: SKSpriteNode = { [unowned self] in
-//        let sprite = SKSpriteNode()
-//        self.addChild(sprite)
-//        return sprite
-//    }()
+    lazy var sprite: SKSpriteNode = { [unowned self] in
+        let node = SKCropNode()
+        node.maskNode = SKShapeNode(circleOfRadius: self.frame.width)
+        let sprite = SKSpriteNode(imageNamed: "argentina")
+        sprite.aspectFill(self.frame.size)
+        node.addChild(sprite)
+        self.addChild(node)
+        return sprite
+    }()
     
     class func make(radius: CGFloat, color: UIColor, text: String) -> Node {
 //    class func make(radius: CGFloat, color: UIColor, text: String, image: UIImage) -> Node {
@@ -168,10 +172,13 @@ class Node: SKShapeNode {
         node.physicsBody = SKPhysicsBody(circleOfRadius: radius + 1)
         node.fillColor = color
         node.strokeColor = .clear
-        node.label.text = text
+        _ = node.sprite
+//        node.sprite.texture = SKTexture(image: UIImage(named: "argentina")!)
+//        node.sprite.position = CGPoint(x: 100, y: 100)
+//        node.label.text = text
         return node
     }
-
+    
 }
 
 extension CGPoint {
@@ -190,6 +197,20 @@ extension CGFloat {
     
     static func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat.random() * (max - min) + min
+    }
+    
+}
+
+extension SKSpriteNode {
+    
+    func aspectFill(_ size: CGSize) {
+        if let texture = texture {
+            self.size = texture.size()
+            let verticalRatio = size.height / texture.size().height
+            let horizontalRatio = size.width /  texture.size().width
+            let scaleRatio = horizontalRatio > verticalRatio ? horizontalRatio : verticalRatio
+            self.setScale(scaleRatio)
+        }
     }
     
 }
