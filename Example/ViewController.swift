@@ -101,9 +101,15 @@ class Magnetic: SKScene {
     var moving: Bool = false
     
     override func atPoint(_ p: CGPoint) -> SKNode {
-        let node = super.atPoint(p)
-        if let node = node.parent as? Node {
-            return node
+        var node = super.atPoint(p)
+        while true {
+            if node is Node {
+                return node
+            } else if let parent = node.parent {
+                node = parent
+            } else {
+                break
+            }
         }
         return node
     }
@@ -138,18 +144,12 @@ class Node: SKShapeNode {
     var selected: Bool = false {
         didSet {
             guard selected != oldValue else { return }
-            let action: SKAction
-            if selected {
-                action = SKAction.scale(to: 1.3, duration: 0.2)
-            } else {
-                action = SKAction.scale(to: 1, duration: 0.2)
-            }
-            run(action)
+            selectedChanged(selected)
         }
     }
     
     lazy var label: SKLabelNode = { [unowned self] in
-        let label = SKLabelNode(fontNamed: "Avenir")
+        let label = SKLabelNode(fontNamed: "Avenir-Heavy")
         label.fontSize = 14
         label.verticalAlignmentMode = .center
         self.addChild(label)
@@ -158,9 +158,15 @@ class Node: SKShapeNode {
     
     lazy var sprite: SKSpriteNode = { [unowned self] in
         let node = SKCropNode()
-        node.maskNode = SKShapeNode(circleOfRadius: self.frame.width)
-        let sprite = SKSpriteNode(imageNamed: "argentina")
-        sprite.aspectFill(self.frame.size)
+        node.maskNode = {
+            let node = SKShapeNode(circleOfRadius: self.frame.width)
+            node.fillColor = .white
+            node.strokeColor = .clear
+            return node
+        }()
+        let sprite = SKSpriteNode(color: .red, size: self.frame.size)
+        sprite.color = .red
+        sprite.colorBlendFactor = 0.5
         node.addChild(sprite)
         self.addChild(node)
         return sprite
@@ -173,10 +179,21 @@ class Node: SKShapeNode {
         node.fillColor = color
         node.strokeColor = .clear
         _ = node.sprite
-//        node.sprite.texture = SKTexture(image: UIImage(named: "argentina")!)
-//        node.sprite.position = CGPoint(x: 100, y: 100)
-//        node.label.text = text
+        node.label.text = text
         return node
+    }
+    
+    func selectedChanged(_ selected: Bool) {
+        var actions = [SKAction]()
+        if selected {
+            sprite.texture = SKTexture(imageNamed: "argentina")
+            actions += [SKAction.scale(to: 1.3, duration: 0.2)]
+        } else {
+            sprite.texture = nil
+            actions += [SKAction.scale(to: 1, duration: 0.2)]
+        }
+        let group = SKAction.group(actions)
+        run(group)
     }
     
 }
@@ -197,20 +214,6 @@ extension CGFloat {
     
     static func random(min: CGFloat, max: CGFloat) -> CGFloat {
         return CGFloat.random() * (max - min) + min
-    }
-    
-}
-
-extension SKSpriteNode {
-    
-    func aspectFill(_ size: CGSize) {
-        if let texture = texture {
-            self.size = texture.size()
-            let verticalRatio = size.height / texture.size().height
-            let horizontalRatio = size.width /  texture.size().width
-            let scaleRatio = horizontalRatio > verticalRatio ? horizontalRatio : verticalRatio
-            self.setScale(scaleRatio)
-        }
     }
     
 }
