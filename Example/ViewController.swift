@@ -98,7 +98,6 @@ class Magnetic: SKScene {
         super.addChild(node)
     }
     
-    var touchPoint: CGPoint?
     var moving: Bool = false
     
     override func atPoint(_ p: CGPoint) -> SKNode {
@@ -115,20 +114,41 @@ class Magnetic: SKScene {
         return node
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            touchPoint = touch.location(in: self)
-        }
-    }
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
+            let location = touch.location(in: self)
+            let previous = touch.previousLocation(in: self)
             
+            var x = location.x - previous.x
+            var y = location.y - previous.y
+            let b = sqrt(pow(location.x, 2) + pow(location.y, 2))
+            x = b == 0 ? 0 : (x / b)
+            y = b == 0 ? 0 : (y / b)
+            
+            if x == 0 && y == 0 {
+                return
+            }
+            
+            moving = true
+            
+            for node in children {
+                let pushStrength: CGFloat = 1000
+                
+//                let w = node.frame.width / 2
+//                let h = node.frame.height / 2
+                
+                var direction = CGVector(
+                    dx: pushStrength * x,
+                    dy: pushStrength * y
+                )
+                
+                node.physicsBody?.applyForce(direction)
+            }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !moving, let point = touchPoint, let node = atPoint(point) as? Node {
+        if !moving, let point = touches.first?.location(in: self), let node = atPoint(point) as? Node {
             node.selected = !node.selected
         }
         moving = false
@@ -163,7 +183,7 @@ class Node: SKShapeNode {
     
     lazy var label: SKLabelNode = { [unowned self] in
         let label = SKLabelNode(fontNamed: "Avenir-Heavy")
-        label.fontSize = 14
+        label.fontSize = 10
         label.verticalAlignmentMode = .center
         self.mask.addChild(label)
         return label
@@ -195,13 +215,12 @@ class Node: SKShapeNode {
         var actions = [SKAction]()
         if selected {
             sprite.texture = SKTexture(imageNamed: image)
-            actions += [SKAction.scale(to: 1.3, duration: 0.2)]
+            actions.append(SKAction.scale(to: 1.3, duration: 0.2))
         } else {
             sprite.texture = nil
-            actions += [SKAction.scale(to: 1, duration: 0.2)]
+            actions.append(SKAction.scale(to: 1, duration: 0.2))
         }
-        let group = SKAction.group(actions)
-        run(group)
+        run(SKAction.group(actions))
     }
     
 }
