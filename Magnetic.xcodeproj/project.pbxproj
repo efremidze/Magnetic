@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B61070C1E876D13000FF664 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B61070B1E876D13000FF664 /* Node.swift */; };
+		8B6107121E87709D000FF664 /* Magnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; };
+		8B6107141E8771A5000FF664 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6107131E8771A5000FF664 /* Extensions.swift */; };
 		8B6914C01E70F6A90007896C /* Magnetic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6914BE1E70F6A90007896C /* Magnetic.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8B6914CD1E70F6B50007896C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6914CC1E70F6B50007896C /* AppDelegate.swift */; };
 		8B6914CF1E70F6B50007896C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6914CE1E70F6B50007896C /* ViewController.swift */; };
@@ -18,6 +21,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B61070B1E876D13000FF664 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		8B6107131E8771A5000FF664 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B6914BB1E70F6A90007896C /* Magnetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magnetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B6914BE1E70F6A90007896C /* Magnetic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Magnetic.h; sourceTree = "<group>"; };
 		8B6914BF1E70F6A90007896C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B6107121E87709D000FF664 /* Magnetic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +79,8 @@
 			children = (
 				8B6914BE1E70F6A90007896C /* Magnetic.h */,
 				8B6914DC1E70F6CF0007896C /* Magnetic.swift */,
+				8B61070B1E876D13000FF664 /* Node.swift */,
+				8B6107131E8771A5000FF664 /* Extensions.swift */,
 				8B6914BF1E70F6A90007896C /* Info.plist */,
 			);
 			path = Magnetic;
@@ -207,6 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */,
+				8B6107141E8771A5000FF664 /* Extensions.swift in Sources */,
+				8B61070C1E876D13000FF664 /* Node.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
