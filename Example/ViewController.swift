@@ -60,7 +60,7 @@ class Magnetic: SKScene {
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
-        magneticField.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
+        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
 //    override init(size: CGSize) {
@@ -78,13 +78,6 @@ class Magnetic: SKScene {
         }
         let y = CGFloat.random(node.frame.height, frame.height - node.frame.height)
         node.position = CGPoint(x: x, y: y)
-        
-        node.physicsBody?.isDynamic = true
-        node.physicsBody?.affectedByGravity = false
-        node.physicsBody?.allowsRotation = false
-        node.physicsBody?.friction = 0
-        node.physicsBody?.linearDamping = 3
-        
         super.addChild(node)
     }
     
@@ -122,7 +115,7 @@ class Magnetic: SKScene {
             moving = true
             
             for node in children {
-                let pushStrength: CGFloat = 1000
+                let pushStrength: CGFloat = 10000
                 
                 let w = node.frame.width / 2
                 let h = node.frame.height / 2
@@ -196,7 +189,16 @@ class Node: SKShapeNode {
     
     class func make(radius: CGFloat, color: UIColor, text: String, image: String) -> Node {
         let node = Node(circleOfRadius: radius)
-        node.physicsBody = SKPhysicsBody(circleOfRadius: radius + 1)
+        node.physicsBody = {
+            let body = SKPhysicsBody(circleOfRadius: radius + 1)
+            body.isDynamic = true
+            body.affectedByGravity = false
+            body.allowsRotation = false
+            body.mass = 0.3
+            body.friction = 0
+            body.linearDamping = 3
+            return body
+        }()
         node.fillColor = .black
         node.strokeColor = .clear
         node.image = image
