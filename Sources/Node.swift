@@ -52,11 +52,12 @@ open class Node: SKShapeNode {
         node.physicsBody = {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
             body.isDynamic = true
-            body.usesPreciseCollisionDetection = true
-//            body.affectedByGravity = false
+//            body.usesPreciseCollisionDetection = true
+            body.affectedByGravity = false
             body.allowsRotation = false
+            body.mass = 0.3
             body.friction = 0
-            body.linearDamping = 3
+            body.linearDamping = 2
             return body
         }()
         node.fillColor = .black

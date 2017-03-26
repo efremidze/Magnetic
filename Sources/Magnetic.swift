@@ -14,7 +14,7 @@ open class Magnetic: SKScene {
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 10000)
         field.minimumRadius = 10000
-        field.strength = 6000
+        field.strength = 8000
         self.addChild(field)
         return field
     }()
@@ -72,6 +72,12 @@ open class Magnetic: SKScene {
 
 extension Magnetic {
     
+    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            
+        }
+    }
+    
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
@@ -79,7 +85,11 @@ extension Magnetic {
             
             var x = location.x - previous.x
             var y = location.y - previous.y
-            let b = sqrt(pow(location.x, 2) + pow(location.y, 2))
+            
+//            magneticField.position.x += x
+//            magneticField.position.y += y
+            
+            let b = location.length()
             x = b == 0 ? 0 : (x / b)
             y = b == 0 ? 0 : (y / b)
             
@@ -89,58 +99,16 @@ extension Magnetic {
             
             moving = true
             
-            let pushStrength: CGFloat = 10000
-            var direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
-
-            magneticField.position = location
-            
-//            if let node = atPoint(location) as? Node {
-//                let pushStrength: CGFloat = 10000
-//                let direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
-//                node.physicsBody?.applyImpulse(direction)
-//            }
+            print(magneticField.position)
             
             for node in children {
-//                let w = node.frame.width / 2
-//                let h = node.frame.height / 2
-                
-                let distance = node.position.distance(from: magneticField.position)
-                let acceleration = pushStrength / pow(distance, 2)
-                direction.dx *= acceleration
-                direction.dy *= acceleration
-                
-//                let distance = node.position.distance(from: location)
-//                let mod = CGFloat(magneticField.strength) / pow(distance, 1.7)
-//                print(distance)
-//                print(mod)
-//                
-//                if mod < 1 {
-//                    direction.dx *= mod
-//                    direction.dy *= mod
-//                }
-//                
-//                if !(-w...(size.width + w) ~= node.position.x) && (node.position.x * x) > 0 {
-//                    direction.dx = 0
-//                }
-//                
-//                if !(-h...(size.height + h) ~= node.position.y) && (node.position.y * y) > 0 {
-//                    direction.dy = 0
-//                }
-                
-//                let dx = (node.frame.midX / frame.maxX) * 0.5
-//                let dy = (node.frame.midY / frame.maxY) * 0.5
-//                if direction.dx < 0 {
-//                    direction.dx *= dx
-//                } else {
-//                    direction.dx *= 1 - dx
-//                }
-//                if direction.dy < 0 {
-//                    direction.dy *= dy
-//                } else {
-//                    direction.dy *= 1 - dy
-//                }
-                
-                node.physicsBody?.applyImpulse(direction)
+//                let pushStrength: CGFloat = 10000
+//                let distance = node.position.distance(from: magneticField.position)
+//                let acceleration = pushStrength * max(0, min(0.01 / pow(distance, 2), 1))
+
+                let acceleration: CGFloat = 5000
+                var direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+                node.physicsBody?.applyForce(direction)
             }
         }
     }
