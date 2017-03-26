@@ -27,7 +27,8 @@ class ViewController: UIViewController {
         skView.presentScene(scene)
         
         for _ in 0..<20 {
-            let node = Node.make(radius: 30, color: UIColor(red: 255 / 255, green: 59 / 255, blue: 48 / 255, alpha: 1), text: "Hello")
+            let image = UIImage.all.randomItem()
+            let node = Node.make(radius: 30, color: UIColor.all.randomItem(), text: image, image: image)
             scene.addChild(node)
         }
     }
@@ -75,15 +76,15 @@ class Magnetic: SKScene {
 //    }
     
     override func addChild(_ node: SKNode) {
-        var x = CGFloat.random(min: -bottomOffset, max: -node.frame.width)
+        var x = CGFloat.random(-bottomOffset, -node.frame.width)
         let y = CGFloat.random(
-            min: frame.height - bottomOffset - node.frame.height,
-            max: frame.height - node.frame.height
+            frame.height - bottomOffset - node.frame.height,
+            frame.height - node.frame.height
         )
         if children.count % 2 == 0 || children.isEmpty {
             x = CGFloat.random(
-                min: frame.width + node.frame.width,
-                max: frame.width + bottomOffset
+                frame.width + node.frame.width,
+                frame.width + bottomOffset
             )
         }
         node.position = CGPoint(x: x, y: y)
@@ -157,27 +158,31 @@ class Node: SKShapeNode {
     }()
     
     lazy var sprite: SKSpriteNode = { [unowned self] in
+        let size = self.frame.size
         let node = SKCropNode()
         node.maskNode = {
-            let node = SKShapeNode(circleOfRadius: self.frame.width)
-            node.fillColor = .white
+            let node = SKShapeNode(circleOfRadius: size.width / 2)
+            node.fillColor = .black
             node.strokeColor = .clear
             return node
         }()
-        let sprite = SKSpriteNode(color: .red, size: self.frame.size)
-        sprite.color = .red
+        let sprite = SKSpriteNode(color: self.color, size: size)
         sprite.colorBlendFactor = 0.5
         node.addChild(sprite)
         self.addChild(node)
         return sprite
     }()
     
-    class func make(radius: CGFloat, color: UIColor, text: String) -> Node {
-//    class func make(radius: CGFloat, color: UIColor, text: String, image: UIImage) -> Node {
+    var image: String!
+    var color: UIColor!
+    
+    class func make(radius: CGFloat, color: UIColor, text: String, image: String) -> Node {
         let node = Node(circleOfRadius: radius)
         node.physicsBody = SKPhysicsBody(circleOfRadius: radius + 1)
-        node.fillColor = color
+        node.fillColor = .black
         node.strokeColor = .clear
+        node.image = image
+        node.color = color
         _ = node.sprite
         node.label.text = text
         return node
@@ -186,7 +191,7 @@ class Node: SKShapeNode {
     func selectedChanged(_ selected: Bool) {
         var actions = [SKAction]()
         if selected {
-            sprite.texture = SKTexture(imageNamed: "argentina")
+            sprite.texture = SKTexture(imageNamed: image)
             actions += [SKAction.scale(to: 1.3, duration: 0.2)]
         } else {
             sprite.texture = nil
@@ -194,26 +199,6 @@ class Node: SKShapeNode {
         }
         let group = SKAction.group(actions)
         run(group)
-    }
-    
-}
-
-extension CGPoint {
-    
-    func distance(from point: CGPoint) -> CGFloat {
-        return hypot(point.x - self.x, point.y - self.y)
-    }
-    
-}
-
-extension CGFloat {
-    
-    static func random() -> CGFloat {
-        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
-    }
-    
-    static func random(min: CGFloat, max: CGFloat) -> CGFloat {
-        return CGFloat.random() * (max - min) + min
     }
     
 }

@@ -14,6 +14,7 @@
 		8B6914D41E70F6B50007896C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B6914D31E70F6B50007896C /* Assets.xcassets */; };
 		8B6914D71E70F6B50007896C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B6914D51E70F6B50007896C /* LaunchScreen.storyboard */; };
 		8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6914DC1E70F6CF0007896C /* Magnetic.swift */; };
+		8B6AA4721E873E1700909A36 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA4711E873E1700909A36 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8B6914D61E70F6B50007896C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8B6914D81E70F6B50007896C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B6914DC1E70F6CF0007896C /* Magnetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magnetic.swift; sourceTree = "<group>"; };
+		8B6AA4711E873E1700909A36 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				8B6914CC1E70F6B50007896C /* AppDelegate.swift */,
 				8B6914CE1E70F6B50007896C /* ViewController.swift */,
+				8B6AA4711E873E1700909A36 /* Extensions.swift */,
 				8B6914D01E70F6B50007896C /* Main.storyboard */,
 				8B6914D31E70F6B50007896C /* Assets.xcassets */,
 				8B6914D51E70F6B50007896C /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6914CF1E70F6B50007896C /* ViewController.swift in Sources */,
+				8B6AA4721E873E1700909A36 /* Extensions.swift in Sources */,
 				8B6914CD1E70F6B50007896C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +423,7 @@
 				8B6914C51E70F6A90007896C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B6914D91E70F6B50007896C /* Build configuration list for PBXNativeTarget "Example" */ = {
 			isa = XCConfigurationList;
@@ -427,6 +432,7 @@
 				8B6914DB1E70F6B50007896C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
