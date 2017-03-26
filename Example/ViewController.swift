@@ -149,20 +149,30 @@ class Node: SKShapeNode {
         }
     }
     
+    lazy var mask: SKCropNode = { [unowned self] in
+        let node = SKCropNode()
+        node.maskNode = {
+            let node = SKShapeNode(circleOfRadius: self.frame.width / 2)
+            node.fillColor = .black
+            node.strokeColor = .clear
+            return node
+        }()
+        self.addChild(node)
+        return node
+    }()
+    
     lazy var label: SKLabelNode = { [unowned self] in
         let label = SKLabelNode(fontNamed: "Avenir-Heavy")
         label.fontSize = 14
         label.verticalAlignmentMode = .center
-        self.addChild(label)
+        self.mask.addChild(label)
         return label
     }()
     
     lazy var sprite: SKSpriteNode = { [unowned self] in
-        let node = self.makeMaskNode(radius: self.frame.width / 2)
         let sprite = SKSpriteNode(color: self.color, size: self.frame.size)
         sprite.colorBlendFactor = 0.5
-        node.addChild(sprite)
-        self.addChild(node)
+        self.mask.addChild(sprite)
         return sprite
     }()
     
@@ -192,17 +202,6 @@ class Node: SKShapeNode {
         }
         let group = SKAction.group(actions)
         run(group)
-    }
-    
-    func makeMaskNode(radius: CGFloat) -> SKCropNode {
-        let node = SKCropNode()
-        node.maskNode = {
-            let node = SKShapeNode(circleOfRadius: radius)
-            node.fillColor = .black
-            node.strokeColor = .clear
-            return node
-        }()
-        return node
     }
     
 }
