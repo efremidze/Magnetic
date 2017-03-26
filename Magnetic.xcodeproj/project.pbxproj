@@ -83,7 +83,8 @@
 				8B6107131E8771A5000FF664 /* Extensions.swift */,
 				8B6914BF1E70F6A90007896C /* Info.plist */,
 			);
-			path = Magnetic;
+			name = Magnetic;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		8B6914CB1E70F6B50007896C /* Example */ = {
