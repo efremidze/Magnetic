@@ -39,8 +39,6 @@ import SpriteKit
 
 class Magnetic: SKScene {
     
-    let bottomOffset: CGFloat = 200
-    
     lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 10000)
@@ -57,14 +55,12 @@ class Magnetic: SKScene {
         self.scaleMode = .aspectFill
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
-            var bodyFrame = self.frame
-            bodyFrame.size.width = CGFloat(magneticField.minimumRadius)
-            bodyFrame.origin.x -= bodyFrame.size.width / 2
-            bodyFrame.size.height = self.frame.size.height - bottomOffset
-            bodyFrame.origin.y = self.frame.size.height - bodyFrame.size.height
-            return bodyFrame
+            var frame = self.frame
+            frame.size.width = CGFloat(magneticField.minimumRadius)
+            frame.origin.x -= frame.size.width / 2
+            return frame
         }())
-        magneticField.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2 + bottomOffset / 2)
+        magneticField.position = CGPoint(x: self.frame.size.width / 2, y: self.frame.size.height / 2)
     }
     
 //    override init(size: CGSize) {
@@ -76,17 +72,11 @@ class Magnetic: SKScene {
 //    }
     
     override func addChild(_ node: SKNode) {
-        var x = CGFloat.random(-bottomOffset, -node.frame.width)
-        let y = CGFloat.random(
-            frame.height - bottomOffset - node.frame.height,
-            frame.height - node.frame.height
-        )
-        if children.count % 2 == 0 || children.isEmpty {
-            x = CGFloat.random(
-                frame.width + node.frame.width,
-                frame.width + bottomOffset
-            )
+        var x = CGFloat.random(0, -node.frame.width) // left
+        if children.count % 2 == 0 {
+            x = CGFloat.random(frame.width, frame.width + node.frame.width) // right
         }
+        let y = CGFloat.random(node.frame.height, frame.height - node.frame.height)
         node.position = CGPoint(x: x, y: y)
         
         node.physicsBody?.isDynamic = true
@@ -134,13 +124,18 @@ class Magnetic: SKScene {
             for node in children {
                 let pushStrength: CGFloat = 1000
                 
-//                let w = node.frame.width / 2
-//                let h = node.frame.height / 2
+                let w = node.frame.width / 2
+                let h = node.frame.height / 2
                 
-                var direction = CGVector(
-                    dx: pushStrength * x,
-                    dy: pushStrength * y
-                )
+                var direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
+                
+                if !(-w...(size.width + w) ~= node.position.x) && (node.position.x * x) > 0 {
+                    direction.dx = 0
+                }
+                
+                if !(-h...(size.height + h) ~= node.position.y) && (node.position.y * y) > 0 {
+                    direction.dy = 0
+                }
                 
                 node.physicsBody?.applyForce(direction)
             }
