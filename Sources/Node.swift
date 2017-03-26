@@ -30,8 +30,8 @@ open class Node: SKShapeNode {
         }()
     
     lazy var label: SKLabelNode = { [unowned self] in
-        let label = SKLabelNode(fontNamed: "Avenir-Heavy")
-        label.fontSize = 10
+        let label = SKLabelNode(fontNamed: "Avenir-Black")
+        label.fontSize = 12
         label.verticalAlignmentMode = .center
         self.mask.addChild(label)
         return label
@@ -44,24 +44,24 @@ open class Node: SKShapeNode {
         return sprite
         }()
     
-    var image: String!
+    var texture: SKTexture!
     var color: UIColor!
     
     open class func make(radius: CGFloat, color: UIColor, text: String, image: String) -> Node {
         let node = Node(circleOfRadius: radius)
         node.physicsBody = {
-            let body = SKPhysicsBody(circleOfRadius: radius + 1)
+            let body = SKPhysicsBody(circleOfRadius: radius + 2)
             body.isDynamic = true
-            body.affectedByGravity = false
+            body.usesPreciseCollisionDetection = true
+//            body.affectedByGravity = false
             body.allowsRotation = false
-            body.mass = 0.3
             body.friction = 0
             body.linearDamping = 3
             return body
         }()
         node.fillColor = .black
         node.strokeColor = .clear
-        node.image = image
+        node.texture = SKTexture(imageNamed: image)
         node.color = color
         _ = node.sprite
         node.label.text = text
@@ -69,15 +69,13 @@ open class Node: SKShapeNode {
     }
     
     func selectedChanged(_ selected: Bool) {
-        var actions = [SKAction]()
         if selected {
-            sprite.texture = SKTexture(imageNamed: image)
-            actions.append(SKAction.scale(to: 1.3, duration: 0.2))
+            run(SKAction.scale(to: 4/3, duration: 0.2))
+            sprite.run(SKAction.setTexture(texture))
         } else {
+            run(SKAction.scale(to: 1, duration: 0.2))
             sprite.texture = nil
-            actions.append(SKAction.scale(to: 1, duration: 0.2))
         }
-        run(SKAction.group(actions))
     }
     
 }

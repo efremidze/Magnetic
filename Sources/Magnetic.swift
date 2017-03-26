@@ -14,7 +14,7 @@ open class Magnetic: SKScene {
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 10000)
         field.minimumRadius = 10000
-        field.strength = 8000
+        field.strength = 6000
         self.addChild(field)
         return field
     }()
@@ -89,23 +89,58 @@ extension Magnetic {
             
             moving = true
             
+            let pushStrength: CGFloat = 10000
+            var direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
+
+            magneticField.position = location
+            
+//            if let node = atPoint(location) as? Node {
+//                let pushStrength: CGFloat = 10000
+//                let direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
+//                node.physicsBody?.applyImpulse(direction)
+//            }
+            
             for node in children {
-                let pushStrength: CGFloat = 10000
+//                let w = node.frame.width / 2
+//                let h = node.frame.height / 2
                 
-                let w = node.frame.width / 2
-                let h = node.frame.height / 2
+                let distance = node.position.distance(from: magneticField.position)
+                let acceleration = pushStrength / pow(distance, 2)
+                direction.dx *= acceleration
+                direction.dy *= acceleration
                 
-                var direction = CGVector(dx: pushStrength * x, dy: pushStrength * y)
+//                let distance = node.position.distance(from: location)
+//                let mod = CGFloat(magneticField.strength) / pow(distance, 1.7)
+//                print(distance)
+//                print(mod)
+//                
+//                if mod < 1 {
+//                    direction.dx *= mod
+//                    direction.dy *= mod
+//                }
+//                
+//                if !(-w...(size.width + w) ~= node.position.x) && (node.position.x * x) > 0 {
+//                    direction.dx = 0
+//                }
+//                
+//                if !(-h...(size.height + h) ~= node.position.y) && (node.position.y * y) > 0 {
+//                    direction.dy = 0
+//                }
                 
-                if !(-w...(size.width + w) ~= node.position.x) && (node.position.x * x) > 0 {
-                    direction.dx = 0
-                }
+//                let dx = (node.frame.midX / frame.maxX) * 0.5
+//                let dy = (node.frame.midY / frame.maxY) * 0.5
+//                if direction.dx < 0 {
+//                    direction.dx *= dx
+//                } else {
+//                    direction.dx *= 1 - dx
+//                }
+//                if direction.dy < 0 {
+//                    direction.dy *= dy
+//                } else {
+//                    direction.dy *= 1 - dy
+//                }
                 
-                if !(-h...(size.height + h) ~= node.position.y) && (node.position.y * y) > 0 {
-                    direction.dy = 0
-                }
-                
-                node.physicsBody?.applyForce(direction)
+                node.physicsBody?.applyImpulse(direction)
             }
         }
     }
@@ -115,10 +150,12 @@ extension Magnetic {
             node.selected = !node.selected
         }
         moving = false
+        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         moving = false
+        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
 }

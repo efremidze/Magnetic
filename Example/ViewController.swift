@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         
         for _ in 0..<20 {
             let image = UIImage.all.randomItem()
-            let node = Node.make(radius: 30, color: UIColor.all.randomItem(), text: image, image: image)
+            let node = Node.make(radius: 40, color: UIColor.all.randomItem(), text: image.capitalized, image: image)
             scene.addChild(node)
         }
     }
