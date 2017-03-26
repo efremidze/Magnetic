@@ -158,15 +158,8 @@ class Node: SKShapeNode {
     }()
     
     lazy var sprite: SKSpriteNode = { [unowned self] in
-        let size = self.frame.size
-        let node = SKCropNode()
-        node.maskNode = {
-            let node = SKShapeNode(circleOfRadius: size.width / 2)
-            node.fillColor = .black
-            node.strokeColor = .clear
-            return node
-        }()
-        let sprite = SKSpriteNode(color: self.color, size: size)
+        let node = self.makeMaskNode(radius: self.frame.width / 2)
+        let sprite = SKSpriteNode(color: self.color, size: self.frame.size)
         sprite.colorBlendFactor = 0.5
         node.addChild(sprite)
         self.addChild(node)
@@ -199,6 +192,17 @@ class Node: SKShapeNode {
         }
         let group = SKAction.group(actions)
         run(group)
+    }
+    
+    func makeMaskNode(radius: CGFloat) -> SKCropNode {
+        let node = SKCropNode()
+        node.maskNode = {
+            let node = SKShapeNode(circleOfRadius: radius)
+            node.fillColor = .black
+            node.strokeColor = .clear
+            return node
+        }()
+        return node
     }
     
 }
