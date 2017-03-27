@@ -7,6 +7,12 @@
 
 Magnetic is a bubble picker like Apple Music.
 
+![Demo](Images/demo.gif)
+
+```
+$ pod try Magnetic
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
