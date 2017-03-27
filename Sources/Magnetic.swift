@@ -14,7 +14,7 @@ open class Magnetic: SKScene {
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 10000)
         field.minimumRadius = 10000
-        field.strength = 8000
+        field.strength = 10000
         self.addChild(field)
         return field
     }()
@@ -35,14 +35,6 @@ open class Magnetic: SKScene {
         }())
         magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
-    
-//    override init(size: CGSize) {
-//        super.init(size: size)
-//    }
-//    
-//    required init?(coder aDecoder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     override open func addChild(_ node: SKNode) {
         var x = CGFloat.random(0, -node.frame.width) // left
@@ -72,41 +64,21 @@ open class Magnetic: SKScene {
 
 extension Magnetic {
     
-    override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            
-        }
-    }
-    
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
             let previous = touch.previousLocation(in: self)
             
-            var x = location.x - previous.x
-            var y = location.y - previous.y
-            
-//            magneticField.position.x += x
-//            magneticField.position.y += y
-            
-            let b = location.length()
-            x = b == 0 ? 0 : (x / b)
-            y = b == 0 ? 0 : (y / b)
-            
-            if x == 0 && y == 0 {
-                return
-            }
+            if location.length() == 0 { return }
             
             moving = true
             
-            print(magneticField.position)
+            let x = location.x - previous.x
+            let y = location.y - previous.y
             
             for node in children {
-//                let pushStrength: CGFloat = 10000
-//                let distance = node.position.distance(from: magneticField.position)
-//                let acceleration = pushStrength * max(0, min(0.01 / pow(distance, 2), 1))
-
-                let acceleration: CGFloat = 5000
+                let distance = node.position.distance(from: location)
+                let acceleration = 50 / pow(distance, 1/3)
                 var direction = CGVector(dx: x * acceleration, dy: y * acceleration)
                 node.physicsBody?.applyForce(direction)
             }
@@ -118,12 +90,10 @@ extension Magnetic {
             node.selected = !node.selected
         }
         moving = false
-        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         moving = false
-        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
 }

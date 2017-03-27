@@ -28,8 +28,8 @@ class ViewController: UIViewController {
         skView.presentScene(scene)
         
         for _ in 0..<20 {
-            let image = UIImage.all.randomItem()
-            let node = Node.make(radius: 40, color: UIColor.all.randomItem(), text: image.capitalized, image: image)
+            let name = UIImage.all.randomItem()
+            let node = Node.make(radius: 40, color: UIColor.all.randomItem(), text: name.capitalized, imageName: name)
             scene.addChild(node)
         }
     }
