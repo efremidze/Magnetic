@@ -1,15 +1,21 @@
 # Magnetic
 
-[![CI Status](http://img.shields.io/travis/efremidze/Magnetic.svg?style=flat)](https://travis-ci.org/efremidze/Magnetic)
+[![Language](https://img.shields.io/badge/Swift-3.1-orange.svg?style=flat)](https://swift.org)
 [![Version](https://img.shields.io/cocoapods/v/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
 [![License](https://img.shields.io/cocoapods/l/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
 [![Platform](https://img.shields.io/cocoapods/p/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
+
+Magnetic is a bubble picker like Apple Music.
 
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+
+- iOS 9.3+
+- Xcode 8.0+
+- Swift 3.0+
 
 ## Installation
 
@@ -20,9 +26,9 @@ it, simply add the following line to your Podfile:
 pod "Magnetic"
 ```
 
-## Author
+## Credits
 
-efremidze, efremidzel@hotmail.com
+https://github.com/igalata/Bubble-Picker
 
 ## License
 
