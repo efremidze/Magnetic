@@ -22,7 +22,7 @@ open class Node: SKShapeNode {
         return node
     }()
     
-    lazy var label: SKLabelNode = { [unowned self] in
+    open lazy var label: SKLabelNode = { [unowned self] in
         let label = SKLabelNode(fontNamed: "Avenir-Black")
         label.fontSize = 12
         label.verticalAlignmentMode = .center
@@ -30,15 +30,32 @@ open class Node: SKShapeNode {
         return label
     }()
     
-    lazy var sprite: SKSpriteNode = { [unowned self] in
-        let sprite = SKSpriteNode(color: self.color, size: self.frame.size)
+    open lazy var sprite: SKSpriteNode = { [unowned self] in
+        let sprite = SKSpriteNode()
+        sprite.size = self.frame.size
         sprite.colorBlendFactor = 0.5
         self.mask.addChild(sprite)
         return sprite
     }()
     
+    open var title: String? {
+        get { return label.text }
+        set { label.text = newValue }
+    }
+    
+    open var image: UIImage? {
+        didSet {
+            guard let image = image else { return }
+            texture = SKTexture(image: image)
+        }
+    }
+    
+    open var color: UIColor {
+        get { return sprite.color }
+        set { sprite.color = newValue }
+    }
+    
     var texture: SKTexture!
-    var color: UIColor!
     
     open var selected: Bool = false {
         didSet {
@@ -53,7 +70,7 @@ open class Node: SKShapeNode {
         }
     }
     
-    open class func make(radius: CGFloat, color: UIColor, text: String, imageName: String) -> Node {
+    open class func make(title: String?, image: UIImage?, radius: CGFloat, color: UIColor) -> Node {
         let node = Node(circleOfRadius: radius)
         node.physicsBody = {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
@@ -64,10 +81,11 @@ open class Node: SKShapeNode {
         }()
         node.fillColor = .black
         node.strokeColor = .clear
-        node.texture = SKTexture(imageNamed: imageName)
-        node.color = color
         _ = node.sprite
-        node.label.text = text
+        _ = node.title
+        node.title = title
+        node.image = image
+        node.color = color
         return node
     }
     
