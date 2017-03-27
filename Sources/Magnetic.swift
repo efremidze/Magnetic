@@ -12,9 +12,10 @@ open class Magnetic: SKScene {
     
     lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
-        field.region = SKRegion(radius: 10000)
-        field.minimumRadius = 10000
-        field.strength = 10000
+        field.region = SKRegion(radius: 2000)
+        field.minimumRadius = 2000
+        field.strength = 500
+        field.speed = 1
         self.addChild(field)
         return field
     }()
@@ -76,10 +77,18 @@ extension Magnetic {
             let x = location.x - previous.x
             let y = location.y - previous.y
             
+//            magneticField.position.x += x
+//            magneticField.position.y += y
+            
             for node in children {
+//                let distance = node.position.distance(from: location)
+//                let acceleration = 150 / pow(distance, 1/3)
+//                let acceleration: CGFloat = 50
+//                var direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+                
                 let distance = node.position.distance(from: location)
-                let acceleration = 50 / pow(distance, 1/3)
-                var direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+                let acceleration: CGFloat = 3 * pow(distance, 1/2)
+                let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
                 node.physicsBody?.applyForce(direction)
             }
         }
@@ -90,10 +99,12 @@ extension Magnetic {
             node.selected = !node.selected
         }
         moving = false
+//        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         moving = false
+//        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
 }

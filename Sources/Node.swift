@@ -76,7 +76,7 @@ open class Node: SKShapeNode {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
             body.allowsRotation = false
             body.friction = 0
-            body.linearDamping = 2
+            body.linearDamping = 0.5
             return body
         }()
         node.fillColor = .black
