@@ -70,23 +70,49 @@ open class Node: SKShapeNode {
         }
     }
     
-    open class func make(title: String?, image: UIImage?, radius: CGFloat, color: UIColor) -> Node {
-        let node = Node(circleOfRadius: radius)
-        node.physicsBody = {
+    public convenience init(title: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
+        self.init()
+        self.init(circleOfRadius: radius)
+        
+//        self.path = CGPath(ellipseIn: CGRect(x: 0, y: 0, width: radius * 2, height: radius * 2), transform: nil)
+        self.physicsBody = {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
             body.allowsRotation = false
             body.friction = 0
             body.linearDamping = 2
             return body
         }()
-        node.fillColor = .black
-        node.strokeColor = .clear
-        _ = node.sprite
-        _ = node.title
-        node.title = title
-        node.image = image
-        node.color = color
-        return node
+        self.fillColor = .black
+        self.strokeColor = .clear
+        _ = self.sprite
+        _ = self.title
+        self.title = title
+        self.image = image
+        self.color = color
+    }
+    
+//    open class func make(title: String?, image: UIImage?, color: UIColor, radius: CGFloat) -> Self {
+//        let node = self.init(circleOfRadius: radius)
+//        node.physicsBody = {
+//            let body = SKPhysicsBody(circleOfRadius: radius + 2)
+//            body.allowsRotation = false
+//            body.friction = 0
+//            body.linearDamping = 2
+//            return body
+//        }()
+//        node.fillColor = .black
+//        node.strokeColor = .clear
+//        _ = node.sprite
+//        _ = node.title
+//        node.title = title
+//        node.image = image
+//        node.color = color
+//        return node
+//    }
+    
+    override func removeFromParent() {
+        SKAction.fadeOut(withDuration: 0.2)
+        super.removeFromParent()
     }
     
 }
