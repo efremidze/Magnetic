@@ -10,7 +10,7 @@ import SpriteKit
 
 open class Magnetic: SKScene {
     
-    lazy var magneticField: SKFieldNode = { [unowned self] in
+    public lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         field.region = SKRegion(radius: 2000)
         field.minimumRadius = 2000
@@ -77,15 +77,7 @@ extension Magnetic {
             let x = location.x - previous.x
             let y = location.y - previous.y
             
-//            magneticField.position.x += x
-//            magneticField.position.y += y
-            
             for node in children {
-//                let distance = node.position.distance(from: location)
-//                let acceleration = 150 / pow(distance, 1/3)
-//                let acceleration: CGFloat = 50
-//                var direction = CGVector(dx: x * acceleration, dy: y * acceleration)
-                
                 let distance = node.position.distance(from: location)
                 let acceleration: CGFloat = 3 * pow(distance, 1/2)
                 let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
@@ -99,12 +91,10 @@ extension Magnetic {
             node.selected = !node.selected
         }
         moving = false
-//        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         moving = false
-//        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
 }
