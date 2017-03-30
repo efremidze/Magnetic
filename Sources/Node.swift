@@ -123,7 +123,15 @@ open class Node: SKShapeNode {
         _ = self.text
         configure(text: text, image: image, color: color)
     }
-    
+
+    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, selectedScale: CGFloat, ordinaryScale: CGFloat, selectedDuration: Double, unselectedDuration: Double) {
+        self.init(text: text, image: image, color: color, radius: radius)
+        self.selectedScale = selectedScale
+        self.ordinaryScale = ordinaryScale
+        self.selectedDuration = selectedDuration
+        self.unselectedDuration = unselectedDuration
+    }
+
     open func configure(text: String?, image: UIImage?, color: UIColor) {
         self.text = text
         self.image = image
