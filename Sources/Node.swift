@@ -10,6 +10,11 @@ import SpriteKit
 
 open class Node: SKShapeNode {
     
+    var selectedScale: CGFloat = 4/3
+    var ordinaryScale: CGFloat = 1.0
+    var selectedDuration: Double = 1.2
+    var unselectedDuration: Double = 0.2
+
     lazy var mask: SKCropNode = { [unowned self] in
         let node = SKCropNode()
         node.maskNode = {
@@ -81,10 +86,10 @@ open class Node: SKShapeNode {
         didSet {
             guard selected != oldValue else { return }
             if selected {
-                run(.scale(to: 4/3, duration: 0.2))
+                run(SKAction.scale(to: selectedScale, duration: selectedDuration))
                 sprite.run(SKAction.setTexture(texture))
             } else {
-                run(.scale(to: 1, duration: 0.2))
+                run(SKAction.scale(to: ordinaryScale, duration: unselectedDuration))
                 sprite.texture = nil
             }
         }
