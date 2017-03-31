@@ -71,12 +71,14 @@ extension Magnetic {
             let previous = touch.previousLocation(in: self)
             
             if location.length() == 0 { return }
-            
-            moving = true
-            
+
             let x = location.x - previous.x
             let y = location.y - previous.y
-            
+
+            if max(abs(x),abs(y)) <= 0.0 { return }
+
+            moving = true
+
             for node in children {
                 let distance = node.position.distance(from: location)
                 let acceleration: CGFloat = 3 * pow(distance, 1/2)
