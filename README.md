@@ -53,14 +53,14 @@ class ViewController: UIViewController {
 #### Properties
 
 ```swift
-var magneticDelegate: MagneticDelegate // magnetic delegate
+var magneticDelegate: MagneticDelegate? // magnetic delegate
 var allowsMultipleSelection: Bool // controls whether you can select multiple nodes. defaults to true
 var selectedChildren: [Node] // returns selected chidren
 ```
 
 ### Nodes
 
-A `Node` object is an SKNode.
+A `Node` object is a circular SKShapeNode subclass.
 
 #### Interaction
 
