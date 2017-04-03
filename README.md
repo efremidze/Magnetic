@@ -50,7 +50,7 @@ class ViewController: UIViewController {
 }
 ```
 
-##### Properties
+#### Properties
 
 ```swift
 var magneticDelegate: MagneticDelegate // magnetic delegate
@@ -58,11 +58,11 @@ var allowsMultipleSelection: Bool // controls whether you can select multiple no
 var selectedChildren: [Node] // returns selected chidren
 ```
 
-#### Nodes
+### Nodes
 
 A `Node` object is an SKNode.
 
-##### Interaction
+#### Interaction
 
 ```swift
 // add node
@@ -77,7 +77,7 @@ func removeNode() {
 }
 ```
 
-##### Properties
+#### Properties
 
 ```swift
 var text: String? // node text
@@ -85,7 +85,7 @@ var image: UIImage? // node image
 var color: UIColor // node color. defaults to white
 ```
 
-#### Delegation
+### Delegation
 
 The `MagneticDelegate` protocol provides a number of functions for detecting the current state of its nodes.
 
@@ -99,7 +99,7 @@ func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
 }
 ```
 
-#### TODO
+### TODO
 
 - Add multiple selection states
 - Add long press to delete
