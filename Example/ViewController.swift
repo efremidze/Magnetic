@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        for _ in 0..<20 {
+        for _ in 0..<12 {
             add(nil)
         }
     }

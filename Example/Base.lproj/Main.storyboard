@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -79,7 +79,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ifn-fh-jeo" secondAttribute="bottom" constant="20" id="cUc-lR-p2n"/>
                             <constraint firstItem="iCO-hm-810" firstAttribute="top" secondItem="pJC-f1-xeX" secondAttribute="bottom" constant="10" id="dxS-4G-Ieb"/>
                             <constraint firstAttribute="trailing" secondItem="ifn-fh-jeo" secondAttribute="trailing" id="h12-mT-Pjn"/>
-                            <constraint firstItem="pJC-f1-xeX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="oKj-a4-Rmk"/>
+                            <constraint firstItem="pJC-f1-xeX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="40" id="oKj-a4-Rmk"/>
                             <constraint firstAttribute="trailing" secondItem="ban-xb-aQB" secondAttribute="trailing" id="pb1-x7-vi7"/>
                             <constraint firstAttribute="trailing" secondItem="pJC-f1-xeX" secondAttribute="trailing" constant="20" id="vva-Zn-coq"/>
                             <constraint firstItem="pJC-f1-xeX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zCb-Ux-ugK"/>
@@ -88,6 +88,7 @@
                             <constraint firstItem="iCO-hm-810" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zgA-PS-ggL"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="magneticView" destination="ban-xb-aQB" id="Tlh-Ig-Mpq"/>
                     </connections>

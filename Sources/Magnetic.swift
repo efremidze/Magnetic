@@ -64,9 +64,9 @@ open class Magnetic: SKScene {
     }
     
     override open func addChild(_ node: SKNode) {
-        var x = CGFloat.random(0, -node.frame.width) // left
+        var x = -node.frame.width // left
         if children.count % 2 == 0 {
-            x = CGFloat.random(frame.width, frame.width + node.frame.width) // right
+            x = frame.width + node.frame.width // right
         }
         let y = CGFloat.random(node.frame.height, frame.height - node.frame.height)
         node.position = CGPoint(x: x, y: y)
