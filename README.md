@@ -108,7 +108,7 @@ func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
 ## Installation
 
 ### CocoaPods
-To install with [CocoaPods](http://cocoapods.org/), simply add the following line to your `Podfile`:
+To install with [CocoaPods](http://cocoapods.org/), simply add this in your `Podfile`:
 ```ruby
 use_frameworks!
 pod "Magnetic"
