@@ -87,7 +87,7 @@ var color: UIColor // node color. defaults to white
 
 ### Delegation
 
-The `MagneticDelegate` protocol provides a number of functions for detecting the current state of its nodes.
+The `MagneticDelegate` protocol provides a number of functions for observing the current state of nodes.
 
 ```swift
 func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
