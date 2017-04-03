@@ -1,5 +1,12 @@
 # Change log
 
+## [Version 1.0.3](https://github.com/efremidze/Magnetic/releases/tag/1.0.3)
+Released on 2017-04-01
+
+- Added delegate methods for selection
+- Added documentation
+- Updated Example
+
 ## [Version 1.0.2](https://github.com/efremidze/Magnetic/releases/tag/1.0.2)
 Released on 2017-03-27
 

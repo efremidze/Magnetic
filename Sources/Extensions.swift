@@ -22,8 +22,4 @@ extension CGPoint {
         return hypot(point.x - x, point.y - y)
     }
     
-    func length() -> CGFloat {
-        return sqrt(pow(x, 2) + pow(y, 2))
-    }
-    
 }

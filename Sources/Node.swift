@@ -14,10 +14,19 @@ open class Node: SKShapeNode {
         let node = SKCropNode()
         node.maskNode = {
             let node = SKShapeNode(circleOfRadius: self.frame.width / 2)
-            node.fillColor = .black
+            node.fillColor = .white
             node.strokeColor = .clear
             return node
         }()
+        self.addChild(node)
+        _ = self.maskOverlay // Masking creates aliasing. This masks the aliasing.
+        return node
+    }()
+    
+    lazy var maskOverlay: SKShapeNode = { [unowned self] in
+        let node = SKShapeNode(circleOfRadius: self.frame.width / 2)
+        node.fillColor = .clear
+        node.strokeColor = self.strokeColor
         self.addChild(node)
         return node
     }()
@@ -38,11 +47,17 @@ open class Node: SKShapeNode {
         return sprite
     }()
     
-    open var title: String? {
+    /**
+     The text displayed by the node.
+     */
+    open var text: String? {
         get { return label.text }
         set { label.text = newValue }
     }
     
+    /**
+     The image displayed by the node.
+     */
     open var image: UIImage? {
         didSet {
             guard let image = image else { return }
@@ -50,27 +65,43 @@ open class Node: SKShapeNode {
         }
     }
     
+    /**
+     The color of the node.
+     
+     Also blends the color with the image.
+     */
     open var color: UIColor {
         get { return sprite.color }
         set { sprite.color = newValue }
     }
     
-    var texture: SKTexture!
+    private(set) var texture: SKTexture!
     
     open var selected: Bool = false {
         didSet {
             guard selected != oldValue else { return }
             if selected {
-                run(SKAction.scale(to: 4/3, duration: 0.2))
+                run(.scale(to: 4/3, duration: 0.2))
                 sprite.run(SKAction.setTexture(texture))
             } else {
-                run(SKAction.scale(to: 1, duration: 0.2))
+                run(.scale(to: 1, duration: 0.2))
                 sprite.texture = nil
             }
         }
     }
     
-    public convenience init(title: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
+    /**
+     Creates a circular node object.
+     
+     - Parameters:
+        - text: The text of the node.
+        - image: The image of the node.
+        - color: The color of the node.
+        - radius: The radius of the circle.
+     
+     - Returns: A new node.
+     */
+    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
         self.init()
         self.init(circleOfRadius: radius)
         
@@ -78,20 +109,26 @@ open class Node: SKShapeNode {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
             body.allowsRotation = false
             body.friction = 0
-            body.linearDamping = 2
+            body.linearDamping = 3
             return body
         }()
-        self.fillColor = .black
-        self.strokeColor = .clear
+        self.fillColor = .white
+        self.strokeColor = .white
         _ = self.sprite
-        _ = self.title
-        configure(title: title, image: image, color: color)
+        _ = self.text
+        configure(text: text, image: image, color: color)
     }
     
-    open func configure(title: String?, image: UIImage?, color: UIColor) {
-        self.title = title
+    open func configure(text: String?, image: UIImage?, color: UIColor) {
+        self.text = text
         self.image = image
         self.color = color
+    }
+    
+    override open func removeFromParent() {
+        run(.fadeOut(withDuration: 0.2)) {
+            super.removeFromParent()
+        }
     }
     
 }
