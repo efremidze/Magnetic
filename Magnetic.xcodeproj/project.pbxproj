@@ -9,6 +9,28 @@
 /* Begin PBXBuildFile section */
 		8B103C641E88AFA200CC83E2 /* Magnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; };
 		8B103C651E88AFA200CC83E2 /* Magnetic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B170CF71E8B2858005F45AB /* SFDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */; };
+		8B170CF81E8B2858005F45AB /* SFDisplay-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE31E8B2858005F45AB /* SFDisplay-Bold.otf */; };
+		8B170CF91E8B2858005F45AB /* SFDisplay-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE41E8B2858005F45AB /* SFDisplay-Heavy.otf */; };
+		8B170CFA1E8B2858005F45AB /* SFDisplay-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE51E8B2858005F45AB /* SFDisplay-Light.otf */; };
+		8B170CFB1E8B2858005F45AB /* SFDisplay-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE61E8B2858005F45AB /* SFDisplay-Medium.otf */; };
+		8B170CFC1E8B2858005F45AB /* SFDisplay-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE71E8B2858005F45AB /* SFDisplay-Regular.otf */; };
+		8B170CFD1E8B2858005F45AB /* SFDisplay-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE81E8B2858005F45AB /* SFDisplay-Semibold.otf */; };
+		8B170CFE1E8B2858005F45AB /* SFDisplay-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE91E8B2858005F45AB /* SFDisplay-Thin.otf */; };
+		8B170CFF1E8B2858005F45AB /* SFDisplay-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CEA1E8B2858005F45AB /* SFDisplay-Ultralight.otf */; };
+		8B170D001E8B2858005F45AB /* SFText-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CEB1E8B2858005F45AB /* SFText-Bold.otf */; };
+		8B170D011E8B2858005F45AB /* SFText-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CEC1E8B2858005F45AB /* SFText-BoldItalic.otf */; };
+		8B170D021E8B2858005F45AB /* SFText-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CED1E8B2858005F45AB /* SFText-Heavy.otf */; };
+		8B170D031E8B2858005F45AB /* SFText-HeavyItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CEE1E8B2858005F45AB /* SFText-HeavyItalic.otf */; };
+		8B170D041E8B2858005F45AB /* SFText-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CEF1E8B2858005F45AB /* SFText-Light.otf */; };
+		8B170D051E8B2858005F45AB /* SFText-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF01E8B2858005F45AB /* SFText-LightItalic.otf */; };
+		8B170D061E8B2858005F45AB /* SFText-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF11E8B2858005F45AB /* SFText-Medium.otf */; };
+		8B170D071E8B2858005F45AB /* SFText-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF21E8B2858005F45AB /* SFText-MediumItalic.otf */; };
+		8B170D081E8B2858005F45AB /* SFText-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF31E8B2858005F45AB /* SFText-Regular.otf */; };
+		8B170D091E8B2858005F45AB /* SFText-RegularItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF41E8B2858005F45AB /* SFText-RegularItalic.otf */; };
+		8B170D0A1E8B2858005F45AB /* SFText-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF51E8B2858005F45AB /* SFText-Semibold.otf */; };
+		8B170D0B1E8B2858005F45AB /* SFText-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CF61E8B2858005F45AB /* SFText-SemiboldItalic.otf */; };
+		8B170D0E1E8B2FAD005F45AB /* MagneticView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B170D0C1E8B2F60005F45AB /* MagneticView.swift */; };
 		8B61070C1E876D13000FF664 /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B61070B1E876D13000FF664 /* Node.swift */; };
 		8B6107141E8771A5000FF664 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6107131E8771A5000FF664 /* Extensions.swift */; };
 		8B6914C01E70F6A90007896C /* Magnetic.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B6914BE1E70F6A90007896C /* Magnetic.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -46,6 +68,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Black.otf"; sourceTree = "<group>"; };
+		8B170CE31E8B2858005F45AB /* SFDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Bold.otf"; sourceTree = "<group>"; };
+		8B170CE41E8B2858005F45AB /* SFDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Heavy.otf"; sourceTree = "<group>"; };
+		8B170CE51E8B2858005F45AB /* SFDisplay-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Light.otf"; sourceTree = "<group>"; };
+		8B170CE61E8B2858005F45AB /* SFDisplay-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Medium.otf"; sourceTree = "<group>"; };
+		8B170CE71E8B2858005F45AB /* SFDisplay-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Regular.otf"; sourceTree = "<group>"; };
+		8B170CE81E8B2858005F45AB /* SFDisplay-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Semibold.otf"; sourceTree = "<group>"; };
+		8B170CE91E8B2858005F45AB /* SFDisplay-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Thin.otf"; sourceTree = "<group>"; };
+		8B170CEA1E8B2858005F45AB /* SFDisplay-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Ultralight.otf"; sourceTree = "<group>"; };
+		8B170CEB1E8B2858005F45AB /* SFText-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Bold.otf"; sourceTree = "<group>"; };
+		8B170CEC1E8B2858005F45AB /* SFText-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-BoldItalic.otf"; sourceTree = "<group>"; };
+		8B170CED1E8B2858005F45AB /* SFText-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Heavy.otf"; sourceTree = "<group>"; };
+		8B170CEE1E8B2858005F45AB /* SFText-HeavyItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-HeavyItalic.otf"; sourceTree = "<group>"; };
+		8B170CEF1E8B2858005F45AB /* SFText-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Light.otf"; sourceTree = "<group>"; };
+		8B170CF01E8B2858005F45AB /* SFText-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-LightItalic.otf"; sourceTree = "<group>"; };
+		8B170CF11E8B2858005F45AB /* SFText-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Medium.otf"; sourceTree = "<group>"; };
+		8B170CF21E8B2858005F45AB /* SFText-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-MediumItalic.otf"; sourceTree = "<group>"; };
+		8B170CF31E8B2858005F45AB /* SFText-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Regular.otf"; sourceTree = "<group>"; };
+		8B170CF41E8B2858005F45AB /* SFText-RegularItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-RegularItalic.otf"; sourceTree = "<group>"; };
+		8B170CF51E8B2858005F45AB /* SFText-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-Semibold.otf"; sourceTree = "<group>"; };
+		8B170CF61E8B2858005F45AB /* SFText-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFText-SemiboldItalic.otf"; sourceTree = "<group>"; };
+		8B170D0C1E8B2F60005F45AB /* MagneticView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagneticView.swift; sourceTree = "<group>"; };
 		8B61070B1E876D13000FF664 /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 		8B6107131E8771A5000FF664 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		8B6914BB1E70F6A90007896C /* Magnetic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Magnetic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,6 +125,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8B170CE11E8B2858005F45AB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */,
+				8B170CE31E8B2858005F45AB /* SFDisplay-Bold.otf */,
+				8B170CE41E8B2858005F45AB /* SFDisplay-Heavy.otf */,
+				8B170CE51E8B2858005F45AB /* SFDisplay-Light.otf */,
+				8B170CE61E8B2858005F45AB /* SFDisplay-Medium.otf */,
+				8B170CE71E8B2858005F45AB /* SFDisplay-Regular.otf */,
+				8B170CE81E8B2858005F45AB /* SFDisplay-Semibold.otf */,
+				8B170CE91E8B2858005F45AB /* SFDisplay-Thin.otf */,
+				8B170CEA1E8B2858005F45AB /* SFDisplay-Ultralight.otf */,
+				8B170CEB1E8B2858005F45AB /* SFText-Bold.otf */,
+				8B170CEC1E8B2858005F45AB /* SFText-BoldItalic.otf */,
+				8B170CED1E8B2858005F45AB /* SFText-Heavy.otf */,
+				8B170CEE1E8B2858005F45AB /* SFText-HeavyItalic.otf */,
+				8B170CEF1E8B2858005F45AB /* SFText-Light.otf */,
+				8B170CF01E8B2858005F45AB /* SFText-LightItalic.otf */,
+				8B170CF11E8B2858005F45AB /* SFText-Medium.otf */,
+				8B170CF21E8B2858005F45AB /* SFText-MediumItalic.otf */,
+				8B170CF31E8B2858005F45AB /* SFText-Regular.otf */,
+				8B170CF41E8B2858005F45AB /* SFText-RegularItalic.otf */,
+				8B170CF51E8B2858005F45AB /* SFText-Semibold.otf */,
+				8B170CF61E8B2858005F45AB /* SFText-SemiboldItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8B6914B11E70F6A90007896C = {
 			isa = PBXGroup;
 			children = (
@@ -102,11 +174,12 @@
 		8B6914BD1E70F6A90007896C /* Magnetic */ = {
 			isa = PBXGroup;
 			children = (
-				8B6914BE1E70F6A90007896C /* Magnetic.h */,
-				8B6914DC1E70F6CF0007896C /* Magnetic.swift */,
-				8B61070B1E876D13000FF664 /* Node.swift */,
 				8B6107131E8771A5000FF664 /* Extensions.swift */,
 				8B6914BF1E70F6A90007896C /* Info.plist */,
+				8B6914BE1E70F6A90007896C /* Magnetic.h */,
+				8B6914DC1E70F6CF0007896C /* Magnetic.swift */,
+				8B170D0C1E8B2F60005F45AB /* MagneticView.swift */,
+				8B61070B1E876D13000FF664 /* Node.swift */,
 			);
 			name = Magnetic;
 			path = Sources;
@@ -122,6 +195,7 @@
 				8B6914D31E70F6B50007896C /* Assets.xcassets */,
 				8B6914D51E70F6B50007896C /* LaunchScreen.storyboard */,
 				8B6914D81E70F6B50007896C /* Info.plist */,
+				8B170CE11E8B2858005F45AB /* Fonts */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -231,9 +305,30 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B170D081E8B2858005F45AB /* SFText-Regular.otf in Resources */,
+				8B170CFB1E8B2858005F45AB /* SFDisplay-Medium.otf in Resources */,
+				8B170D001E8B2858005F45AB /* SFText-Bold.otf in Resources */,
 				8B6914D71E70F6B50007896C /* LaunchScreen.storyboard in Resources */,
+				8B170D091E8B2858005F45AB /* SFText-RegularItalic.otf in Resources */,
+				8B170CFE1E8B2858005F45AB /* SFDisplay-Thin.otf in Resources */,
+				8B170D071E8B2858005F45AB /* SFText-MediumItalic.otf in Resources */,
+				8B170CFF1E8B2858005F45AB /* SFDisplay-Ultralight.otf in Resources */,
+				8B170D0B1E8B2858005F45AB /* SFText-SemiboldItalic.otf in Resources */,
+				8B170CFD1E8B2858005F45AB /* SFDisplay-Semibold.otf in Resources */,
+				8B170D011E8B2858005F45AB /* SFText-BoldItalic.otf in Resources */,
+				8B170CFA1E8B2858005F45AB /* SFDisplay-Light.otf in Resources */,
+				8B170D051E8B2858005F45AB /* SFText-LightItalic.otf in Resources */,
+				8B170D061E8B2858005F45AB /* SFText-Medium.otf in Resources */,
+				8B170CF81E8B2858005F45AB /* SFDisplay-Bold.otf in Resources */,
 				8B6914D41E70F6B50007896C /* Assets.xcassets in Resources */,
 				8B6914D21E70F6B50007896C /* Main.storyboard in Resources */,
+				8B170D031E8B2858005F45AB /* SFText-HeavyItalic.otf in Resources */,
+				8B170CF71E8B2858005F45AB /* SFDisplay-Black.otf in Resources */,
+				8B170D041E8B2858005F45AB /* SFText-Light.otf in Resources */,
+				8B170CF91E8B2858005F45AB /* SFDisplay-Heavy.otf in Resources */,
+				8B170D021E8B2858005F45AB /* SFText-Heavy.otf in Resources */,
+				8B170D0A1E8B2858005F45AB /* SFText-Semibold.otf in Resources */,
+				8B170CFC1E8B2858005F45AB /* SFDisplay-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B170D0E1E8B2FAD005F45AB /* MagneticView.swift in Sources */,
 				8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */,
 				8B6107141E8771A5000FF664 /* Extensions.swift in Sources */,
 				8B61070C1E876D13000FF664 /* Node.swift in Sources */,
@@ -331,7 +427,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -378,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

@@ -46,13 +46,13 @@ extension UIColor {
         return UIColor(red: 255, green: 45, blue: 85)
     }
     
-    static let all: [UIColor] = [.red, .orange, .yellow, .green, .tealBlue, .blue, .purple, .pink]
+    static let colors: [UIColor] = [.red, .orange, .yellow, .green, .tealBlue, .blue, .purple, .pink]
     
 }
 
 extension UIImage {
     
-    static let all: [String] = ["argentina", "bolivia", "brazil", "chile", "costa_rica", "cuba", "dominican_republic", "ecuador", "el_salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
+    static let names: [String] = ["argentina", "bolivia", "brazil", "chile", "costa_rica", "cuba", "dominican_republic", "ecuador", "el_salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
     
 }
 
@@ -61,6 +61,14 @@ extension Array {
     func randomItem() -> Element {
         let index = Int(arc4random_uniform(UInt32(self.count)))
         return self[index]
+    }
+    
+}
+
+extension CGPoint {
+    
+    func distance(from point: CGPoint) -> CGFloat {
+        return hypot(point.x - x, point.y - y)
     }
     
 }
