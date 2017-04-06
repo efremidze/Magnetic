@@ -47,13 +47,13 @@ class ViewController: UIViewController {
         let sortedNodes = magnetic.children.flatMap { $0 as? Node }.sorted { node, nextNode in
             let distance = node.position.distance(from: magnetic.magneticField.position)
             let nextDistance = nextNode.position.distance(from: magnetic.magneticField.position)
-            return distance < nextDistance && node.selected
+            return distance < nextDistance && node.isSelected
         }
         var actions = [SKAction]()
         for node in sortedNodes {
             node.physicsBody = nil
             let action = SKAction.run { [unowned magnetic, unowned node] in
-                if node.selected {
+                if node.isSelected {
                     let point = CGPoint(x: magnetic.size.width / 2, y: magnetic.size.height + 40)
                     let movingXAction = SKAction.moveTo(x: point.x, duration: 0.2)
                     let movingYAction = SKAction.moveTo(y: point.y, duration: 0.4)

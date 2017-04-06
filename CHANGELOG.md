@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.4](https://github.com/efremidze/Magnetic/releases/tag/1.0.4)
+Released on 2017-04-06
+
+- Added animation options
+
 ## [Version 1.0.3](https://github.com/efremidze/Magnetic/releases/tag/1.0.3)
 Released on 2017-04-01
 

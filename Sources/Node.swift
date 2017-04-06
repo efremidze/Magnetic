@@ -10,11 +10,6 @@ import SpriteKit
 
 open class Node: SKShapeNode {
     
-    var selectedScale: CGFloat = 4/3
-    var ordinaryScale: CGFloat = 1.0
-    var selectedDuration: Double = 1.2
-    var unselectedDuration: Double = 0.2
-
     lazy var mask: SKCropNode = { [unowned self] in
         let node = SKCropNode()
         node.maskNode = {
@@ -82,15 +77,16 @@ open class Node: SKShapeNode {
     
     private(set) var texture: SKTexture!
     
-    open var selected: Bool = false {
+    /**
+     The selection state of the node.
+     */
+    open var isSelected: Bool = false {
         didSet {
-            guard selected != oldValue else { return }
-            if selected {
-                run(SKAction.scale(to: selectedScale, duration: selectedDuration))
-                sprite.run(SKAction.setTexture(texture))
+            guard isSelected != oldValue else { return }
+            if isSelected {
+                selectedAnimation()
             } else {
-                run(SKAction.scale(to: ordinaryScale, duration: unselectedDuration))
-                sprite.texture = nil
+                deselectedAnimation()
             }
         }
     }
@@ -123,15 +119,7 @@ open class Node: SKShapeNode {
         _ = self.text
         configure(text: text, image: image, color: color)
     }
-
-    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, selectedScale: CGFloat, ordinaryScale: CGFloat, selectedDuration: Double, unselectedDuration: Double) {
-        self.init(text: text, image: image, color: color, radius: radius)
-        self.selectedScale = selectedScale
-        self.ordinaryScale = ordinaryScale
-        self.selectedDuration = selectedDuration
-        self.unselectedDuration = unselectedDuration
-    }
-
+    
     open func configure(text: String?, image: UIImage?, color: UIColor) {
         self.text = text
         self.image = image
@@ -139,9 +127,36 @@ open class Node: SKShapeNode {
     }
     
     override open func removeFromParent() {
-        run(.fadeOut(withDuration: 0.2)) {
+        removeAnimation() {
             super.removeFromParent()
         }
+    }
+    
+    /**
+     The animation to execute when the node is selected.
+     */
+    open func selectedAnimation() {
+        run(.scale(to: 4/3, duration: 0.2))
+        sprite.run(SKAction.setTexture(texture))
+    }
+    
+    /**
+     The animation to execute when the node is deselected.
+     */
+    open func deselectedAnimation() {
+        run(.scale(to: 1, duration: 0.2))
+        sprite.texture = nil
+    }
+    
+    /**
+     The animation to execute when the node is removed.
+     
+     - important: You must call the completion block.
+     
+     - parameter completion: The block to execute when the animation is complete. You must call this handler and should do so as soon as possible.
+     */
+    open func removeAnimation(completion: @escaping () -> Void) {
+        run(.fadeOut(withDuration: 0.2), completion: completion)
     }
     
 }

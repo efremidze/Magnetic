@@ -32,13 +32,13 @@ open class Magnetic: SKScene {
      */
     open var allowsMultipleSelection: Bool = true
     
-    var moving: Bool = false
+    var isMoving: Bool = false
     
     /**
      The selected children.
      */
     open var selectedChildren: [Node] {
-        return children.flatMap { $0 as? Node }.filter { $0.selected }
+        return children.flatMap { $0 as? Node }.filter { $0.isSelected }
     }
     
     /**
@@ -98,7 +98,7 @@ extension Magnetic {
             
             if location.distance(from: previous) == 0 { return }
             
-            moving = true
+            isMoving = true
             
             let x = location.x - previous.x
             let y = location.y - previous.y
@@ -113,24 +113,24 @@ extension Magnetic {
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !moving, let point = touches.first?.location(in: self), let node = atPoint(point) as? Node {
-            if node.selected {
-                node.selected = false
+        if !isMoving, let point = touches.first?.location(in: self), let node = atPoint(point) as? Node {
+            if node.isSelected {
+                node.isSelected = false
                 magneticDelegate?.magnetic(self, didDeselect: node)
             } else {
                 if !allowsMultipleSelection, let selectedNode = selectedChildren.first {
-                    selectedNode.selected = false
+                    selectedNode.isSelected = false
                     magneticDelegate?.magnetic(self, didDeselect: selectedNode)
                 }
-                node.selected = true
+                node.isSelected = true
                 magneticDelegate?.magnetic(self, didSelect: node)
             }
         }
-        moving = false
+        isMoving = false
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        moving = false
+        isMoving = false
     }
     
 }

@@ -85,6 +85,22 @@ var image: UIImage? // node image
 var color: UIColor // node color. defaults to white
 ```
 
+#### Animations
+
+```swift
+override func selectedAnimation() {
+    // override selected animation
+}
+
+override func deselectedAnimation() {
+    // override deselected animation
+}
+
+override func removeAnimation(completion: @escaping () -> Void) {
+    // override remove animation
+}
+```
+
 ### Delegation
 
 The `MagneticDelegate` protocol provides a number of functions for observing the current state of nodes.
@@ -103,7 +119,6 @@ func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
 
 - Add multiple selection states
 - Add long press to delete
-- Add node animation options
 
 ## Installation
 
