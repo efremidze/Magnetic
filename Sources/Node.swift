@@ -127,7 +127,7 @@ open class Node: SKShapeNode {
     }
     
     override open func removeFromParent() {
-        removeAnimation() {
+        removedAnimation() {
             super.removeFromParent()
         }
     }
@@ -137,7 +137,7 @@ open class Node: SKShapeNode {
      */
     open func selectedAnimation() {
         run(.scale(to: 4/3, duration: 0.2))
-        sprite.run(SKAction.setTexture(texture))
+        sprite.run(.setTexture(texture))
     }
     
     /**
@@ -155,7 +155,7 @@ open class Node: SKShapeNode {
      
      - parameter completion: The block to execute when the animation is complete. You must call this handler and should do so as soon as possible.
      */
-    open func removeAnimation(completion: @escaping () -> Void) {
+    open func removedAnimation(completion: @escaping () -> Void) {
         run(.fadeOut(withDuration: 0.2), completion: completion)
     }
     

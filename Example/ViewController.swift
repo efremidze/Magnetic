@@ -50,7 +50,7 @@ class ViewController: UIViewController {
             return distance < nextDistance && node.isSelected
         }
         var actions = [SKAction]()
-        for node in sortedNodes {
+        for (index, node) in sortedNodes.enumerated() {
             node.physicsBody = nil
             let action = SKAction.run { [unowned magnetic, unowned node] in
                 if node.isSelected {
@@ -67,8 +67,10 @@ class ViewController: UIViewController {
                 }
             }
             actions.append(action)
+            let delay = SKAction.wait(forDuration: TimeInterval(index) * 0.01)
+            actions.append(delay)
         }
-        magnetic.run(SKAction.sequence(actions)) { [unowned magnetic] in
+        magnetic.run(.sequence(actions)) { [unowned magnetic] in
             magnetic.physicsWorld.speed = speed
         }
     }
