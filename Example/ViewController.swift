@@ -67,7 +67,7 @@ class ViewController: UIViewController {
                 }
             }
             actions.append(action)
-            let delay = SKAction.wait(forDuration: TimeInterval(index) * 0.01)
+            let delay = SKAction.wait(forDuration: TimeInterval(index) * 0.002)
             actions.append(delay)
         }
         magnetic.run(.sequence(actions)) { [unowned magnetic] in
