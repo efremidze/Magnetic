@@ -7,7 +7,7 @@
 
 **Magnetic** is a customizable bubble picker like the Apple Music genre selection.
 
-![Demo](Images/demo.gif)
+<img src="https://raw.githubusercontent.com/efremidze/Magnetic/master/Images/demo.gif" width="320">
 
 ```
 $ pod try Magnetic
