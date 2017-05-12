@@ -51,7 +51,6 @@ open class Magnetic: SKScene {
     override open func didMove(to view: SKView) {
         super.didMove(to: view)
         
-        self.backgroundColor = .white
         self.scaleMode = .aspectFill
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
