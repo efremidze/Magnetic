@@ -60,8 +60,11 @@ open class Node: SKShapeNode {
      */
     open var image: UIImage? {
         didSet {
-            guard let image = image else { return }
-            texture = SKTexture(image: image)
+            if let image = image {
+                texture = SKTexture(image: image)
+            } else {
+                texture = nil
+            }
         }
     }
     
@@ -75,7 +78,7 @@ open class Node: SKShapeNode {
         set { sprite.color = newValue }
     }
     
-    private(set) var texture: SKTexture!
+    private(set) var texture: SKTexture? = nil
     
     /**
      The selection state of the node.
@@ -102,7 +105,7 @@ open class Node: SKShapeNode {
      
      - Returns: A new node.
      */
-    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
+    public convenience init(text: String?, image: UIImage? = nil, color: UIColor, radius: CGFloat) {
         self.init()
         self.init(circleOfRadius: radius)
         
@@ -137,7 +140,9 @@ open class Node: SKShapeNode {
      */
     open func selectedAnimation() {
         run(.scale(to: 4/3, duration: 0.2))
-        sprite.run(.setTexture(texture))
+        if let texture = texture {
+          sprite.run(.setTexture(texture))
+        }
     }
     
     /**
