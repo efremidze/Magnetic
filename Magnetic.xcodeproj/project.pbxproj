@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		71835A711EC44BC100782066 /* SKMultilineLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */; };
 		8B103C641E88AFA200CC83E2 /* Magnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; };
 		8B103C651E88AFA200CC83E2 /* Magnetic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B170CF71E8B2858005F45AB /* SFDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */; };
@@ -68,6 +69,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabelNode.swift; sourceTree = "<group>"; };
 		8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Black.otf"; sourceTree = "<group>"; };
 		8B170CE31E8B2858005F45AB /* SFDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Bold.otf"; sourceTree = "<group>"; };
 		8B170CE41E8B2858005F45AB /* SFDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Heavy.otf"; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 				8B6914DC1E70F6CF0007896C /* Magnetic.swift */,
 				8B170D0C1E8B2F60005F45AB /* MagneticView.swift */,
 				8B61070B1E876D13000FF664 /* Node.swift */,
+				71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */,
 			);
 			name = Magnetic;
 			path = Sources;
@@ -342,6 +345,7 @@
 				8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */,
 				8B6107141E8771A5000FF664 /* Extensions.swift in Sources */,
 				8B61070C1E876D13000FF664 /* Node.swift in Sources */,
+				71835A711EC44BC100782066 /* SKMultilineLabelNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
