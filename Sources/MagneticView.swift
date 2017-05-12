@@ -31,5 +31,10 @@ public class MagneticView: SKView {
     func commonInit() {
         _ = magnetic
     }
-    
+  
+    override open var backgroundColor: UIColor? {
+        didSet {
+            magnetic.backgroundColor = backgroundColor ?? .white
+        }
+    }
 }
