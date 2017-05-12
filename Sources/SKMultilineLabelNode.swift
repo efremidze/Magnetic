@@ -30,29 +30,23 @@ open class SKMultilineLabelNode: SKNode {
         
         guard let text = text else { return }
         
-        print(width)
-        
-        var sizingLabel = SKLabelNode()
+        var sizingLabel = SKLabelNode(fontNamed: fontName)
+        sizingLabel.fontSize = fontSize
         var stack = Stack<String>()
         
         let words = separator.map { text.components(separatedBy: $0) } ?? text.characters.map { String($0) }
-        print(words)
-//        for word in words {
-//            sizingLabel.append(word)
-//            print(sizingLabel.frame.width)
-//            if sizingLabel.frame.width > width {
-//                stack.add(toStack: word)
-//                sizingLabel = SKLabelNode()
-//            } else {
-//                stack.add(toCurrent: word)
-//            }
-//        }
+        for word in words {
+            sizingLabel.append(word)
+            if sizingLabel.frame.width > width {
+                stack.add(toStack: word)
+                sizingLabel = SKLabelNode(fontNamed: fontName)
+                sizingLabel.fontSize = fontSize
+            } else {
+                stack.add(toCurrent: word)
+            }
+        }
         
-        print("---> 1")
-        print(stack.values)
-//        let lines = stack.values.map { $0.joined(separator: "") }
-        let lines = words
-        print(lines)
+        let lines = stack.values.map { $0.joined(separator: " ") }
         for (index, line) in lines.enumerated() {
             let label = SKLabelNode(fontNamed: fontName)
             label.text = line

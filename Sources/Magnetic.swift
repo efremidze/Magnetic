@@ -48,9 +48,19 @@ open class Magnetic: SKScene {
      */
     open weak var magneticDelegate: MagneticDelegate?
     
-    override open func didMove(to view: SKView) {
-        super.didMove(to: view)
+    override init(size: CGSize) {
+        super.init(size: size)
         
+        commonInit()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        commonInit()
+    }
+    
+    func commonInit() {
         self.backgroundColor = .white
         self.scaleMode = .aspectFill
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
