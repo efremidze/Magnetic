@@ -38,6 +38,7 @@ open class Node: SKShapeNode {
         label.fontColor = .white
         label.verticalAlignmentMode = .center
         label.width = self.frame.width
+        label.separator = " "
         self.mask.addChild(label)
         return label
     }()

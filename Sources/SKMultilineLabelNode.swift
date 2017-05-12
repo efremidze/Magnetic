@@ -30,23 +30,20 @@ open class SKMultilineLabelNode: SKNode {
         
         guard let text = text else { return }
         
-        var sizingLabel = SKLabelNode(fontNamed: fontName)
-        sizingLabel.fontSize = fontSize
         var stack = Stack<String>()
-        
+        var sizingLabel = makeSizingLabel()
         let words = separator.map { text.components(separatedBy: $0) } ?? text.characters.map { String($0) }
         for word in words {
-            sizingLabel.append(word)
+            sizingLabel.text += word
             if sizingLabel.frame.width > width {
                 stack.add(toStack: word)
-                sizingLabel = SKLabelNode(fontNamed: fontName)
-                sizingLabel.fontSize = fontSize
+                sizingLabel = makeSizingLabel()
             } else {
                 stack.add(toCurrent: word)
             }
         }
         
-        let lines = stack.values.map { $0.joined(separator: " ") }
+        let lines = stack.values.map { $0.joined(separator: separator ?? "") }
         for (index, line) in lines.enumerated() {
             let label = SKLabelNode(fontNamed: fontName)
             label.text = line
@@ -58,6 +55,12 @@ open class SKMultilineLabelNode: SKNode {
             label.position = CGPoint(x: 0, y: y)
             self.addChild(label)
         }
+    }
+    
+    private func makeSizingLabel() -> SKLabelNode {
+        let label = SKLabelNode(fontNamed: fontName)
+        label.fontSize = fontSize
+        return label
     }
     
 }
@@ -79,8 +82,6 @@ private struct Stack<U> {
     }
 }
 
-private extension SKLabelNode {
-    func append(_ text: String) {
-        self.text = (self.text ?? "") + text
-    }
+private func +=(lhs: inout String?, rhs: String) {
+    lhs = (lhs ?? "") + rhs
 }
