@@ -52,7 +52,7 @@ extension UIColor {
 
 extension UIImage {
     
-    static let names: [String] = ["argentina", "bolivia", "brazil", "chile", "costa_rica", "cuba", "dominican_republic", "ecuador", "el_salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
+    static let names: [String] = ["argentina", "bolivia", "brazil", "chile", "costa rica", "cuba", "dominican republic", "ecuador", "el salvador", "haiti", "honduras", "mexico", "nicaragua", "panama", "paraguay", "peru", "venezuela"]
     
 }
 
