@@ -102,7 +102,7 @@ open class Node: SKShapeNode {
      
      - Returns: A new node.
      */
-    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
+    public convenience init(text: String?, image: UIImage? = nil, color: UIColor, radius: CGFloat) {
         self.init()
         self.init(circleOfRadius: radius)
         
