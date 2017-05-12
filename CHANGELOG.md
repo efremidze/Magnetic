@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.5](https://github.com/efremidze/Magnetic/releases/tag/1.0.5)
+Released on 2017-05-11
+
+- Added multiline label
+
 ## [Version 1.0.4](https://github.com/efremidze/Magnetic/releases/tag/1.0.4)
 Released on 2017-04-06
 
