@@ -60,8 +60,11 @@ open class Node: SKShapeNode {
      */
     open var image: UIImage? {
         didSet {
-            guard let image = image else { return }
-            texture = SKTexture(image: image)
+            if let image = image {
+                texture = SKTexture(image: image)
+            } else {
+                texture = nil
+            }
         }
     }
     
