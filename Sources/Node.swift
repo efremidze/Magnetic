@@ -33,7 +33,9 @@ open class Node: SKShapeNode {
     
     public lazy var label: SKLabelNode = { [unowned self] in
         let label = SKLabelNode(fontNamed: "Avenir-Black")
+        label.fontName = "Avenir-Black"
         label.fontSize = 12
+        label.fontColor = .white
         label.verticalAlignmentMode = .center
         self.mask.addChild(label)
         return label

@@ -16,10 +16,12 @@ open class SKMultilineLabelNode: SKNode {
     open var fontSize: CGFloat = 32 { didSet { update() } }
     open var fontColor: UIColor? { didSet { update() } }
     
+    open var separator: String? { didSet { update() } }
+    
     open var verticalAlignmentMode: SKLabelVerticalAlignmentMode = .baseline { didSet { update() } }
     open var horizontalAlignmentMode: SKLabelHorizontalAlignmentMode = .center { didSet { update() } }
     
-    open var separator: String? { didSet { update() } }
+    open var lineHeight: CGFloat? { didSet { update() } }
     
     open var width: CGFloat! { didSet { update() } }
     
@@ -35,19 +37,21 @@ open class SKMultilineLabelNode: SKNode {
         
         let words = separator.map { text.components(separatedBy: $0) } ?? text.characters.map { String($0) }
         print(words)
-        for word in words {
-            sizingLabel.append(word)
-            if sizingLabel.frame.width > width {
-                stack.add(toStack: word)
-                sizingLabel = SKLabelNode()
-            } else {
-                stack.add(toCurrent: word)
-            }
-        }
+//        for word in words {
+//            sizingLabel.append(word)
+//            print(sizingLabel.frame.width)
+//            if sizingLabel.frame.width > width {
+//                stack.add(toStack: word)
+//                sizingLabel = SKLabelNode()
+//            } else {
+//                stack.add(toCurrent: word)
+//            }
+//        }
         
         print("---> 1")
         print(stack.values)
-        let lines = stack.values.map { $0.joined(separator: "") }
+//        let lines = stack.values.map { $0.joined(separator: "") }
+        let lines = words
         print(lines)
         for (index, line) in lines.enumerated() {
             let label = SKLabelNode(fontNamed: fontName)
@@ -56,9 +60,9 @@ open class SKMultilineLabelNode: SKNode {
             label.fontColor = fontColor
             label.verticalAlignmentMode = verticalAlignmentMode
             label.horizontalAlignmentMode = horizontalAlignmentMode
-            label.position = CGPoint(x: 0, y: (CGFloat(index) * -fontSize))
+            let y = (CGFloat(index) - (CGFloat(lines.count) / 2) + 0.5) * -(lineHeight ?? fontSize)
+            label.position = CGPoint(x: 0, y: y)
             self.addChild(label)
-            print("---> 2")
         }
     }
     
