@@ -60,8 +60,7 @@ open class Node: SKShapeNode {
      */
     open var image: UIImage? {
         didSet {
-            guard let image = image else { return }
-            texture = SKTexture(image: image)
+            texture = image.map { SKTexture(image: $0) }
         }
     }
     
@@ -75,7 +74,7 @@ open class Node: SKShapeNode {
         set { sprite.color = newValue }
     }
     
-    private(set) var texture: SKTexture!
+    private(set) var texture: SKTexture?
     
     /**
      The selection state of the node.
@@ -137,7 +136,9 @@ open class Node: SKShapeNode {
      */
     open func selectedAnimation() {
         run(.scale(to: 4/3, duration: 0.2))
-        sprite.run(.setTexture(texture))
+        if let texture = texture {
+            sprite.run(.setTexture(texture))
+        }
     }
     
     /**
