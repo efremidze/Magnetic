@@ -8,28 +8,7 @@
 
 import SpriteKit
 
-open class Node: SKShapeNode {
-    
-    lazy var mask: SKCropNode = { [unowned self] in
-        let node = SKCropNode()
-        node.maskNode = {
-            let node = SKShapeNode(circleOfRadius: self.frame.width / 2)
-            node.fillColor = .white
-            node.strokeColor = .clear
-            return node
-        }()
-        self.addChild(node)
-        _ = self.maskOverlay // Masking creates aliasing. This masks the aliasing.
-        return node
-    }()
-    
-    lazy var maskOverlay: SKShapeNode = { [unowned self] in
-        let node = SKShapeNode(circleOfRadius: self.frame.width / 2)
-        node.fillColor = .clear
-        node.strokeColor = self.strokeColor
-        self.addChild(node)
-        return node
-    }()
+open class Node: MaskNode {
     
     public lazy var label: SKMultilineLabelNode = { [unowned self] in
         let label = SKMultilineLabelNode()
@@ -78,6 +57,12 @@ open class Node: SKShapeNode {
         set { sprite.color = newValue }
     }
     
+    override open var strokeColor: UIColor {
+        didSet {
+            maskOverlay.strokeColor = strokeColor
+        }
+    }
+    
     private(set) var texture: SKTexture?
     
     /**
@@ -105,9 +90,8 @@ open class Node: SKShapeNode {
      
      - Returns: A new node.
      */
-    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
-        self.init()
-        self.init(circleOfRadius: radius)
+    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
+        super.init(circleOfRadius: radius)
         
         self.physicsBody = {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
@@ -121,6 +105,10 @@ open class Node: SKShapeNode {
         _ = self.sprite
         _ = self.text
         configure(text: text, image: image, color: color)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     open func configure(text: String?, image: UIImage?, color: UIColor) {
@@ -162,6 +150,36 @@ open class Node: SKShapeNode {
      */
     open func removedAnimation(completion: @escaping () -> Void) {
         run(.fadeOut(withDuration: 0.2), completion: completion)
+    }
+    
+}
+
+open class MaskNode: SKShapeNode {
+    
+    let mask: SKCropNode
+    let maskOverlay: SKShapeNode
+    
+    public init(circleOfRadius radius: CGFloat) {
+        mask = SKCropNode()
+        mask.maskNode = {
+            let node = SKShapeNode(circleOfRadius: radius)
+            node.fillColor = .white
+            node.strokeColor = .clear
+            return node
+        }()
+        
+        maskOverlay = SKShapeNode(circleOfRadius: radius)
+        maskOverlay.fillColor = .clear
+        
+        super.init()
+        self.path = maskOverlay.path
+        
+        self.addChild(mask)
+        self.addChild(maskOverlay)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
