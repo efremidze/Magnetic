@@ -39,6 +39,10 @@ class ViewController: UIViewController {
         let color = UIColor.colors.randomItem()
         let node = Node(text: name.capitalized, image: UIImage(named: name), color: color, radius: 40)
         magnetic.addChild(node)
+        
+        // Image Node: image displayed by default
+        // let node = ImageNode(text: name.capitalized, image: UIImage(named: name), color: color, radius: 40)
+        // magnetic.addChild(node)
     }
     
     @IBAction func reset(_ sender: UIControl?) {
@@ -88,4 +92,15 @@ extension ViewController: MagneticDelegate {
         print("didDeselect -> \(node)")
     }
     
+}
+
+// MARK: - ImageNode
+class ImageNode: Node {
+    override var image: UIImage? {
+        didSet {
+            sprite.texture = image.map { SKTexture(image: $0) }
+        }
+    }
+    override func selectedAnimation() {}
+    override func deselectedAnimation() {}
 }

@@ -116,10 +116,22 @@ func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
 }
 ```
 
-### TODO
+### Customization
 
-- Add multiple selection states
-- Add long press to delete
+Subclass the Node for customization.
+
+For example, a node with an image by default:
+
+```swift
+class ImageNode: Node {
+    override var image: UIImage? {
+        didSet {
+            sprite.texture = image.map { SKTexture(image: $0) }
+        }
+    }
+    override func selectedAnimation() {}
+    override func deselectedAnimation() {}
+}```
 
 ## Installation
 

@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.6](https://github.com/efremidze/Magnetic/releases/tag/1.0.6)
+Released on 2017-05-14
+
+- Added stroke color
+
 ## [Version 1.0.5](https://github.com/efremidze/Magnetic/releases/tag/1.0.5)
 Released on 2017-05-11
 
