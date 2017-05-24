@@ -14,6 +14,14 @@
 $ pod try Magnetic
 ```
 
+## Features
+
+- [x] Adding/Removing Nodes
+- [x] Selection/Deselection/Removed Animations
+- [x] Multiple Selection
+- [x] Images
+- [x] Multiline Label
+
 ## Requirements
 
 - iOS 9.0+
