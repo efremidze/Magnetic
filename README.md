@@ -139,7 +139,8 @@ class ImageNode: Node {
     }
     override func selectedAnimation() {}
     override func deselectedAnimation() {}
-}```
+}
+```
 
 ## Installation
 
