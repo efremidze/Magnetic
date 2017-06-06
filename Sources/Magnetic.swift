@@ -61,18 +61,30 @@ open class Magnetic: SKScene {
     }
     
     func commonInit() {
-        self.backgroundColor = .white
-        self.scaleMode = .aspectFill
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
+        backgroundColor = .white
+        scaleMode = .aspectFill
+        configPhysics()
+    }
+  
+  
+    private func configPhysics() {
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
             frame.size.width = CGFloat(magneticField.minimumRadius)
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
+        
         magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
-    
+  
+    override open var size: CGSize {
+        didSet {
+            configPhysics()
+        }
+    }
+
     override open func addChild(_ node: SKNode) {
         var x = -node.frame.width // left
         if children.count % 2 == 0 {
