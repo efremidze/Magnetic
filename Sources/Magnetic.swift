@@ -66,7 +66,7 @@ open class Magnetic: SKScene {
         self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
-            frame.size.width = CGFloat(magneticField.minimumRadius)
+            frame.size.width = CGFloat(self.magneticField.minimumRadius)
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
