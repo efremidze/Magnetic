@@ -48,6 +48,12 @@ open class Magnetic: SKScene {
      */
     open weak var magneticDelegate: MagneticDelegate?
     
+    override open var size: CGSize {
+        didSet {
+            configPhysics()
+        }
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -61,10 +67,14 @@ open class Magnetic: SKScene {
     }
     
     func commonInit() {
-        self.backgroundColor = .white
-        self.scaleMode = .aspectFill
-        self.physicsWorld.gravity = CGVector(dx: 0, dy: 0)
-        self.physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
+        backgroundColor = .white
+        scaleMode = .aspectFill
+        configPhysics()
+    }
+    
+    func configPhysics() {
+        physicsWorld.gravity = CGVector(dx: 0, dy: 0)
+        physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
             frame.size.width = CGFloat(self.magneticField.minimumRadius)
             frame.origin.x -= frame.size.width / 2
