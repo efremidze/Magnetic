@@ -48,6 +48,12 @@ open class Magnetic: SKScene {
      */
     open weak var magneticDelegate: MagneticDelegate?
     
+    override open var size: CGSize {
+        didSet {
+            configPhysics()
+        }
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -65,9 +71,8 @@ open class Magnetic: SKScene {
         scaleMode = .aspectFill
         configPhysics()
     }
-  
-  
-    private func configPhysics() {
+    
+    func configPhysics() {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
@@ -75,16 +80,9 @@ open class Magnetic: SKScene {
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
-        
         magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
-  
-    override open var size: CGSize {
-        didSet {
-            configPhysics()
-        }
-    }
-
+    
     override open func addChild(_ node: SKNode) {
         var x = -node.frame.width // left
         if children.count % 2 == 0 {
