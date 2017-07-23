@@ -39,21 +39,14 @@ import Magnetic
 
 class ViewController: UIViewController {
 
-    var skView: SKView {
-        return view as! SKView
-    }
-
-    override func loadView() {
-        super.loadView()
-
-        self.view = SKView(frame: self.view.bounds)
-    }
+    var magnetic: Magnetic?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let magnetic = Magnetic(size: self.view.bounds.size)
-        skView.presentScene(magnetic)
+        let magneticView = MagneticView.init(frame: self.view.bounds)
+        magnetic = magneticView.magnetic
+        self.view.addSubview(magneticView)
     }
 
 }
