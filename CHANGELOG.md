@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.7](https://github.com/efremidze/Magnetic/releases/tag/1.0.7)
+Released on 2017-07-24
+
+- Fixed initializer access
+
 ## [Version 1.0.6](https://github.com/efremidze/Magnetic/releases/tag/1.0.6)
 Released on 2017-05-14
 
