@@ -54,7 +54,7 @@ open class Magnetic: SKScene {
         }
     }
     
-    override init(size: CGSize) {
+    override public init(size: CGSize) {
         super.init(size: size)
         
         commonInit()
