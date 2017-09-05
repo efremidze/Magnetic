@@ -34,6 +34,8 @@ public class MagneticView: SKView {
   
     public override func layoutSubviews() {
         super.layoutSubviews()
+        
         magnetic.size = bounds.size
     }
+    
 }

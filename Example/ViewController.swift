@@ -26,8 +26,8 @@ class ViewController: UIViewController {
         return magneticView.magnetic
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         for _ in 0..<12 {
             add(nil)

@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 1.0.8](https://github.com/efremidze/Magnetic/releases/tag/1.0.8)
+Released on 2017-09-05
+
+- Fixed radius bug
+
 ## [Version 1.0.7](https://github.com/efremidze/Magnetic/releases/tag/1.0.7)
 Released on 2017-07-24
 
