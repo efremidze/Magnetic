@@ -70,15 +70,17 @@ open class Magnetic: SKScene {
     }
     
     func configure() {
+        let strength = Float(max(size.width, size.height))
+        let radius = strength.squareRoot() * 100
+      
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
-            frame.size.width = CGFloat(magneticField.minimumRadius)
+            frame.size.width = CGFloat(radius)
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
-        let strength = Float(max(size.width, size.height))
-        let radius = strength.squareRoot() * 100
+      
         magneticField.region = SKRegion(radius: radius)
         magneticField.minimumRadius = radius
         magneticField.strength = strength
