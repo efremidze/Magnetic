@@ -20,9 +20,6 @@ open class Magnetic: SKScene {
      */
     public lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
-        field.region = SKRegion(radius: 2000)
-        field.minimumRadius = 2000
-        field.strength = 500
         self.addChild(field)
         return field
     }()
@@ -50,7 +47,7 @@ open class Magnetic: SKScene {
     
     override open var size: CGSize {
         didSet {
-            configPhysics()
+            configure()
         }
     }
     
@@ -69,10 +66,10 @@ open class Magnetic: SKScene {
     func commonInit() {
         backgroundColor = .white
         scaleMode = .aspectFill
-        configPhysics()
+        configure()
     }
     
-    func configPhysics() {
+    func configure() {
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
@@ -80,6 +77,11 @@ open class Magnetic: SKScene {
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
+        let strength = Float(max(size.width, size.height))
+        let radius = strength.squareRoot() * 100
+        magneticField.region = SKRegion(radius: radius)
+        magneticField.minimumRadius = radius
+        magneticField.strength = strength
         magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
     }
     
