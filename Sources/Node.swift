@@ -7,6 +7,7 @@
 //
 
 import SpriteKit
+import AudioToolbox
 
 open class Node: MaskNode {
     
@@ -131,6 +132,9 @@ open class Node: MaskNode {
         if let texture = texture {
             sprite.run(.setTexture(texture))
         }
+        let generator = UIImpactFeedbackGenerator(style: .light)
+        generator.impactOccurred()
+        AudioServicesPlaySystemSound(1519)
     }
     
     /**
