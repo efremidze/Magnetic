@@ -18,7 +18,7 @@ If the above doesn't help, please [submit an issue](https://github.com/efremidze
 
 ### Prerequisites
 
-To develop _Magnetic_, you will need to use an Xcode version compatible with the Swift version specified in the [README](https://github.com/efremidze/Cluster/#requirements).
+To develop _Magnetic_, you will need to use an Xcode version compatible with the Swift version specified in the [README](https://github.com/efremidze/Magnetic/#requirements).
 
 ### Checking out the repository
 
@@ -45,7 +45,7 @@ Before opening a pull request, please make sure your changes don't break things.
 
 ### Submitting the PR
 
-When the coding is done and you’ve finished testing your changes, you are ready to submit the PR to the [main repo](https://github.com/efremidze/Cluster). Some best practices are:
+When the coding is done and you’ve finished testing your changes, you are ready to submit the PR to the [main repo](https://github.com/efremidze/Magnetic). Some best practices are:
 
 - Use a descriptive title
 - Link the issues that are related to your PR in the body
