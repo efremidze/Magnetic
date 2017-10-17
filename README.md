@@ -68,15 +68,11 @@ A `Node` object is a circular SKShapeNode subclass.
 
 ```swift
 // add node
-func addNode() {
-    let node = Node(text: "Italy", image: UIImage(named: "italy"), color: .red, radius: 30)
-    magnetic.addChild(node)
-}
+let node = Node(text: "Italy", image: UIImage(named: "italy"), color: .red, radius: 30)
+magnetic.addChild(node)
 
 // remove node
-func removeNode() {
-    node.removeFromParent()
-}
+node.removeFromParent()
 ```
 
 #### Properties
