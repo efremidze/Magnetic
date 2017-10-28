@@ -32,7 +32,7 @@ open class SKMultilineLabelNode: SKNode {
         
         var stack = Stack<String>()
         var sizingLabel = makeSizingLabel()
-        let words = separator.map { text.components(separatedBy: $0) } ?? text.characters.map { String($0) }
+        let words = separator.map { text.components(separatedBy: $0) } ?? text.map { String($0) }
         for word in words {
             sizingLabel.text += word
             if sizingLabel.frame.width > width {
