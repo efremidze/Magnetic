@@ -10,6 +10,7 @@ import SpriteKit
 
 public class MagneticView: SKView {
     
+    @objc
     public lazy var magnetic: Magnetic = { [unowned self] in
         let scene = Magnetic(size: self.bounds.size)
         self.presentScene(scene)
