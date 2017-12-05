@@ -4,7 +4,25 @@ The following is a set of guidelines for contributing to _Magnetic_ on GitHub.
 
 > Above all, thank you for your interest in the project and for taking the time to contribute! 👍
 
-## I want to report a problem or ask a question
+## Asking Questions
+
+We don't use GitHub as a support forum.
+For any usage questions that are not specific to the project itself,
+please ask on [Stack Overflow](https://stackoverflow.com) instead.
+By doing so, you'll be more likely to quickly solve your problem,
+and you'll allow anyone else with the same question to find the answer.
+This also allows maintainers to focus on improving the project for others.
+
+## Reporting Other Issues
+
+A great way to contribute to the project
+is to send a detailed issue when you encounter a problem.
+We always appreciate a well-written, thorough bug report.
+
+Check that the project issues database
+doesn't already include that problem or suggestion before submitting an issue.
+If you find a match, add a quick "+1" or "I have this problem too."
+Doing this helps prioritize the most common problems and requests.
 
 Before submitting a new GitHub issue, please make sure to
 
