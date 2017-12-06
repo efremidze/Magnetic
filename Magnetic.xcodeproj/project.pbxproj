@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		71835A711EC44BC100782066 /* SKMultilineLabelNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */; };
+		71E1B90A1FD7ECEB000E73A6 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 71E1B9071FD7ECEA000E73A6 /* README.md */; };
+		71E1B90B1FD7ECEB000E73A6 /* Magnetic.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 71E1B9081FD7ECEA000E73A6 /* Magnetic.podspec */; };
+		71E1B90C1FD7ECEB000E73A6 /* CHANGELOG.md in Resources */ = {isa = PBXBuildFile; fileRef = 71E1B9091FD7ECEA000E73A6 /* CHANGELOG.md */; };
 		8B103C641E88AFA200CC83E2 /* Magnetic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; };
 		8B103C651E88AFA200CC83E2 /* Magnetic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6914BB1E70F6A90007896C /* Magnetic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B170CF71E8B2858005F45AB /* SFDisplay-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */; };
@@ -70,6 +73,9 @@
 
 /* Begin PBXFileReference section */
 		71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKMultilineLabelNode.swift; sourceTree = "<group>"; };
+		71E1B9071FD7ECEA000E73A6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		71E1B9081FD7ECEA000E73A6 /* Magnetic.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Magnetic.podspec; sourceTree = "<group>"; };
+		71E1B9091FD7ECEA000E73A6 /* CHANGELOG.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = CHANGELOG.md; sourceTree = "<group>"; };
 		8B170CE21E8B2858005F45AB /* SFDisplay-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Black.otf"; sourceTree = "<group>"; };
 		8B170CE31E8B2858005F45AB /* SFDisplay-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Bold.otf"; sourceTree = "<group>"; };
 		8B170CE41E8B2858005F45AB /* SFDisplay-Heavy.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SFDisplay-Heavy.otf"; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 		8B6914B11E70F6A90007896C = {
 			isa = PBXGroup;
 			children = (
+				71E1B9071FD7ECEA000E73A6 /* README.md */,
+				71E1B9091FD7ECEA000E73A6 /* CHANGELOG.md */,
+				71E1B9081FD7ECEA000E73A6 /* Magnetic.podspec */,
 				8B6914BD1E70F6A90007896C /* Magnetic */,
 				8B6914CB1E70F6B50007896C /* Example */,
 				8B6914BC1E70F6A90007896C /* Products */,
@@ -300,6 +309,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71E1B90B1FD7ECEB000E73A6 /* Magnetic.podspec in Resources */,
+				71E1B90C1FD7ECEB000E73A6 /* CHANGELOG.md in Resources */,
+				71E1B90A1FD7ECEB000E73A6 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

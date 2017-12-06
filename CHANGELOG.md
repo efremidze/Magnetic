@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.0.2](https://github.com/efremidze/Magnetic/releases/tag/2.0.2)
+Released on 2017-12-06
+
+- Selection fix
+
 ## [Version 2.0.1](https://github.com/efremidze/Magnetic/releases/tag/2.0.1)
 Released on 2017-11-21
 
