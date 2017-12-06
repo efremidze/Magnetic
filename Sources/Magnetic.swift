@@ -137,7 +137,13 @@ extension Magnetic {
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !isMoving, let point = touches.first?.location(in: self), let node = atPoint(point) as? Node {
+        if
+            !isMoving,
+            let point = touches.first?.location(in: self),
+            let node = atPoint(point) as? Node,
+            let path = node.path,
+            path.contains(convert(point, to: node))
+        {
             if node.isSelected {
                 node.isSelected = false
                 magneticDelegate?.magnetic(self, didDeselect: node)
