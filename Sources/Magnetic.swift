@@ -29,7 +29,7 @@ open class Magnetic: SKScene {
      */
     open var allowsMultipleSelection: Bool = true
     
-    var isMoving: Bool = false
+    var isDragging: Bool = false
     
     /**
      The selected children.
@@ -122,7 +122,7 @@ extension Magnetic {
             
             if location.distance(from: previous) == 0 { return }
             
-            isMoving = true
+            isDragging = true
             
             let x = location.x - previous.x
             let y = location.y - previous.y
@@ -138,7 +138,7 @@ extension Magnetic {
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if
-            !isMoving,
+            !isDragging,
             let point = touches.first?.location(in: self),
             let node = atPoint(point) as? Node,
             let path = node.path,
@@ -156,11 +156,11 @@ extension Magnetic {
                 magneticDelegate?.magnetic(self, didSelect: node)
             }
         }
-        isMoving = false
+        isDragging = false
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isMoving = false
+        isDragging = false
     }
     
 }
