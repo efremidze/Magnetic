@@ -44,6 +44,7 @@ open class Node: MaskNode {
     open var image: UIImage? {
         didSet {
             texture = image.map { SKTexture(image: $0) }
+            sprite.aspectFill(size: texture?.size() ?? self.frame.size)
         }
     }
     

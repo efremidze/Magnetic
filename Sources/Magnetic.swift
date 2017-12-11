@@ -97,20 +97,6 @@ open class Magnetic: SKScene {
         super.addChild(node)
     }
     
-    override open func atPoint(_ p: CGPoint) -> SKNode {
-        var node = super.atPoint(p)
-        while true {
-            if node is Node {
-                return node
-            } else if let parent = node.parent {
-                node = parent
-            } else {
-                break
-            }
-        }
-        return node
-    }
-    
 }
 
 extension Magnetic {
@@ -140,9 +126,7 @@ extension Magnetic {
         if
             !isDragging,
             let point = touches.first?.location(in: self),
-            let node = atPoint(point) as? Node,
-            let path = node.path,
-            path.contains(convert(point, to: node))
+            let node = nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
         {
             if node.isSelected {
                 node.isSelected = false
