@@ -20,13 +20,24 @@ extension CGPoint {
     }
 }
 
-extension SKSpriteNode {
-    func aspectFill(size: CGSize) {
-        let _size = self.size
-        let verticalRatio = _size.height / size.height
-        let horizontalRatio = _size.width / size.width
-        let scaleRatio = horizontalRatio > verticalRatio ? horizontalRatio : verticalRatio
-        self.setScale(scaleRatio)
-        self.size = size
+extension UIImage {
+    func aspectFill(_ size: CGSize) -> UIImage {
+        let aspectWidth = size.width / self.size.width
+        let aspectHeight = size.height / self.size.height
+        let aspectRatio = max(aspectWidth, aspectHeight)
+        
+        var newSize = self.size
+        newSize.width *= aspectRatio
+        newSize.height *= aspectRatio
+        return resize(newSize)
+    }
+    func resize(_ size: CGSize) -> UIImage {
+        var rect = CGRect.zero
+        rect.size = size
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        draw(in: rect)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image!
     }
 }

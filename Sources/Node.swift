@@ -43,8 +43,10 @@ open class Node: MaskNode {
      */
     open var image: UIImage? {
         didSet {
-            texture = image.map { SKTexture(image: $0) }
-            sprite.aspectFill(size: texture?.size() ?? self.frame.size)
+//            let url = URL(string: "https://picsum.photos/1200/600")!
+//            let image = UIImage(data: try! Data(contentsOf: url))
+            texture = image.map { SKTexture(image: $0.aspectFill(self.frame.size)) }
+            sprite.size = texture?.size() ?? self.frame.size
         }
     }
     
