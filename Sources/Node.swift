@@ -98,7 +98,7 @@ open class Node: MaskNode {
         super.init(path: path ?? SKShapeNode(circleOfRadius: radius).path!)
         
         self.physicsBody = {
-            let body = SKPhysicsBody(circleOfRadius: radius + 2)
+            let body = SKPhysicsBody(circleOfRadius: radius + 2) // SKPhysicsBody(polygonFrom: path)
             body.allowsRotation = false
             body.friction = 0
             body.linearDamping = 3
