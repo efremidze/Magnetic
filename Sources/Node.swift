@@ -83,18 +83,19 @@ open class Node: MaskNode {
     }
     
     /**
-     Creates a circular node object.
+     Creates a node object.
      
      - Parameters:
         - text: The text of the node.
         - image: The image of the node.
         - color: The color of the node.
-        - radius: The radius of the circle.
+        - radius: The radius of the node.
+        - path: The path of the node.
      
      - Returns: A new node.
      */
-    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat) {
-        super.init(circleOfRadius: radius)
+    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, path: CGPath? = nil) {
+        super.init(path: path ?? SKShapeNode(circleOfRadius: radius).path!)
         
         self.physicsBody = {
             let body = SKPhysicsBody(circleOfRadius: radius + 2)
@@ -162,20 +163,20 @@ open class MaskNode: SKShapeNode {
     let mask: SKCropNode
     let maskOverlay: SKShapeNode
     
-    public init(circleOfRadius radius: CGFloat) {
+    public init(path: CGPath) {
         mask = SKCropNode()
         mask.maskNode = {
-            let node = SKShapeNode(circleOfRadius: radius)
+            let node = SKShapeNode(path: path)
             node.fillColor = .white
             node.strokeColor = .clear
             return node
         }()
         
-        maskOverlay = SKShapeNode(circleOfRadius: radius)
+        maskOverlay = SKShapeNode(path: path)
         maskOverlay.fillColor = .clear
         
         super.init()
-        self.path = maskOverlay.path
+        self.path = path
         
         self.addChild(mask)
         self.addChild(maskOverlay)
