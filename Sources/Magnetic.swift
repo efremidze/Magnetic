@@ -179,8 +179,10 @@ extension Magnetic {
         }
         movingNode = nil
         movingPreviousDampingValue = nil
-        if let touch = touches.first, let initialLocation = initialTouchLocation{
+        if let touch = touches.first{
             let point = touch.location(in: self)
+            let initialLocation = initialTouchLocation ?? point
+            
             let shouldAllowSelection = (!isDragging || (initialLocation.distance(from: point) < nodeSelectionForgivenessDistance))
             
             if shouldAllowSelection,
