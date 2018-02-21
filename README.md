@@ -94,8 +94,8 @@ override func deselectedAnimation() {
     // override deselected animation
 }
 
-override func removeAnimation(completion: @escaping () -> Void) {
-    // override remove animation
+override func removedAnimation(completion: @escaping () -> Void) {
+    // override removed animation
 }
 ```
 
