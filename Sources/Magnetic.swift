@@ -129,7 +129,7 @@ extension Magnetic {
                 initialTouchLocation == nil{
                 for node in children {
                     let nodeTouchPoint=node.convert(touchLocation, to: node)
-                    if node.frame.contains(nodeTouchPoint)
+                    if node.frame.contains(nodeTouchPoint) && node.isUserInteractionEnabled
                     {
                         movingNode = node
                         if initialTouchLocation == nil{
@@ -189,7 +189,7 @@ extension Magnetic {
             let shouldAllowSelection = (!isDragging || (initialLocation.distance(from: point) < nodeSelectionForgivenessDistance))
             
             if shouldAllowSelection,
-                let node = nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
+                let node = nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) && $0.isUserInteractionEnabled }).first
             {
                 if node.isSelected {
                     node.isSelected = false
