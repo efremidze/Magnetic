@@ -47,9 +47,9 @@ open class Magnetic: SKScene {
     
     var isDragging: Bool = false
     var movingNode: SKNode? = nil
-    var movingPreviousDampingValue: CGFloat? = nil
     var initialTouchLocation: CGPoint? = nil
     var initialTouchStartedOnNode: Bool = false
+    var movingNodeTimer: Timer? = nil
     
     /**
      The selected children.
@@ -123,17 +123,15 @@ extension Magnetic {
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            let location = touch.location(in: self)
+            let touchLocation = touch.location(in: self)
             if movingNode == nil &&
                 allowSingleNodeMovement &&
                 initialTouchLocation == nil{
                 for node in children {
-                    let nodeTouchPoint=node.convert(location, to: node)
+                    let nodeTouchPoint=node.convert(touchLocation, to: node)
                     if node.frame.contains(nodeTouchPoint)
                     {
                         movingNode = node
-                        movingPreviousDampingValue = movingNode?.physicsBody?.linearDamping
-                        movingNode?.physicsBody?.linearDamping = CGFloat.greatestFiniteMagnitude
                         if initialTouchLocation == nil{
                             initialTouchStartedOnNode = true
                         }
@@ -143,28 +141,27 @@ extension Magnetic {
             }
             if !isDragging{
                 isDragging = true
-                initialTouchLocation = location
+                initialTouchLocation = touchLocation
             }
-            if allowSingleNodeMovement && initialTouchStartedOnNode, let nodeToMove = movingNode{
-                var safeY = location.y
-                if location.y > self.frame.maxY{
-                    safeY = self.frame.maxY
-                }else if location.y < self.frame.minY{
-                    safeY = self.frame.minY
-                }
+            if allowSingleNodeMovement && initialTouchStartedOnNode, let node = movingNode{
+                let convertedTapLocation = convert(touchLocation, to: node)
+                let direction = CGVector(dx: convertedTapLocation.x * 30, dy: convertedTapLocation.y * 30)
+                node.physicsBody?.applyForce(direction)
                 
-                let safePoint = CGPoint(x: location.x, y: safeY)
-                let convertedSafePoint = nodeToMove.convert(safePoint, to: nodeToMove)
-                nodeToMove.run(.move(to: convertedSafePoint, duration: 0))
+                if movingNodeTimer != nil{
+                    movingNodeTimer?.invalidate()
+                    movingNodeTimer = nil
+                }
+                movingNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.moveNode(timer:)), userInfo: ["touchLocation":touchLocation, "node": node], repeats: true)
             } else if allowAllNodeMovement{
                 let previous = touch.previousLocation(in: self)
-                if location.distance(from: previous) == 0 { return }
+                if touchLocation.distance(from: previous) == 0 { return }
                 
-                let x = location.x - previous.x
-                let y = location.y - previous.y
+                let x = touchLocation.x - previous.x
+                let y = touchLocation.y - previous.y
                 
                 for node in children {
-                    let distance = node.position.distance(from: location)
+                    let distance = node.position.distance(from: touchLocation)
                     let acceleration: CGFloat = 3 * pow(distance, 1/2)
                     let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
                     node.physicsBody?.applyForce(direction)
@@ -172,13 +169,19 @@ extension Magnetic {
             }
         }
     }
-    
+    @objc func moveNode(timer: Timer){
+        let params = timer.userInfo as! [String:Any?]
+        let node = params["node"] as! SKNode
+        let touchLocation = params["touchLocation"] as! CGPoint
+        
+        let convertedTapLocation = convert(touchLocation, to: node)
+        let direction = CGVector(dx: convertedTapLocation.x * 30, dy: convertedTapLocation.y * 30)
+        node.physicsBody?.applyForce(direction)
+    }
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if movingNode != nil && movingPreviousDampingValue != nil{
-            movingNode?.physicsBody?.linearDamping = movingPreviousDampingValue!
-        }
         movingNode = nil
-        movingPreviousDampingValue = nil
+        movingNodeTimer?.invalidate()
+        movingNodeTimer = nil
         if let touch = touches.first{
             let point = touch.location(in: self)
             let initialLocation = initialTouchLocation ?? point
