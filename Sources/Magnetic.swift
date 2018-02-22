@@ -152,7 +152,7 @@ extension Magnetic {
                     movingNodeTimer?.invalidate()
                     movingNodeTimer = nil
                 }
-                movingNodeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.moveNode(timer:)), userInfo: ["touchLocation":touchLocation, "node": node], repeats: true)
+                movingNodeTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.moveNode(timer:)), userInfo: ["touchLocation":touchLocation, "node": node], repeats: true)
             } else if allowAllNodeMovement{
                 let previous = touch.previousLocation(in: self)
                 if touchLocation.distance(from: previous) == 0 { return }
