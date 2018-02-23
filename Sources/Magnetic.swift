@@ -44,13 +44,6 @@ open class Magnetic: SKScene {
      **/
     open var nodeSelectionForgivenessDistance: CGFloat = 5
     
-    
-    var isDragging: Bool = false
-    var movingNode: SKNode? = nil
-    var initialTouchLocation: CGPoint? = nil
-    var initialTouchStartedOnNode: Bool = false
-    var movingNodeTimer: Timer? = nil
-    
     /**
      The selected children.
      */
@@ -118,6 +111,12 @@ open class Magnetic: SKScene {
     }
     
 }
+
+var isDragging: Bool = false
+var movingNode: SKNode? = nil
+var initialTouchLocation: CGPoint? = nil
+var initialTouchStartedOnNode: Bool = false
+var movingNodeTimer: Timer? = nil
 
 extension Magnetic {
     
