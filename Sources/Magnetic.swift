@@ -124,28 +124,28 @@ var initialTouchStartedOnNode: Bool = false
 var movingNodeTimer: Timer? = nil
 
 extension Magnetic {
+    func nodeForTouchLocation(_ touchLocation: CGPoint)-> SKNode?{
+        for node in children {
+            let nodeTouchPoint = node.convert(touchLocation, to: node)
+            if node.frame.contains(nodeTouchPoint)
+            {
+                return node
+            }
+        }
+        return nil
+    }
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let touchLocation = touch.location(in: self)
-            if movingNode == nil &&
-                allowSingleNodeMovement &&
-                initialTouchLocation == nil{
-                for node in children {
-                    let nodeTouchPoint=node.convert(touchLocation, to: node)
-                    if node.frame.contains(nodeTouchPoint)
-                    {
-                        movingNode = node
-                        if initialTouchLocation == nil{
-                            initialTouchStartedOnNode = true
-                        }
-                        break
-                    }
-                }
-            }
-            if !isDragging{
+            if initialTouchLocation == nil{
                 isDragging = true
                 initialTouchLocation = touchLocation
+                
+                if allowSingleNodeMovement{
+                    movingNode = nodeForTouchLocation(touchLocation)
+                }
+                initialTouchStartedOnNode = movingNode != nil
             }
             if allowSingleNodeMovement && initialTouchStartedOnNode, let node = movingNode{
                 let convertedTapLocation = convert(touchLocation, to: node)
