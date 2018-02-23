@@ -35,6 +35,11 @@ open class Magnetic: SKScene {
     open var allowSingleNodeMovement: Bool = false
     
     /**
+     How fast the node follows the user's finger.  Default is 30.
+     **/
+    open var singleNodeMovementAcceleration: CGFloat = 30
+    
+    /**
      Lets the user move all of the nodes at once.  On by default.
      **/
     open var allowAllNodeMovement: Bool = true
@@ -144,7 +149,7 @@ extension Magnetic {
             }
             if allowSingleNodeMovement && initialTouchStartedOnNode, let node = movingNode{
                 let convertedTapLocation = convert(touchLocation, to: node)
-                let direction = CGVector(dx: convertedTapLocation.x * 30, dy: convertedTapLocation.y * 30)
+                let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
                 node.physicsBody?.applyForce(direction)
                 
                 if movingNodeTimer != nil{
@@ -174,7 +179,7 @@ extension Magnetic {
         let touchLocation = params["touchLocation"] as! CGPoint
         
         let convertedTapLocation = convert(touchLocation, to: node)
-        let direction = CGVector(dx: convertedTapLocation.x * 30, dy: convertedTapLocation.y * 30)
+        let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
         node.physicsBody?.applyForce(direction)
     }
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
