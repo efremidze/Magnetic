@@ -178,9 +178,6 @@ extension Magnetic {
         node.physicsBody?.applyForce(direction)
     }
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        movingNode = nil
-        movingNodeTimer?.invalidate()
-        movingNodeTimer = nil
         if let touch = touches.first{
             let point = touch.location(in: self)
             let initialLocation = initialTouchLocation ?? point
@@ -203,13 +200,18 @@ extension Magnetic {
                 }
             }
         }
-        isDragging = false
+        resetTouchMovedState()
+    }
+    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        resetTouchMovedState()
+    }
+    
+    func resetTouchMovedState(){
+        movingNode = nil
+        movingNodeTimer?.invalidate()
+        movingNodeTimer = nil
         initialTouchLocation = nil
         initialTouchStartedOnNode = false
-    }
-    
-    override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         isDragging = false
     }
-    
 }
