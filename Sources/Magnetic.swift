@@ -25,12 +25,12 @@ open class Magnetic: SKScene {
     }()
     
     /**
-     Controls whether you can select multiple nodes.
+     Controls whether you can select multiple nodes. On by default.
      */
     open var allowsMultipleSelection: Bool = true
 
     /**
-     Lets the user move individule nodes.
+     Lets the user move individule nodes.  Off by default.
      **/
     open var allowSingleNodeMovement: Bool = false
     
@@ -40,7 +40,7 @@ open class Magnetic: SKScene {
     open var allowAllNodeMovement: Bool = true
     
     /**
-     The amount of distance the user's finger is able to travle before considering it a move event instead of a selection.
+     The amount of distance the user's finger is able to travle before considering it a move event instead of a selection.  Default is 5px.
      **/
     open var nodeSelectionForgivenessDistance: CGFloat = 5
     
