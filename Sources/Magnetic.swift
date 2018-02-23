@@ -117,80 +117,41 @@ open class Magnetic: SKScene {
     
 }
 
-var isDragging: Bool = false
-var movingNode: SKNode? = nil
+var movingNode: Node? = nil
 var initialTouchLocation: CGPoint? = nil
 var initialTouchStartedOnNode: Bool = false
 var movingNodeTimer: Timer? = nil
 
 extension Magnetic {
-    func nodeForTouchLocation(_ touchLocation: CGPoint)-> SKNode?{
-        for node in children {
-            let nodeTouchPoint = node.convert(touchLocation, to: node)
-            if node.frame.contains(nodeTouchPoint)
-            {
-                return node
-            }
-        }
-        return nil
-    }
-    
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
-            let touchLocation = touch.location(in: self)
+            let point = touch.location(in: self)
             if initialTouchLocation == nil{
-                isDragging = true
-                initialTouchLocation = touchLocation
+                initialTouchLocation = point
                 
                 if allowSingleNodeMovement{
-                    movingNode = nodeForTouchLocation(touchLocation)
+                    movingNode = node(at: point)
                 }
                 initialTouchStartedOnNode = movingNode != nil
             }
             if allowSingleNodeMovement && initialTouchStartedOnNode, let node = movingNode{
-                let convertedTapLocation = convert(touchLocation, to: node)
-                let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
-                node.physicsBody?.applyForce(direction)
-                
-                if movingNodeTimer != nil{
-                    movingNodeTimer?.invalidate()
-                    movingNodeTimer = nil
-                }
-                movingNodeTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(self.moveNode(timer:)), userInfo: ["touchLocation":touchLocation, "node": node], repeats: true)
-            } else if allowAllNodeMovement{
-                let previous = touch.previousLocation(in: self)
-                if touchLocation.distance(from: previous) == 0 { return }
-                
-                let x = touchLocation.x - previous.x
-                let y = touchLocation.y - previous.y
-                
-                for node in children {
-                    let distance = node.position.distance(from: touchLocation)
-                    let acceleration: CGFloat = 3 * pow(distance, 1/2)
-                    let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
-                    node.physicsBody?.applyForce(direction)
-                }
+                moveNode(node, to: point)
+                setReacurringMoveTimer(for: node, to: point)
+            }
+            else if allowAllNodeMovement{
+                moveAllNodes(touchLocation: point, previousTouchLocation: touch.previousLocation(in: self))
             }
         }
     }
-    @objc func moveNode(timer: Timer){
-        let params = timer.userInfo as! [String:Any?]
-        let node = params["node"] as! SKNode
-        let touchLocation = params["touchLocation"] as! CGPoint
-        
-        let convertedTapLocation = convert(touchLocation, to: node)
-        let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
-        node.physicsBody?.applyForce(direction)
-    }
+    
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first{
             let point = touch.location(in: self)
             let initialLocation = initialTouchLocation ?? point
-            
-            let shouldAllowSelection = (!isDragging || (initialLocation.distance(from: point) < nodeSelectionForgivenessDistance))
+            let shouldAllowSelection = initialLocation.distance(from: point) < nodeSelectionForgivenessDistance
             
             if shouldAllowSelection,
-                let node = nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
+                let node = node(at: point)
             {
                 if node.isSelected {
                     node.isSelected = false
@@ -211,12 +172,53 @@ extension Magnetic {
         resetTouchMovedState()
     }
     
+    /**
+     Need to do this otherwise the node floats back to the center when the user is not moving their finger
+     **/
+    func setReacurringMoveTimer(for node:SKNode, to touchLocation:CGPoint){
+        if movingNodeTimer != nil{
+            movingNodeTimer?.invalidate()
+        }
+        movingNodeTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self,
+                                               selector: #selector(self.keepNodeStill(for:)),
+                                               userInfo: ["touchLocation":touchLocation, "node": node],
+                                               repeats: true)
+    }
+    
+    func moveAllNodes(touchLocation: CGPoint, previousTouchLocation: CGPoint){
+        if touchLocation.distance(from: previousTouchLocation) == 0 { return }
+        
+        let x = touchLocation.x - previousTouchLocation.x
+        let y = touchLocation.y - previousTouchLocation.y
+        
+        for node in children {
+            let distance = node.position.distance(from: touchLocation)
+            let acceleration: CGFloat = 3 * pow(distance, 1/2)
+            let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+            node.physicsBody?.applyForce(direction)
+        }
+    }
+    
+    func node(at point: CGPoint)-> Node?{
+        return nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
+    }
+    
+    func moveNode(_ node:SKNode, to touchLocation:CGPoint){
+        let convertedTapLocation = convert(touchLocation, to: node)
+        let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
+        node.physicsBody?.applyForce(direction)
+    }
+    
+    @objc func keepNodeStill(for timer: Timer){
+        let params = timer.userInfo as! [String:Any?]
+        moveNode(params["node"] as! SKNode, to: params["touchLocation"] as! CGPoint)
+    }
+    
     func resetTouchMovedState(){
         movingNode = nil
         movingNodeTimer?.invalidate()
         movingNodeTimer = nil
         initialTouchLocation = nil
         initialTouchStartedOnNode = false
-        isDragging = false
     }
 }
