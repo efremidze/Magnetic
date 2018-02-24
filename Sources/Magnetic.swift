@@ -23,11 +23,17 @@ open class Magnetic: SKScene {
         self.addChild(field)
         return field
     }()
+    /**
+     The left field node that accelerates the nodes.
+     */
     public lazy var leftMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
         }()
+    /**
+     The right field node that accelerates the nodes.
+     */
     public lazy var rightMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
