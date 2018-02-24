@@ -18,11 +18,25 @@ open class Magnetic: SKScene {
     /**
      The field node that accelerates the nodes.
      */
-    public lazy var magneticField: SKFieldNode = { [unowned self] in
+    public lazy var middleMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
     }()
+    public lazy var leftMagneticField: SKFieldNode = { [unowned self] in
+        let field = SKFieldNode.radialGravityField()
+        self.addChild(field)
+        return field
+        }()
+    public lazy var rightMagneticField: SKFieldNode = { [unowned self] in
+        let field = SKFieldNode.radialGravityField()
+        self.addChild(field)
+        return field
+        }()
+    /**
+     Allows for two magnetic fields along the x axis.  Off by default.
+     **/
+    open var allowDualMagneticFields: Bool = false
     
     /**
      Controls whether you can select multiple nodes. On by default.
@@ -98,11 +112,25 @@ open class Magnetic: SKScene {
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
-      
-        magneticField.region = SKRegion(radius: radius)
-        magneticField.minimumRadius = radius
-        magneticField.strength = strength
-        magneticField.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        configureFields()
+        
+    }
+    func configureFields(){
+        updateField(field: middleMagneticField, position: CGPoint(x: size.width / 2, y: size.height / 2))
+        if allowDualMagneticFields{
+            updateField(field: leftMagneticField, position: CGPoint(x: size.width/2 - size.width/4, y: size.height / 2))
+            updateField(field: rightMagneticField, position: CGPoint(x: size.width/2 + size.width/4, y: size.height / 2))
+            middleMagneticField.strength = -middleMagneticField.strength
+        }
+    }
+    func updateField(field:SKFieldNode, position:CGPoint){
+        let strength = Float(max(size.width, size.height))
+        let radius = strength.squareRoot() * 100
+        
+        field.region = SKRegion(radius: radius)
+        field.minimumRadius = radius
+        field.strength = strength
+        field.position = position
     }
     
     override open func addChild(_ node: SKNode) {
