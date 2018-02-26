@@ -35,7 +35,7 @@ open class Magnetic: SKScene {
      The selected children.
      */
     open var selectedChildren: [Node] {
-        return children.flatMap { $0 as? Node }.filter { $0.isSelected }
+        return children.compactMap { $0 as? Node }.filter { $0.isSelected }
     }
     
     /**
@@ -126,7 +126,7 @@ extension Magnetic {
         if
             !isDragging,
             let point = touches.first?.location(in: self),
-            let node = nodes(at: point).flatMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
+            let node = nodes(at: point).compactMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
         {
             if node.isSelected {
                 node.isSelected = false
