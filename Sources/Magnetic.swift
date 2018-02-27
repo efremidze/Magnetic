@@ -17,28 +17,38 @@ open class Magnetic: SKScene {
     
     /**
      The field node that accelerates the nodes.
+     Please use `middleMagneticField` instad.
+     */
+    @available(*, deprecated, message: "Please use middleMagneticField instad.")
+    public lazy var magneticField: SKFieldNode? = middleMagneticField
+    
+    /**
+     The field in the middle that either attracts or repels nodes.  Nodes will be repeled when `allowDualMagneticFields` is enabled.
      */
     public lazy var middleMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
     }()
+    
     /**
-     The left field node that accelerates the nodes.
+     The left field node that attracts the nodes.
      */
     public lazy var leftMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
         }()
+    
     /**
-     The right field node that accelerates the nodes.
+     The right field node that attracts the nodes.
      */
     public lazy var rightMagneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
         }()
+    
     /**
      Allows for two magnetic fields along the x axis.  Off by default.
      **/
