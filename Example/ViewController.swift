@@ -49,8 +49,8 @@ class ViewController: UIViewController {
         let speed = magnetic.physicsWorld.speed
         magnetic.physicsWorld.speed = 0
         let sortedNodes = magnetic.children.flatMap { $0 as? Node }.sorted { node, nextNode in
-            let distance = node.position.distance(from: magnetic.magneticField.position)
-            let nextDistance = nextNode.position.distance(from: magnetic.magneticField.position)
+            let distance = node.position.distance(from: magnetic.middleMagneticField.position)
+            let nextDistance = nextNode.position.distance(from: magnetic.middleMagneticField.position)
             return distance < nextDistance && node.isSelected
         }
         var actions = [SKAction]()

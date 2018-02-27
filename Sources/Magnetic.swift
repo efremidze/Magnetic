@@ -20,7 +20,7 @@ open class Magnetic: SKScene {
      Please use `middleMagneticField` instad.
      */
     @available(*, deprecated, message: "Please use middleMagneticField instad.")
-    public lazy var magneticField: SKFieldNode? = middleMagneticField
+    public lazy var magneticField: SKFieldNode? = self.middleMagneticField
     
     /**
      The field in the middle that either attracts or repels nodes.  Nodes will be repeled when `allowDualMagneticFields` is enabled.
