@@ -132,10 +132,14 @@ open class Magnetic: SKScene {
         
     }
     func configureFields(){
-        updateField(field: middleMagneticField, position: CGPoint(x: size.width / 2, y: size.height / 2))
+        let middlePosition = CGPoint(x: size.width / 2, y: size.height / 2)
+        updateField(field: middleMagneticField, position: middlePosition)
         if allowDualMagneticFields{
-            updateField(field: leftMagneticField, position: CGPoint(x: size.width/2 - size.width/4, y: size.height / 2))
-            updateField(field: rightMagneticField, position: CGPoint(x: size.width/2 + size.width/4, y: size.height / 2))
+            let deviate = middlePosition.x/2
+            let leftPosition = CGPoint(x: middlePosition.x - deviate, y: middlePosition.y)
+            updateField(field: leftMagneticField, position: leftPosition)
+            let rightPosition = CGPoint(x: middlePosition.x + deviate, y: middlePosition.y)
+            updateField(field: rightMagneticField, position: rightPosition)
             middleMagneticField.strength = -middleMagneticField.strength
         }
     }
