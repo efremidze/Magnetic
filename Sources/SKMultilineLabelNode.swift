@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-open class SKMultilineLabelNode: SKNode {
+@objcMembers open class SKMultilineLabelNode: SKNode {
     
     open var text: String? { didSet { update() } }
     
