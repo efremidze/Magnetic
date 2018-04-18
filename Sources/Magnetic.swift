@@ -8,12 +8,12 @@
 
 import SpriteKit
 
-public protocol MagneticDelegate: class {
+@objc public protocol MagneticDelegate: class {
     func magnetic(_ magnetic: Magnetic, didSelect node: Node)
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node)
 }
 
-open class Magnetic: SKScene {
+@objcMembers open class Magnetic: SKScene {
     
     /**
      The field node that accelerates the nodes.
