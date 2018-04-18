@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-open class Node: MaskNode {
+@objcMembers open class Node: MaskNode {
     
     public lazy var label: SKMultilineLabelNode = { [unowned self] in
         let label = SKMultilineLabelNode()
