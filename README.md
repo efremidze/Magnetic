@@ -146,6 +146,10 @@ To install with [Carthage](https://github.com/Carthage/Carthage), simply add thi
 github "efremidze/Magnetic"
 ```
 
+## Mentions
+
+- [Natasha The Robot's Newsleter 126](https://swiftnews.curated.co/issues/126#start)
+
 ## Communication
 
 - If you **found a bug**, open an issue.
