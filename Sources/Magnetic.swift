@@ -105,8 +105,7 @@ extension Magnetic {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         let previous = touch.previousLocation(in: self)
-        
-        if location.distance(from: previous) == 0 { return }
+        guard location.distance(from: previous) != 0 else { return }
         
         isDragging = true
         
@@ -117,23 +116,20 @@ extension Magnetic {
         guard let touch = touches.first else { return }
         let location = touch.location(in: self)
         
-        if
-            !isDragging,
-            let node = node(at: location)
-        {
-            if node.isSelected {
-                node.isSelected = false
-                magneticDelegate?.magnetic(self, didDeselect: node)
-            } else {
-                if !allowsMultipleSelection, let selectedNode = selectedChildren.first {
-                    selectedNode.isSelected = false
-                    magneticDelegate?.magnetic(self, didDeselect: selectedNode)
-                }
-                node.isSelected = true
-                magneticDelegate?.magnetic(self, didSelect: node)
+        defer { isDragging = false }
+        guard !isDragging, let node = node(at: location) else { return }
+        
+        if node.isSelected {
+            node.isSelected = false
+            magneticDelegate?.magnetic(self, didDeselect: node)
+        } else {
+            if !allowsMultipleSelection, let selectedNode = selectedChildren.first {
+                selectedNode.isSelected = false
+                magneticDelegate?.magnetic(self, didDeselect: selectedNode)
             }
+            node.isSelected = true
+            magneticDelegate?.magnetic(self, didSelect: node)
         }
-        isDragging = false
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
