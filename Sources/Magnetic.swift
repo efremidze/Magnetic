@@ -102,31 +102,24 @@ import SpriteKit
 extension Magnetic {
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let location = touch.location(in: self)
-            let previous = touch.previousLocation(in: self)
-            
-            if location.distance(from: previous) == 0 { return }
-            
-            isDragging = true
-            
-            let x = location.x - previous.x
-            let y = location.y - previous.y
-            
-            for node in children {
-                let distance = node.position.distance(from: location)
-                let acceleration: CGFloat = 3 * pow(distance, 1/2)
-                let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
-                node.physicsBody?.applyForce(direction)
-            }
-        }
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        let previous = touch.previousLocation(in: self)
+        
+        if location.distance(from: previous) == 0 { return }
+        
+        isDragging = true
+        
+        moveNodes(location: location, previous: previous)
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else { return }
+        let location = touch.location(in: self)
+        
         if
             !isDragging,
-            let point = touches.first?.location(in: self),
-            let node = nodes(at: point).compactMap({ $0 as? Node }).filter({ $0.path!.contains(convert(point, to: $0)) }).first
+            let node = node(at: location)
         {
             if node.isSelected {
                 node.isSelected = false
@@ -145,6 +138,26 @@ extension Magnetic {
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         isDragging = false
+    }
+    
+}
+
+extension Magnetic {
+    
+    func moveNodes(location: CGPoint, previous: CGPoint) {
+        let x = location.x - previous.x
+        let y = location.y - previous.y
+        
+        for node in children {
+            let distance = node.position.distance(from: location)
+            let acceleration: CGFloat = 3 * pow(distance, 1/2)
+            let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+            node.physicsBody?.applyForce(direction)
+        }
+    }
+    
+    func node(at point: CGPoint) -> Node? {
+        return nodes(at: point).compactMap { $0 as? Node }.filter { $0.path!.contains(convert(point, to: $0)) }.first
     }
     
 }
