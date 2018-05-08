@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Magnetic  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Magnetic  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Magnetic Docs</a> (24% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Magnetic Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Magnetic  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Magnetic.html">Magnetic</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MagneticView.html">MagneticView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/MaskNode.html">MaskNode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Node.html">Node</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/SKMultilineLabelNode.html">SKMultilineLabelNode</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols/MagneticDelegate.html">MagneticDelegate</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='magnetic' class='heading'>Magnetic</h1>
+
+<p><a href="https://swift.org"><img src="https://img.shields.io/badge/Swift-4-orange.svg?style=flat" alt="Language"></a>
+<a href="http://cocoapods.org/pods/Magnetic"><img src="https://img.shields.io/cocoapods/v/Magnetic.svg?style=flat" alt="Version"></a>
+<a href="http://cocoapods.org/pods/Magnetic"><img src="https://img.shields.io/cocoapods/l/Magnetic.svg?style=flat" alt="License"></a>
+<a href="http://cocoapods.org/pods/Magnetic"><img src="https://img.shields.io/cocoapods/p/Magnetic.svg?style=flat" alt="Platform"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible"></a></p>
+
+<p><strong>Magnetic</strong> is a customizable bubble picker like the Apple Music genre selection.</p>
+
+<p><img src="https://raw.githubusercontent.com/efremidze/Magnetic/master/Images/demo.gif" width="320"></p>
+<pre class="highlight plaintext"><code>$ pod try Magnetic
+</code></pre>
+<h2 id='features' class='heading'>Features</h2>
+
+<ul>
+<li>[x] Adding/Removing Nodes</li>
+<li>[x] Selection/Deselection/Removed Animations</li>
+<li>[x] Multiple Selection</li>
+<li>[x] Images</li>
+<li>[x] Multiline Label</li>
+<li>[x] <a href="https://efremidze.github.io/Magnetic">Documentation</a></li>
+</ul>
+<h2 id='requirements' class='heading'>Requirements</h2>
+
+<ul>
+<li>iOS 9.0+</li>
+<li>Xcode 9.0+</li>
+<li>Swift 4 (Magnetic 2.x), Swift 3 (Magnetic 1.x)</li>
+</ul>
+<h2 id='usage' class='heading'>Usage</h2>
+
+<p>A <code><a href="Classes/Magnetic.html">Magnetic</a></code> object is an <a href="https://developer.apple.com/reference/spritekit/skscene">SKScene</a>.</p>
+
+<p>To display, you present it from an <a href="https://developer.apple.com/reference/spritekit/skview">SKView</a> object.</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Magnetic</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+
+    <span class="k">var</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt">Magnetic</span><span class="p">?</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">loadView</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">loadView</span><span class="p">()</span>
+
+        <span class="k">let</span> <span class="nv">magneticView</span> <span class="o">=</span> <span class="kt">MagneticView</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="n">magnetic</span> <span class="o">=</span> <span class="n">magneticView</span><span class="o">.</span><span class="n">magnetic</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">magneticView</span><span class="p">)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+</code></pre>
+<h4 id='properties' class='heading'>Properties</h4>
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">magneticDelegate</span><span class="p">:</span> <span class="kt">MagneticDelegate</span><span class="p">?</span> <span class="c1">// magnetic delegate</span>
+<span class="k">var</span> <span class="nv">allowsMultipleSelection</span><span class="p">:</span> <span class="kt">Bool</span> <span class="c1">// controls whether you can select multiple nodes. defaults to true</span>
+<span class="k">var</span> <span class="nv">selectedChildren</span><span class="p">:</span> <span class="p">[</span><span class="kt">Node</span><span class="p">]</span> <span class="c1">// returns selected chidren</span>
+</code></pre>
+<h3 id='nodes' class='heading'>Nodes</h3>
+
+<p>A <code><a href="Classes/Node.html">Node</a></code> object is a circular SKShapeNode subclass.</p>
+<h4 id='interaction' class='heading'>Interaction</h4>
+<pre class="highlight swift"><code><span class="c1">// add node</span>
+<span class="k">let</span> <span class="nv">node</span> <span class="o">=</span> <span class="kt">Node</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="s">"Italy"</span><span class="p">,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">(</span><span class="nv">named</span><span class="p">:</span> <span class="s">"italy"</span><span class="p">),</span> <span class="nv">color</span><span class="p">:</span> <span class="o">.</span><span class="n">red</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="mi">30</span><span class="p">)</span>
+<span class="n">magnetic</span><span class="o">.</span><span class="nf">addChild</span><span class="p">(</span><span class="n">node</span><span class="p">)</span>
+
+<span class="c1">// remove node</span>
+<span class="n">node</span><span class="o">.</span><span class="nf">removeFromParent</span><span class="p">()</span>
+</code></pre>
+<h4 id='properties' class='heading'>Properties</h4>
+<pre class="highlight swift"><code><span class="k">var</span> <span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="c1">// node text</span>
+<span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="c1">// node image</span>
+<span class="k">var</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span> <span class="c1">// node color. defaults to white</span>
+</code></pre>
+<h4 id='animations' class='heading'>Animations</h4>
+<pre class="highlight swift"><code><span class="k">override</span> <span class="kd">func</span> <span class="nf">selectedAnimation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// override selected animation</span>
+<span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">deselectedAnimation</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// override deselected animation</span>
+<span class="p">}</span>
+
+<span class="k">override</span> <span class="kd">func</span> <span class="nf">removedAnimation</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// override removed animation</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='delegation' class='heading'>Delegation</h3>
+
+<p>The <code><a href="Protocols/MagneticDelegate.html">MagneticDelegate</a></code> protocol provides a number of functions for observing the current state of nodes.</p>
+<pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">magnetic</span><span class="p">(</span><span class="n">_</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt">Magnetic</span><span class="p">,</span> <span class="n">didSelect</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">Node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle node selection</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="nf">magnetic</span><span class="p">(</span><span class="n">_</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt">Magnetic</span><span class="p">,</span> <span class="n">didDeselect</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">Node</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// handle node deselection</span>
+<span class="p">}</span>
+</code></pre>
+<h3 id='customization' class='heading'>Customization</h3>
+
+<p>Subclass the Node for customization.</p>
+
+<p>For example, a node with an image by default:</p>
+<pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">ImageNode</span><span class="p">:</span> <span class="kt">Node</span> <span class="p">{</span>
+    <span class="k">override</span> <span class="k">var</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?</span> <span class="p">{</span>
+        <span class="k">didSet</span> <span class="p">{</span>
+            <span class="n">sprite</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="kt">SKTexture</span><span class="p">(</span><span class="nv">image</span><span class="p">:</span> <span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">selectedAnimation</span><span class="p">()</span> <span class="p">{}</span>
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">deselectedAnimation</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre>
+<h2 id='installation' class='heading'>Installation</h2>
+<h3 id='cocoapods' class='heading'>CocoaPods</h3>
+
+<p>To install with <a href="http://cocoapods.org/">CocoaPods</a>, simply add this in your <code>Podfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
+<span class="n">pod</span> <span class="s2">"Magnetic"</span>
+</code></pre>
+<h3 id='carthage' class='heading'>Carthage</h3>
+
+<p>To install with <a href="https://github.com/Carthage/Carthage">Carthage</a>, simply add this in your <code>Cartfile</code>:</p>
+<pre class="highlight ruby"><code><span class="n">github</span> <span class="s2">"efremidze/Magnetic"</span>
+</code></pre>
+<h2 id='mentions' class='heading'>Mentions</h2>
+
+<ul>
+<li><a href="https://swiftnews.curated.co/issues/126#start">Natasha The Robot&rsquo;s Newsleter 126</a></li>
+</ul>
+<h2 id='communication' class='heading'>Communication</h2>
+
+<ul>
+<li>If you <strong>found a bug</strong>, open an issue.</li>
+<li>If you <strong>have a feature request</strong>, open an issue.</li>
+<li>If you <strong>want to contribute</strong>, submit a pull request.</li>
+</ul>
+<h2 id='credits' class='heading'>Credits</h2>
+
+<p><a href="https://github.com/igalata/Bubble-Picker">https://github.com/igalata/Bubble-Picker</a></p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>Magnetic is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="https://github.com/efremidze/Magnetic" target="_blank" rel="external">efremidze</a>. All rights reserved. (Last updated: 2018-05-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

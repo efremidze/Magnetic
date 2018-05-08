@@ -1,0 +1,264 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": null,
+      "symbol": "Magnetic",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 11,
+      "symbol": "MagneticDelegate",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 12,
+      "symbol": "MagneticDelegate.magnetic(_:didSelect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 13,
+      "symbol": "MagneticDelegate.magnetic(_:didDeselect:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 16,
+      "symbol": "Magnetic",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 48,
+      "symbol": "Magnetic.size",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 54,
+      "symbol": "Magnetic.init(size:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 60,
+      "symbol": "Magnetic.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 90,
+      "symbol": "Magnetic.addChild(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 104,
+      "symbol": "Magnetic.touchesMoved(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 115,
+      "symbol": "Magnetic.touchesEnded(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 135,
+      "symbol": "Magnetic.touchesCancelled(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "line": 11,
+      "symbol": "MagneticView",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "line": 14,
+      "symbol": "MagneticView.magnetic",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "line": 20,
+      "symbol": "MagneticView.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "line": 26,
+      "symbol": "MagneticView.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "line": 36,
+      "symbol": "MagneticView.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 11,
+      "symbol": "Node",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 13,
+      "symbol": "Node.label",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 25,
+      "symbol": "Node.sprite",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 63,
+      "symbol": "Node.strokeColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 114,
+      "symbol": "Node.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 118,
+      "symbol": "Node.configure(text:image:color:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 124,
+      "symbol": "Node.removeFromParent()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 161,
+      "symbol": "MaskNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 166,
+      "symbol": "MaskNode.init(path:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "line": 185,
+      "symbol": "MaskNode.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 11,
+      "symbol": "SKMultilineLabelNode",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 13,
+      "symbol": "SKMultilineLabelNode.text",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 15,
+      "symbol": "SKMultilineLabelNode.fontName",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 16,
+      "symbol": "SKMultilineLabelNode.fontSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 17,
+      "symbol": "SKMultilineLabelNode.fontColor",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 19,
+      "symbol": "SKMultilineLabelNode.separator",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 21,
+      "symbol": "SKMultilineLabelNode.verticalAlignmentMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 22,
+      "symbol": "SKMultilineLabelNode.horizontalAlignmentMode",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 24,
+      "symbol": "SKMultilineLabelNode.lineHeight",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "line": 26,
+      "symbol": "SKMultilineLabelNode.width",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/home/Documents/Magnetic2"
+}

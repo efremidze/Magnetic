@@ -21,6 +21,7 @@ $ pod try Magnetic
 - [x] Multiple Selection
 - [x] Images
 - [x] Multiline Label
+- [x] [Documentation](https://efremidze.github.io/Magnetic)
 
 ## Requirements
 
