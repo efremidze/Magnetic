@@ -1,5 +1,6 @@
 # Magnetic
 
+[![Build Status](https://travis-ci.org/efremidze/Magnetic.svg?branch=master)](https://travis-ci.org/efremidze/Magnetic)
 [![Language](https://img.shields.io/badge/Swift-4-orange.svg?style=flat)](https://swift.org)
 [![Version](https://img.shields.io/cocoapods/v/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
 [![License](https://img.shields.io/cocoapods/l/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
