@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.0.9](https://github.com/efremidze/Magnetic/releases/tag/2.0.9)
+Released on 2018-05-18
+
+- Updated Podspec
+
 ## [Version 2.0.8](https://github.com/efremidze/Magnetic/releases/tag/2.0.8)
 Released on 2018-05-08
 
