@@ -72,7 +72,7 @@ import SpriteKit
     func configure() {
         let strength = Float(max(size.width, size.height))
         let radius = strength.squareRoot() * 100
-      
+        
         physicsWorld.gravity = CGVector(dx: 0, dy: 0)
         physicsBody = SKPhysicsBody(edgeLoopFrom: { () -> CGRect in
             var frame = self.frame
@@ -80,7 +80,7 @@ import SpriteKit
             frame.origin.x -= frame.size.width / 2
             return frame
         }())
-      
+        
         magneticField.region = SKRegion(radius: radius)
         magneticField.minimumRadius = radius
         magneticField.strength = strength

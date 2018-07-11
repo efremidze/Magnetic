@@ -32,7 +32,7 @@ public class MagneticView: SKView {
     func commonInit() {
         _ = magnetic
     }
-  
+    
     public override func layoutSubviews() {
         super.layoutSubviews()
         

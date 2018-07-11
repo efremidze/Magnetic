@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.0.10](https://github.com/efremidze/Magnetic/releases/tag/2.0.10)
+Released on 2018-07-10
+
+- Label alignment fixed
+
 ## [Version 2.0.9](https://github.com/efremidze/Magnetic/releases/tag/2.0.9)
 Released on 2018-05-18
 

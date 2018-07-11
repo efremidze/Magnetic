@@ -33,9 +33,9 @@ import SpriteKit
         var stack = Stack<String>()
         var sizingLabel = makeSizingLabel()
         let words = separator.map { text.components(separatedBy: $0) } ?? text.map { String($0) }
-        for word in words {
+        for (index, word) in words.enumerated() {
             sizingLabel.text += word
-            if sizingLabel.frame.width > width {
+            if sizingLabel.frame.width > width, index > 0 {
                 stack.add(toStack: word)
                 sizingLabel = makeSizingLabel()
             } else {
