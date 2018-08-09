@@ -18,7 +18,7 @@ open class Node: MaskNode {
         label.verticalAlignmentMode = .center
         label.width = self.frame.width
         label.separator = " "
-        self.mask.addChild(label)
+        self.addChild(label)
         return label
     }()
     
