@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.0.11](https://github.com/efremidze/Magnetic/releases/tag/2.0.11)
+Released on 2018-08-21
+
+- Minor fix
+
 ## [Version 2.0.10](https://github.com/efremidze/Magnetic/releases/tag/2.0.10)
 Released on 2018-07-10
 

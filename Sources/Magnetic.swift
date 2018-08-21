@@ -152,7 +152,7 @@ extension Magnetic {
         }
     }
     
-    func node(at point: CGPoint) -> Node? {
+    open func node(at point: CGPoint) -> Node? {
         return nodes(at: point).compactMap { $0 as? Node }.filter { $0.path!.contains(convert(point, to: $0)) }.first
     }
     
