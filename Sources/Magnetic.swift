@@ -29,7 +29,22 @@ import SpriteKit
      */
     open var allowsMultipleSelection: Bool = true
     
-    open var isDragging: Bool = false
+    public enum NodeMovementType {
+        case multiple
+        case single
+    }
+    
+    open var nodeMovementType: NodeMovementType = .multiple
+    
+    /**
+     How fast the node follows the user's finger. Default is 30.
+     **/
+    open var singleNodeMovementAcceleration: CGFloat = 30
+    
+    /**
+     The amount of distance the user's finger is able to trave; before considering it a move event instead of a selection. Default is 5px.
+     **/
+    open var nodeSelectionForgivenessDistance: CGFloat = 5
     
     /**
      The selected children.
@@ -44,6 +59,10 @@ import SpriteKit
      The delegate must adopt the MagneticDelegate protocol. The delegate is not retained.
      */
     open weak var magneticDelegate: MagneticDelegate?
+    
+    var movingNode: Node?
+    var initialTouchLocation: CGPoint?
+    var timer: Timer?
     
     override open var size: CGSize {
         didSet {
@@ -103,29 +122,44 @@ extension Magnetic {
     
     override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
-        let previous = touch.previousLocation(in: self)
-        guard location.distance(from: previous) != 0 else { return }
-        
-        isDragging = true
-        
-        moveNodes(location: location, previous: previous)
+        let point = touch.location(in: self)
+        if initialTouchLocation == nil{
+            initialTouchLocation = point
+            
+            if case .single = nodeMovementType {
+                movingNode = node(at: point)
+            }
+        }
+        switch nodeMovementType {
+        case .multiple:
+            moveAllNodes(touchLocation: point, previousTouchLocation: touch.previousLocation(in: self))
+        case .single:
+            guard let node = movingNode else { return }
+            moveNode(node, to: point)
+            setReacurringMoveTimer(for: node, to: point)
+        }
     }
     
     override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
-        let location = touch.location(in: self)
+        let point = touch.location(in: self)
+        let initialLocation = initialTouchLocation ?? point
+        let shouldAllowSelection = initialLocation.distance(from: point) < nodeSelectionForgivenessDistance
         
-        defer { isDragging = false }
-        guard !isDragging, let node = node(at: location) else { return }
-        
-        if node.isSelected {
-            node.isSelected = false
-            magneticDelegate?.magnetic(self, didDeselect: node)
-        } else {
-            if !allowsMultipleSelection, let selectedNode = selectedChildren.first {
-                selectedNode.isSelected = false
-                magneticDelegate?.magnetic(self, didDeselect: selectedNode)
+        if
+            shouldAllowSelection,
+            let node = node(at: point)
+        {
+            if node.isSelected {
+                node.isSelected = false
+                magneticDelegate?.magnetic(self, didDeselect: node)
+            } else {
+                if !allowsMultipleSelection, let selectedNode = selectedChildren.first {
+                    selectedNode.isSelected = false
+                    magneticDelegate?.magnetic(self, didDeselect: selectedNode)
+                }
+                node.isSelected = true
+                magneticDelegate?.magnetic(self, didSelect: node)
             }
             node.isSelected = true
             magneticDelegate?.magnetic(self, didSelect: node)
@@ -133,12 +167,51 @@ extension Magnetic {
     }
     
     override open func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        isDragging = false
+        movingNode = nil
+        timer?.invalidate()
+        timer = nil
+        initialTouchLocation = nil
     }
     
 }
 
 extension Magnetic {
+    
+    func setReacurringMoveTimer(for node: SKNode, to touchLocation: CGPoint) {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(performTimer), userInfo: [node, touchLocation], repeats: true)
+    }
+    
+    @objc func performTimer(data: [Any]) {
+        moveNode(data[0] as! SKNode, to: data[1] as! CGPoint)
+    }
+    
+    func moveAllNodes(touchLocation: CGPoint, previousTouchLocation: CGPoint) {
+        if touchLocation.distance(from: previousTouchLocation) == 0 { return }
+        
+        let x = touchLocation.x - previousTouchLocation.x
+        let y = touchLocation.y - previousTouchLocation.y
+        
+        for node in children {
+            let distance = node.position.distance(from: touchLocation)
+            let acceleration: CGFloat = 3 * pow(distance, 1/2)
+            let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+            node.physicsBody?.applyForce(direction)
+        }
+    }
+    
+    func moveNode(_ node:SKNode, to touchLocation: CGPoint) {
+        let convertedTapLocation = convert(touchLocation, to: node)
+        let direction = CGVector(dx: convertedTapLocation.x * singleNodeMovementAcceleration, dy: convertedTapLocation.y * singleNodeMovementAcceleration)
+        node.physicsBody?.applyForce(direction)
+    }
+    
+//    func moveNode(_ node: SKNode, to touchLocation: CGPoint) {
+//        let distance = node.position.distance(from: location)
+//        let acceleration: CGFloat = 3 * pow(distance, 1/2)
+//        let direction = CGVector(dx: x * acceleration, dy: y * acceleration)
+//        node.physicsBody?.applyForce(direction)
+//    }
     
     open func moveNodes(location: CGPoint, previous: CGPoint) {
         let x = location.x - previous.x
