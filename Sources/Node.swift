@@ -98,7 +98,7 @@ import SpriteKit
         super.init(path: path ?? SKShapeNode(circleOfRadius: radius).path!)
         
         self.physicsBody = {
-            let body = SKPhysicsBody(circleOfRadius: radius + 2) // SKPhysicsBody(polygonFrom: path)
+            let body = path.map { SKPhysicsBody(polygonFrom: $0) } ?? SKPhysicsBody(circleOfRadius: radius + 2) // MARGIN?
             body.allowsRotation = false
             body.friction = 0
             body.linearDamping = 3
