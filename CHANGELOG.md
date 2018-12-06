@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.1.2](https://github.com/efremidze/Magnetic/releases/tag/2.1.2)
+Released on 2018-12-06
+
+- Exposed functions
+
 ## [Version 2.1.1](https://github.com/efremidze/Magnetic/releases/tag/2.1.1)
 Released on 2018-12-06
 

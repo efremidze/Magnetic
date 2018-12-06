@@ -18,7 +18,7 @@ import SpriteKit
     /**
      The field node that accelerates the nodes.
      */
-    public lazy var magneticField: SKFieldNode = { [unowned self] in
+    open lazy var magneticField: SKFieldNode = { [unowned self] in
         let field = SKFieldNode.radialGravityField()
         self.addChild(field)
         return field
@@ -29,7 +29,7 @@ import SpriteKit
      */
     open var allowsMultipleSelection: Bool = true
     
-    var isDragging: Bool = false
+    open var isDragging: Bool = false
     
     /**
      The selected children.
@@ -140,7 +140,7 @@ extension Magnetic {
 
 extension Magnetic {
     
-    func moveNodes(location: CGPoint, previous: CGPoint) {
+    open func moveNodes(location: CGPoint, previous: CGPoint) {
         let x = location.x - previous.x
         let y = location.y - previous.y
         
