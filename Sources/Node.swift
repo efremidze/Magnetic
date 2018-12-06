@@ -83,21 +83,18 @@ import SpriteKit
     }
     
     /**
-     Creates a node object.
+     Creates a node with a custom path.
      
      - Parameters:
         - text: The text of the node.
         - image: The image of the node.
         - color: The color of the node.
-        - radius: The radius of the node.
         - path: The path of the node.
         - marginScale: The margin scale of the node.
      
      - Returns: A new node.
      */
-    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, path: CGPath? = nil, marginScale: CGFloat = 1.01) {
-        let path = path ?? SKShapeNode(circleOfRadius: radius).path!
-        
+    public init(text: String?, image: UIImage?, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
         super.init(path: path)
         
         self.physicsBody = {
@@ -113,6 +110,23 @@ import SpriteKit
         _ = self.sprite
         _ = self.text
         configure(text: text, image: image, color: color)
+    }
+    
+    /**
+     Creates a node with a circular path.
+     
+     - Parameters:
+        - text: The text of the node.
+        - image: The image of the node.
+        - color: The color of the node.
+        - radius: The radius of the node.
+        - marginScale: The margin scale of the node.
+     
+     - Returns: A new node.
+     */
+    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, marginScale: CGFloat = 1.01) {
+        let path = SKShapeNode(circleOfRadius: radius).path!
+        self.init(text: text, image: image, color: color, path: path, marginScale: marginScale)
     }
     
     required public init?(coder aDecoder: NSCoder) {

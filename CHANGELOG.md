@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.1.1](https://github.com/efremidze/Magnetic/releases/tag/2.1.1)
+Released on 2018-12-06
+
+- Added Node convenience init
+
 ## [Version 2.1.0](https://github.com/efremidze/Magnetic/releases/tag/2.1.0)
 Released on 2018-12-06
 

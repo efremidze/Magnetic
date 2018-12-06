@@ -64,13 +64,17 @@ var selectedChildren: [Node] // returns selected chidren
 
 ### Nodes
 
-A `Node` object is a circular SKShapeNode subclass.
+A `Node` object is a SKShapeNode subclass.
 
 #### Interaction
 
 ```swift
-// add node
+// add circular node
 let node = Node(text: "Italy", image: UIImage(named: "italy"), color: .red, radius: 30)
+magnetic.addChild(node)
+
+// add custom node
+let node = Node(text: "France", image: UIImage(named: "france"), color: .blue, path: path, marginScale: 1.1)
 magnetic.addChild(node)
 
 // remove node
