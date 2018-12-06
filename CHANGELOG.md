@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.1.0](https://github.com/efremidze/Magnetic/releases/tag/2.1.0)
+Released on 2018-12-06
+
+- Swift 4.2 Support
+
 ## [Version 2.0.12](https://github.com/efremidze/Magnetic/releases/tag/2.0.12)
 Released on 2018-12-06
 
