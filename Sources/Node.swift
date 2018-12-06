@@ -91,14 +91,18 @@ import SpriteKit
         - color: The color of the node.
         - radius: The radius of the node.
         - path: The path of the node.
+        - marginScale: The margin scale of the node.
      
      - Returns: A new node.
      */
-    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, path: CGPath? = nil) {
-        super.init(path: path ?? SKShapeNode(circleOfRadius: radius).path!)
+    public init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, path: CGPath? = nil, marginScale: CGFloat = 1.01) {
+        let path = path ?? SKShapeNode(circleOfRadius: radius).path!
+        
+        super.init(path: path)
         
         self.physicsBody = {
-            let body = path.map { SKPhysicsBody(polygonFrom: $0) } ?? SKPhysicsBody(circleOfRadius: radius + 2) // MARGIN?
+            var transform = CGAffineTransform.identity.scaledBy(x: marginScale, y: marginScale)
+            let body = SKPhysicsBody(polygonFrom: path.copy(using: &transform)!)
             body.allowsRotation = false
             body.friction = 0
             body.linearDamping = 3
