@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 2.0.12](https://github.com/efremidze/Magnetic/releases/tag/2.0.12)
+Released on 2018-12-06
+
+- Added custom node paths and spacing
+
 ## [Version 2.0.11](https://github.com/efremidze/Magnetic/releases/tag/2.0.11)
 Released on 2018-08-21
 
