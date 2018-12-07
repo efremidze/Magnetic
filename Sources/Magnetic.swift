@@ -179,11 +179,9 @@ extension Magnetic {
     
     func setReacurringMoveTimer(for node: SKNode, to touchLocation: CGPoint) {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(performTimer), userInfo: [node, touchLocation], repeats: true)
-    }
-    
-    @objc func performTimer(data: [Any]) {
-        moveNode(data[0] as! SKNode, to: data[1] as! CGPoint)
+        timer = Timer.schedule(every: 0.01) { [unowned self] timer in
+            self.moveNode(node, to: touchLocation)
+        }
     }
     
     func moveAllNodes(touchLocation: CGPoint, previousTouchLocation: CGPoint) {

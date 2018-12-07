@@ -41,3 +41,20 @@ extension UIImage {
         return image!
     }
 }
+
+extension Timer {
+    class func schedule(every interval: TimeInterval, block: @escaping (Timer) -> Void) -> Timer {
+        let target = Target(block)
+        return scheduledTimer(timeInterval: interval, target: target, selector: #selector(target.invoke), userInfo: nil, repeats: true)
+    }
+}
+
+private class Target<T> {
+    let block: (T) -> Void
+    init(_ block: @escaping (T) -> Void) {
+        self.block = block
+    }
+    @objc func invoke(sender: Any) {
+        block(sender as! T)
+    }
+}
