@@ -1,5 +1,10 @@
 # Change log
 
+## [Version 3.0.0](https://github.com/efremidze/Magnetic/releases/tag/3.0.0)
+Released on 2019-04-23
+
+- Swift 5.0 support
+
 ## [Version 2.1.2](https://github.com/efremidze/Magnetic/releases/tag/2.1.2)
 Released on 2018-12-06
 
