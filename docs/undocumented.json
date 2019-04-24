@@ -9,6 +9,13 @@
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": null,
+      "symbol": "Magnetic",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
       "line": 11,
       "symbol": "MagneticDelegate",
       "symbol_kind": "source.lang.swift.decl.protocol",
@@ -33,6 +40,13 @@
       "line": 16,
       "symbol": "Magnetic",
       "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 32,
+      "symbol": "Magnetic.isDragging",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -81,6 +95,20 @@
       "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
       "line": 135,
       "symbol": "Magnetic.touchesCancelled(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 143,
+      "symbol": "Magnetic.moveNodes(location:previous:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "line": 155,
+      "symbol": "Magnetic.node(at:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
@@ -149,42 +177,42 @@
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 114,
+      "line": 132,
       "symbol": "Node.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 118,
+      "line": 136,
       "symbol": "Node.configure(text:image:color:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 124,
+      "line": 142,
       "symbol": "Node.removeFromParent()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 161,
+      "line": 179,
       "symbol": "MaskNode",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 166,
+      "line": 184,
       "symbol": "MaskNode.init(path:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 185,
+      "line": 203,
       "symbol": "MaskNode.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
