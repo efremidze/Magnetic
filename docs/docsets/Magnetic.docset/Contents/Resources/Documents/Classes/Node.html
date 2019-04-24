@@ -268,9 +268,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:radius:path:"></a>
-                    <a name="//apple_ref/swift/Method/init(text:image:color:radius:path:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:radius:path:">init(text:image:color:radius:path:)</a>
+                    <a name="/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:path:marginScale:"></a>
+                    <a name="//apple_ref/swift/Method/init(text:image:color:path:marginScale:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:path:marginScale:">init(text:image:color:path:marginScale:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -278,14 +278,112 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a node object.</p>
+                        <p>Creates a node with a custom path.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">CGPath</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="nv">path</span><span class="p">:</span> <span class="kt">CGPath</span><span class="p">,</span> <span class="nv">marginScale</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">1.01</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>text</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The text of the node.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>image</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The image of the node.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>color</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The color of the node.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>path</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The path of the node.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>marginScale</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The margin scale of the node.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A new node.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:radius:marginScale:"></a>
+                    <a name="//apple_ref/swift/Method/init(text:image:color:radius:marginScale:)" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@M@Magnetic@objc(cs)Node(im)initWithText:image:color:radius:marginScale:">init(text:image:color:radius:marginScale:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a node with a circular path.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="kt">String</span><span class="p">?,</span> <span class="nv">image</span><span class="p">:</span> <span class="kt">UIImage</span><span class="p">?,</span> <span class="nv">color</span><span class="p">:</span> <span class="kt">UIColor</span><span class="p">,</span> <span class="nv">radius</span><span class="p">:</span> <span class="kt">CGFloat</span><span class="p">,</span> <span class="nv">marginScale</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">1.01</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -344,12 +442,12 @@
                             <tr>
                               <td>
                                 <code>
-                                <em>path</em>
+                                <em>marginScale</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
-                                  <p>The path of the node.</p>
+                                  <p>The margin scale of the node.</p>
                                 </div>
                               </td>
                             </tr>
@@ -554,8 +652,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="https://github.com/efremidze/Magnetic" target="_blank" rel="external">efremidze</a>. All rights reserved. (Last updated: 2018-05-08)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/efremidze/Magnetic" target="_blank" rel="external">efremidze</a>. All rights reserved. (Last updated: 2019-04-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

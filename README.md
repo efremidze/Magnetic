@@ -9,7 +9,9 @@
 
 **Magnetic** is a customizable bubble picker like the Apple Music genre selection.
 
-<img src="https://raw.githubusercontent.com/efremidze/Magnetic/master/Images/demo.gif" width="320">
+![Demo GIF](https://thumbs.gfycat.com/RelievedHardAmericanpainthorse-size_restricted.gif)
+
+[Demo Video](https://gfycat.com/RelievedHardAmericanpainthorse)
 
 ```
 $ pod try Magnetic
@@ -28,7 +30,7 @@ $ pod try Magnetic
 
 - iOS 9.0+
 - Xcode 9.0+
-- Swift 4 (Magnetic 2.x), Swift 3 (Magnetic 1.x)
+- Swift 5 (Magnetic 3.x), Swift 4 (Magnetic 2.x), Swift 3 (Magnetic 1.x)
 
 ## Usage
 
