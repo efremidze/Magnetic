@@ -8,7 +8,7 @@
 
 import SpriteKit
 
-@objcMembers open class Node: MaskNode {
+@objcMembers open class Node: SKShapeNode {
     
     public lazy var label: SKMultilineLabelNode = { [unowned self] in
         let label = SKMultilineLabelNode()
@@ -18,17 +18,10 @@ import SpriteKit
         label.verticalAlignmentMode = .center
         label.width = self.frame.width
         label.separator = " "
-        self.mask.addChild(label)
+        addChild(label)
         return label
     }()
     
-    public lazy var sprite: SKSpriteNode = { [unowned self] in
-        let sprite = SKSpriteNode()
-        sprite.size = self.frame.size
-        sprite.colorBlendFactor = 0.5
-        self.mask.addChild(sprite)
-        return sprite
-    }()
     
     /**
      The text displayed by the node.
@@ -46,7 +39,6 @@ import SpriteKit
 //            let url = URL(string: "https://picsum.photos/1200/600")!
 //            let image = UIImage(data: try! Data(contentsOf: url))
             texture = image.map { SKTexture(image: $0.aspectFill(self.frame.size)) }
-            sprite.size = texture?.size() ?? self.frame.size
         }
     }
     
@@ -55,18 +47,13 @@ import SpriteKit
      
      Also blends the color with the image.
      */
-    open var color: UIColor {
-        get { return sprite.color }
-        set { sprite.color = newValue }
-    }
-    
-    override open var strokeColor: UIColor {
+    open var color: UIColor? {
         didSet {
-            maskOverlay.strokeColor = strokeColor
+            self.fillColor = color ?? .white
         }
     }
     
-    private(set) var texture: SKTexture?
+    open var texture: SKTexture?
     
     /**
      The selection state of the node.
@@ -95,8 +82,8 @@ import SpriteKit
      - Returns: A new node.
      */
     public init(text: String?, image: UIImage?, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
-        super.init(path: path)
-        
+        super.init()
+        self.path = path
         self.physicsBody = {
             var transform = CGAffineTransform.identity.scaledBy(x: marginScale, y: marginScale)
             let body = SKPhysicsBody(polygonFrom: path.copy(using: &transform)!)
@@ -105,9 +92,8 @@ import SpriteKit
             body.linearDamping = 3
             return body
         }()
-        self.fillColor = .white
+        self.color = color
         self.strokeColor = .white
-        _ = self.sprite
         _ = self.text
         configure(text: text, image: image, color: color)
     }
@@ -151,7 +137,7 @@ import SpriteKit
     open func selectedAnimation() {
         run(.scale(to: 4/3, duration: 0.2))
         if let texture = texture {
-            sprite.run(.setTexture(texture))
+            self.fillTexture = texture
         }
     }
     
@@ -160,7 +146,8 @@ import SpriteKit
      */
     open func deselectedAnimation() {
         run(.scale(to: 1, duration: 0.2))
-        sprite.texture = nil
+        self.fillTexture = nil
+        self.fillColor = color ?? .white
     }
     
     /**
@@ -172,36 +159,6 @@ import SpriteKit
      */
     open func removedAnimation(completion: @escaping () -> Void) {
         run(.fadeOut(withDuration: 0.2), completion: completion)
-    }
-    
-}
-
-open class MaskNode: SKShapeNode {
-    
-    let mask: SKCropNode
-    let maskOverlay: SKShapeNode
-    
-    public init(path: CGPath) {
-        mask = SKCropNode()
-        mask.maskNode = {
-            let node = SKShapeNode(path: path)
-            node.fillColor = .white
-            node.strokeColor = .clear
-            return node
-        }()
-        
-        maskOverlay = SKShapeNode(path: path)
-        maskOverlay.fillColor = .clear
-        
-        super.init()
-        self.path = path
-        
-        self.addChild(mask)
-        self.addChild(maskOverlay)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
 }

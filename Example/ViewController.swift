@@ -98,7 +98,7 @@ extension ViewController: MagneticDelegate {
 class ImageNode: Node {
     override var image: UIImage? {
         didSet {
-            sprite.texture = image.map { SKTexture(image: $0) }
+            texture = image.map { SKTexture(image: $0) }
         }
     }
     override func selectedAnimation() {}
