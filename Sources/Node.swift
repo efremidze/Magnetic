@@ -22,7 +22,6 @@ import SpriteKit
         return label
     }()
     
-    
     /**
      The text displayed by the node.
      */
@@ -47,9 +46,9 @@ import SpriteKit
      
      Also blends the color with the image.
      */
-    open var color: UIColor? {
+    open var color: UIColor = .clear {
         didSet {
-            self.fillColor = color ?? .white
+            self.fillColor = color
         }
     }
     
@@ -147,7 +146,7 @@ import SpriteKit
     open func deselectedAnimation() {
         run(.scale(to: 1, duration: 0.2))
         self.fillTexture = nil
-        self.fillColor = color ?? .white
+        self.fillColor = color
     }
     
     /**

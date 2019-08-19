@@ -88,7 +88,7 @@ node.removeFromParent()
 ```swift
 var text: String? // node text
 var image: UIImage? // node image
-var color: UIColor // node color. defaults to white
+var color: UIColor // node color
 ```
 
 #### Animations
@@ -131,7 +131,7 @@ For example, a node with an image by default:
 class ImageNode: Node {
     override var image: UIImage? {
         didSet {
-            sprite.texture = image.map { SKTexture(image: $0) }
+            texture = image.map { SKTexture(image: $0) }
         }
     }
     override func selectedAnimation() {}

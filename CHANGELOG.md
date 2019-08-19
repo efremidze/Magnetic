@@ -1,4 +1,9 @@
-# Change log
+# Change Log
+
+## [Version 3.1.0](https://github.com/efremidze/Magnetic/releases/tag/3.1.0)
+Released on 2019-08-18
+
+- Removed MaskNode
 
 ## [Version 3.0.0](https://github.com/efremidze/Magnetic/releases/tag/3.0.0)
 Released on 2019-04-23
