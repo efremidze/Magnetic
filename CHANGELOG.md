@@ -1,5 +1,10 @@
 # Change Log
 
+## [Version 3.1.1](https://github.com/efremidze/Magnetic/releases/tag/3.1.1)
+Released on 2019-10-05
+
+- SPM Support
+
 ## [Version 3.1.0](https://github.com/efremidze/Magnetic/releases/tag/3.1.0)
 Released on 2019-08-18
 

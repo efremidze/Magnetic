@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Magnetic'
-  s.version          = '3.1.0'
+  s.version          = '3.1.1'
   s.summary          = 'SpriteKit Floating Bubble Picker (inspired by Apple Music)'
   s.homepage         = 'https://github.com/efremidze/Magnetic'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
