@@ -25,11 +25,6 @@ let package = Package(
             name: "Magnetic",
             dependencies: [],
             path: "Sources"
-        ),
-        .testTarget(
-            name: "MagneticTests",
-            dependencies: ["Magnetic"],
-            path: "Tests"
         )
     ]
 )
