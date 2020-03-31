@@ -38,6 +38,8 @@ class ViewController: UIViewController {
         let name = UIImage.names.randomItem()
         let color = UIColor.colors.randomItem()
         let node = Node(text: name.capitalized, image: UIImage(named: name), color: color, radius: 40)
+        node.scaleToFitContent = true
+        node.selectedColor = UIColor.colors.randomItem()
         magnetic.addChild(node)
         
         // Image Node: image displayed by default
