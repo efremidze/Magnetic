@@ -45,6 +45,7 @@
 		8B6914D71E70F6B50007896C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B6914D51E70F6B50007896C /* LaunchScreen.storyboard */; };
 		8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6914DC1E70F6CF0007896C /* Magnetic.swift */; };
 		8B6AA4721E873E1700909A36 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA4711E873E1700909A36 /* Extensions.swift */; };
+		95899B5A24333EEA00F2490D /* SKAction+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95899B5924333EEA00F2490D /* SKAction+Color.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		8B6914D81E70F6B50007896C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B6914DC1E70F6CF0007896C /* Magnetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magnetic.swift; sourceTree = "<group>"; };
 		8B6AA4711E873E1700909A36 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		95899B5924333EEA00F2490D /* SKAction+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Color.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,6 +194,7 @@
 				8B170D0C1E8B2F60005F45AB /* MagneticView.swift */,
 				8B61070B1E876D13000FF664 /* Node.swift */,
 				71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */,
+				95899B5924333EEA00F2490D /* SKAction+Color.swift */,
 			);
 			name = Magnetic;
 			path = Sources;
@@ -358,6 +361,7 @@
 				8B6107141E8771A5000FF664 /* Extensions.swift in Sources */,
 				8B61070C1E876D13000FF664 /* Node.swift in Sources */,
 				71835A711EC44BC100782066 /* SKMultilineLabelNode.swift in Sources */,
+				95899B5A24333EEA00F2490D /* SKAction+Color.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

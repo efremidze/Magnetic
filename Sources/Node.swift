@@ -12,9 +12,9 @@ import SpriteKit
     
     public lazy var label: SKMultilineLabelNode = { [unowned self] in
         let label = SKMultilineLabelNode()
-        label.fontName = "Avenir-Black"
-        label.fontSize = 12
-        label.fontColor = .white
+        label.fontName = Defaults.fontName
+        label.fontSize = Defaults.fontSize
+        label.fontColor = Defaults.fontColor
         label.verticalAlignmentMode = .center
         label.width = self.frame.width
         label.separator = " "
@@ -46,7 +46,7 @@ import SpriteKit
      
      Also blends the color with the image.
      */
-    open var color: UIColor = .clear {
+    open var color: UIColor = Defaults.color {
         didSet {
             self.fillColor = color
         }
@@ -66,6 +66,79 @@ import SpriteKit
                 deselectedAnimation()
             }
         }
+    }
+  
+    /**
+     The scale of the selected animation
+    */
+    open var selectedScale: CGFloat = 4 / 3
+  
+    /**
+     The scale of the deselected animation
+    */
+    open var deselectedScale: CGFloat = 1
+
+    /**
+     The original color of the node before animation
+    */
+    private var originalColor: UIColor = Defaults.color
+  
+    /**
+     The color of the seleted node
+    */
+    open var selectedColor: UIColor?
+  
+    /**
+     The text color of the seleted node
+    */
+    open var selectedFontColor: UIColor?
+  
+    /**
+     The original text color of the node before animation
+     */
+    private var originalFontColor: UIColor = Defaults.fontColor
+    
+    /**
+     The duration of the selected/deselected animations
+     */
+    open var animationDuration: TimeInterval = 0.2
+  
+    /**
+     The name of the label's font
+    */
+    open var fontName: String {
+      get { label.fontName ?? Defaults.fontName }
+      set {
+        label.fontName = newValue
+      }
+    }
+    
+    /**
+     The size of the label's font
+    */
+    open var fontSize: CGFloat {
+      get { label.fontSize }
+      set {
+        label.fontSize = newValue
+      }
+    }
+    
+    /**
+     The color of the label's font
+    */
+    open var fontColor: UIColor {
+      get { label.fontColor ?? Defaults.fontColor }
+      set { label.fontColor = newValue }
+    }
+    
+    /**
+     Set of default values
+     */
+    struct Defaults {
+        static let fontName = "Avenir-Black"
+        static let fontColor = UIColor.white
+        static let fontSize = CGFloat(12)
+        static let color = UIColor.clear
     }
     
     /**
@@ -134,9 +207,26 @@ import SpriteKit
      The animation to execute when the node is selected.
      */
     open func selectedAnimation() {
-        run(.scale(to: 4/3, duration: 0.2))
+        self.originalFontColor = fontColor
+        self.originalColor = fillColor
+        
+        let scaleAction = SKAction.scale(to: selectedScale, duration: animationDuration)
+        
+        if let selectedFontColor = selectedFontColor {
+            label.run(.colorTransition(from: originalFontColor, to: selectedFontColor))
+        }
+        
+        if let selectedColor = selectedColor {
+          run(.group([
+            scaleAction,
+            .colorTransition(from: originalColor, to: selectedColor, duration: animationDuration)
+          ]))
+        } else {
+          run(scaleAction)
+        }
+
         if let texture = texture {
-            self.fillTexture = texture
+          fillTexture = texture
         }
     }
     
@@ -144,9 +234,22 @@ import SpriteKit
      The animation to execute when the node is deselected.
      */
     open func deselectedAnimation() {
-        run(.scale(to: 1, duration: 0.2))
+        let scaleAction = SKAction.scale(to: deselectedScale, duration: animationDuration)
+        
+        if let selectedColor = selectedColor {
+          run(.group([
+            scaleAction,
+            .colorTransition(from: selectedColor, to: originalColor, duration: animationDuration)
+          ]))
+        } else {
+          run(scaleAction)
+        }
+        
+        if let selectedFontColor = selectedFontColor {
+          label.run(.colorTransition(from: selectedFontColor, to: originalFontColor, duration: animationDuration))
+        }
+
         self.fillTexture = nil
-        self.fillColor = color
     }
     
     /**
@@ -157,7 +260,7 @@ import SpriteKit
      - parameter completion: The block to execute when the animation is complete. You must call this handler and should do so as soon as possible.
      */
     open func removedAnimation(completion: @escaping () -> Void) {
-        run(.fadeOut(withDuration: 0.2), completion: completion)
+        run(.fadeOut(withDuration: animationDuration), completion: completion)
     }
     
 }
