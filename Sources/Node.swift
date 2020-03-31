@@ -27,7 +27,10 @@ import SpriteKit
      */
     open var text: String? {
         get { return label.text }
-        set { label.text = newValue }
+        set {
+            label.text = newValue
+            resize()
+        }
     }
     
     /**
@@ -65,6 +68,24 @@ import SpriteKit
             } else {
                 deselectedAnimation()
             }
+        }
+    }
+    
+    /**
+     Controls whether the node should auto resize to fit its content
+     */
+    open var scaleToFitContent: Bool = Defaults.scaleToFitContent {
+        didSet {
+            resize()
+        }
+    }
+    
+    /**
+     Additional padding to be applied on resize
+     */
+    open var padding: CGFloat = Defaults.padding {
+        didSet {
+            resize()
         }
     }
   
@@ -110,6 +131,7 @@ import SpriteKit
       get { label.fontName ?? Defaults.fontName }
       set {
         label.fontName = newValue
+        resize()
       }
     }
     
@@ -120,6 +142,7 @@ import SpriteKit
       get { label.fontSize }
       set {
         label.fontSize = newValue
+        resize()
       }
     }
     
@@ -132,6 +155,18 @@ import SpriteKit
     }
     
     /**
+     The margin scale of the node
+     */
+    open var marginScale: CGFloat = Defaults.marginScale {
+      didSet {
+        guard let path = path else { return }
+        regeneratePhysicsBody(withPath: path)
+      }
+    }
+    
+    open private(set) var radius: CGFloat?
+    
+    /**
      Set of default values
      */
     struct Defaults {
@@ -139,6 +174,9 @@ import SpriteKit
         static let fontColor = UIColor.white
         static let fontSize = CGFloat(12)
         static let color = UIColor.clear
+        static let marginScale = CGFloat(1.01)
+        static let scaleToFitContent = false // backwards compatability
+        static let padding = CGFloat(20)
     }
     
     /**
@@ -156,14 +194,7 @@ import SpriteKit
     public init(text: String?, image: UIImage?, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
         super.init()
         self.path = path
-        self.physicsBody = {
-            var transform = CGAffineTransform.identity.scaledBy(x: marginScale, y: marginScale)
-            let body = SKPhysicsBody(polygonFrom: path.copy(using: &transform)!)
-            body.allowsRotation = false
-            body.friction = 0
-            body.linearDamping = 3
-            return body
-        }()
+        regeneratePhysicsBody(withPath: path)
         self.color = color
         self.strokeColor = .white
         _ = self.text
@@ -201,6 +232,46 @@ import SpriteKit
         removedAnimation() {
             super.removeFromParent()
         }
+    }
+    
+    /**
+     Resizes the node to fit its current content
+     */
+    public func resize() {
+        guard scaleToFitContent, let text = text, let font = UIFont(name: fontName, size: fontSize) else { return }
+        let fontAttributes = [NSAttributedString.Key.font: font]
+        let size = (text as NSString).size(withAttributes: fontAttributes)
+        let radius = size.width / 2 + CGFloat(padding)
+        update(radius: radius, withLabelWidth: size.width)
+    }
+    
+    /**
+     Updates the radius of the node and sets the label width to a given width or the radius
+     
+      - Parameters:
+        - radius: The new radius
+        - withLabelWidth: A custom width for the text label
+     */
+    public func update(radius: CGFloat, withLabelWidth width: CGFloat? = nil) {
+        guard let path = SKShapeNode(circleOfRadius: radius).path else { return }
+        self.path = path
+        self.label.width = width ?? radius
+        self.radius = radius
+        regeneratePhysicsBody(withPath: path)
+    }
+    
+    /**
+     Regenerates the physics body with a given path after the path has changed .i.e. after resize
+     */
+    public func regeneratePhysicsBody(withPath path: CGPath) {
+        self.physicsBody = {
+          var transform = CGAffineTransform.identity.scaledBy(x: marginScale, y: marginScale)
+          let body = SKPhysicsBody(polygonFrom: path.copy(using: &transform)!)
+          body.allowsRotation = false
+          body.friction = 0
+          body.linearDamping = 3
+          return body
+        }()
     }
     
     /**
