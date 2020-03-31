@@ -331,7 +331,7 @@ import SpriteKit
      - parameter completion: The block to execute when the animation is complete. You must call this handler and should do so as soon as possible.
      */
     open func removedAnimation(completion: @escaping () -> Void) {
-        run(.fadeOut(withDuration: animationDuration), completion: completion)
+        run(.group([.fadeOut(withDuration: animationDuration), .scale(to: 0, duration: animationDuration)]), completion: completion)
     }
     
 }
