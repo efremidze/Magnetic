@@ -191,7 +191,7 @@ import SpriteKit
      
      - Returns: A new node.
      */
-    public init(text: String?, image: UIImage?, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
+    public init(text: String? = nil, image: UIImage? = nil, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
         super.init()
         self.path = path
         regeneratePhysicsBody(withPath: path)
@@ -213,7 +213,7 @@ import SpriteKit
      
      - Returns: A new node.
      */
-    public convenience init(text: String?, image: UIImage?, color: UIColor, radius: CGFloat, marginScale: CGFloat = 1.01) {
+    public convenience init(text: String? = nil, image: UIImage? = nil, color: UIColor, radius: CGFloat, marginScale: CGFloat = 1.01) {
         let path = SKShapeNode(circleOfRadius: radius).path!
         self.init(text: text, image: image, color: color, path: path, marginScale: marginScale)
     }
