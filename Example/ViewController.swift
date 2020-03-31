@@ -14,10 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var magneticView: MagneticView! {
         didSet {
             magnetic.magneticDelegate = self
+            magnetic.removeNodeOnLongPress = true
             #if DEBUG
-                magneticView.showsFPS = true
-                magneticView.showsDrawCount = true
-                magneticView.showsQuadCount = true
+            magneticView.showsFPS = true
+            magneticView.showsDrawCount = true
+            magneticView.showsQuadCount = true
+            magneticView.showsPhysics = true
             #endif
         }
     }
@@ -92,6 +94,10 @@ extension ViewController: MagneticDelegate {
     
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
         print("didDeselect -> \(node)")
+    }
+    
+    func magnetic(_ magnetic: Magnetic, didRemove node: Node) {
+        print("didRemove -> \(node)")
     }
     
 }
