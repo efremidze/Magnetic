@@ -1,5 +1,13 @@
 # Change Log
 
+## [Version 3.2.0](https://github.com/efremidze/Magnetic/releases/tag/3.2.0)
+Released on 2020-04-05
+
+- Allow a custom animationDuration selectedScale deselectedScale to be set dbe2ab2
+- Allow a different color (selectedColor) to be shown during the selectionAnimation and likewise with the font color (selectedFontColor) dbe2ab2
+- Long press to remove the node, based on removeNodeOnLongPress and longPressDuration f0bcd2a
+- Added a new optional method to the MagneticDelegate called when a node is removed
+
 ## [Version 3.1.2](https://github.com/efremidze/Magnetic/releases/tag/3.1.2)
 Released on 2019-10-25
 
