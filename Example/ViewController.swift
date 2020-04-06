@@ -14,10 +14,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var magneticView: MagneticView! {
         didSet {
             magnetic.magneticDelegate = self
+            magnetic.removeNodeOnLongPress = true
             #if DEBUG
-                magneticView.showsFPS = true
-                magneticView.showsDrawCount = true
-                magneticView.showsQuadCount = true
+            magneticView.showsFPS = true
+            magneticView.showsDrawCount = true
+            magneticView.showsQuadCount = true
+            magneticView.showsPhysics = true
             #endif
         }
     }
@@ -38,6 +40,8 @@ class ViewController: UIViewController {
         let name = UIImage.names.randomItem()
         let color = UIColor.colors.randomItem()
         let node = Node(text: name.capitalized, image: UIImage(named: name), color: color, radius: 40)
+        node.scaleToFitContent = true
+        node.selectedColor = UIColor.colors.randomItem()
         magnetic.addChild(node)
         
         // Image Node: image displayed by default
@@ -90,6 +94,10 @@ extension ViewController: MagneticDelegate {
     
     func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
         print("didDeselect -> \(node)")
+    }
+    
+    func magnetic(_ magnetic: Magnetic, didRemove node: Node) {
+        print("didRemove -> \(node)")
     }
     
 }
