@@ -93,6 +93,20 @@
     },
     {
       "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 80,
+      "symbol": "Magnetic.commonInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 86,
+      "symbol": "Magnetic.configure()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
       "line": 104,
       "symbol": "Magnetic.addChild(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -184,9 +198,23 @@
     },
     {
       "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
+      "line": 32,
+      "symbol": "MagneticView.commonInit()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 36,
       "symbol": "MagneticView.layoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
+      "line": 54,
+      "symbol": "MagneticView",
+      "symbol_kind": "source.lang.swift.decl.extension",
       "warning": "undocumented"
     },
     {
@@ -219,6 +247,55 @@
     },
     {
       "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 173,
+      "symbol": "Node.Defaults.fontName",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 174,
+      "symbol": "Node.Defaults.fontColor",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 175,
+      "symbol": "Node.Defaults.fontSize",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 176,
+      "symbol": "Node.Defaults.color",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 177,
+      "symbol": "Node.Defaults.marginScale",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 178,
+      "symbol": "Node.Defaults.scaleToFitContent",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 179,
+      "symbol": "Node.Defaults.padding",
+      "symbol_kind": "source.lang.swift.decl.var.static",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
       "line": 221,
       "symbol": "Node.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -236,6 +313,48 @@
       "line": 231,
       "symbol": "Node.removeFromParent()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 12,
+      "symbol": "lerp(a:b:fraction:)",
+      "symbol_kind": "source.lang.swift.decl.function.free",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 16,
+      "symbol": "ColorComponents",
+      "symbol_kind": "source.lang.swift.decl.struct",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 17,
+      "symbol": "ColorComponents.red",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 18,
+      "symbol": "ColorComponents.green",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 19,
+      "symbol": "ColorComponents.blue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 20,
+      "symbol": "ColorComponents.alpha",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
@@ -327,6 +446,13 @@
       "line": 26,
       "symbol": "SKMultilineLabelNode.width",
       "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
+      "line": 28,
+      "symbol": "SKMultilineLabelNode.update()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }
   ],

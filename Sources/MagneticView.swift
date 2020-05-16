@@ -39,17 +39,37 @@ public class MagneticView: SKView {
         magnetic.size = bounds.size
     }
     
-    /// Resets the `MagneticView` by making all visible `Node` objects vanish to a central point with an animation.
+    /// Resets the `MagneticView` by making all visible `Node` objects vanish to a point.
     public func reset() {
         let speed = magnetic.physicsWorld.speed
         magnetic.physicsWorld.speed = 0
-        let sortedNodes = magnetic.children.compactMap { $0 as? Node }.sorted { node, nextNode in
+        let actions = removalActions()
+        magnetic.run(.sequence(actions)) { [unowned magnetic] in
+            magnetic.physicsWorld.speed = speed
+        }
+    }
+}
+
+/// An internal extenstion to handle two discrete poertions of the reset animation.
+internal extension MagneticView {
+    /// Retrieves an array of `Node` objects softed by distance.
+    ///
+    /// - Returns: `[Node]`
+    ///
+    func sortedNodes() -> [Node] {
+        return magnetic.children.compactMap { $0 as? Node }.sorted { node, nextNode in
             let distance = node.position.distance(from: magnetic.magneticField.position)
             let nextDistance = nextNode.position.distance(from: magnetic.magneticField.position)
             return distance < nextDistance && node.isSelected
         }
+    }
+    /// Retrieves an array of `SKAction`s that are setup for reset animation.
+    ///
+    /// - Returns: `[SKAction]`
+    ///
+    func removalActions() -> [SKAction] {
         var actions = [SKAction]()
-        for (index, node) in sortedNodes.enumerated() {
+        for (index, node) in sortedNodes().enumerated() {
             node.physicsBody = nil
             let action = SKAction.run { [unowned magnetic, unowned node] in
                 if node.isSelected {
@@ -69,8 +89,6 @@ public class MagneticView: SKView {
             let delay = SKAction.wait(forDuration: TimeInterval(index) * 0.002)
             actions.append(delay)
         }
-        magnetic.run(.sequence(actions)) { [unowned magnetic] in
-            magnetic.physicsWorld.speed = speed
-        }
+        return actions
     }
 }
