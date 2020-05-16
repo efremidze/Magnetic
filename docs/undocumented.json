@@ -1,292 +1,334 @@
 {
   "warnings": [
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": null,
-      "symbol": "Magnetic",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Extensions.swift",
+      "line": 12,
+      "symbol": "CGFloat.random(_:_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": null,
-      "symbol": "Magnetic",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Extensions.swift",
+      "line": 18,
+      "symbol": "CGPoint.distance(from:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Extensions.swift",
+      "line": 24,
+      "symbol": "UIImage.aspectFill(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Extensions.swift",
+      "line": 34,
+      "symbol": "UIImage.resize(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
       "line": 11,
       "symbol": "MagneticDelegate",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
       "line": 12,
       "symbol": "MagneticDelegate.magnetic(_:didSelect:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
       "line": 13,
       "symbol": "MagneticDelegate.magnetic(_:didDeselect:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 16,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 14,
+      "symbol": "MagneticDelegate.magnetic(_:didRemove:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 17,
       "symbol": "Magnetic",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 32,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 44,
       "symbol": "Magnetic.isDragging",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 48,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 62,
       "symbol": "Magnetic.size",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 54,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 68,
       "symbol": "Magnetic.init(size:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 60,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 74,
       "symbol": "Magnetic.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 90,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 104,
       "symbol": "Magnetic.addChild(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 104,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 116,
+      "symbol": "Magnetic",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 118,
+      "symbol": "Magnetic.touchesBegan(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 123,
       "symbol": "Magnetic.touchesMoved(_:with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 115,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 134,
       "symbol": "Magnetic.touchesEnded(_:with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 135,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 167,
       "symbol": "Magnetic.touchesCancelled(_:with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 143,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 173,
+      "symbol": "Magnetic",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 175,
       "symbol": "Magnetic.moveNodes(location:previous:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Magnetic.swift",
-      "line": 155,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Magnetic.swift",
+      "line": 187,
       "symbol": "Magnetic.node(at:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 11,
       "symbol": "MagneticView",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 14,
       "symbol": "MagneticView.magnetic",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 20,
       "symbol": "MagneticView.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 26,
       "symbol": "MagneticView.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/MagneticView.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/MagneticView.swift",
       "line": 36,
       "symbol": "MagneticView.layoutSubviews()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
       "line": 11,
       "symbol": "Node",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
       "line": 13,
       "symbol": "Node.label",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 25,
-      "symbol": "Node.sprite",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 58,
+      "symbol": "Node.texture",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 63,
-      "symbol": "Node.strokeColor",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 167,
+      "symbol": "Node.radius",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 132,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 221,
       "symbol": "Node.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 136,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 225,
       "symbol": "Node.configure(text:image:color:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 142,
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/Node.swift",
+      "line": 231,
       "symbol": "Node.removeFromParent()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 179,
-      "symbol": "MaskNode",
-      "symbol_kind": "source.lang.swift.decl.class",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 24,
+      "symbol": "UIColor.components",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 184,
-      "symbol": "MaskNode.init(path:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 34,
+      "symbol": "SKAction.ColorTransitionConfigure",
+      "symbol_kind": "source.lang.swift.decl.typealias",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/Node.swift",
-      "line": 203,
-      "symbol": "MaskNode.init(coder:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKAction+Color.swift",
+      "line": 36,
+      "symbol": "SKAction.colorTransition(from:to:duration:configure:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 11,
       "symbol": "SKMultilineLabelNode",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 13,
       "symbol": "SKMultilineLabelNode.text",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 15,
       "symbol": "SKMultilineLabelNode.fontName",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 16,
       "symbol": "SKMultilineLabelNode.fontSize",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 17,
       "symbol": "SKMultilineLabelNode.fontColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 19,
       "symbol": "SKMultilineLabelNode.separator",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 21,
       "symbol": "SKMultilineLabelNode.verticalAlignmentMode",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 22,
       "symbol": "SKMultilineLabelNode.horizontalAlignmentMode",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 24,
       "symbol": "SKMultilineLabelNode.lineHeight",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/home/Documents/Magnetic2/Sources/SKMultilineLabelNode.swift",
+      "file": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic/Sources/SKMultilineLabelNode.swift",
       "line": 26,
       "symbol": "SKMultilineLabelNode.width",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     }
   ],
-  "source_directory": "/Users/home/Documents/Magnetic2"
+  "source_directory": "/Users/dan/SynologyDrive/SoftwareDevelopment/FrameworkRepositories/Cocoapods/OpenSource/Magnetic"
 }

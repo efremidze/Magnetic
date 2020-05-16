@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MagneticDelegate Protocol Reference</title>
+    <title>UIImage Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/MagneticDelegate" class="dashAnchor"></a>
-    <a title="MagneticDelegate Protocol Reference"></a>
+    <a name="//apple_ref/swift/Extension/UIImage" class="dashAnchor"></a>
+    <a title="UIImage Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Magnetic Docs</a> (39% documented)</p>
@@ -21,7 +21,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Magnetic Reference</a>
         <img id="carat" src="../img/carat.png" />
-        MagneticDelegate Protocol Reference
+        UIImage Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -77,16 +77,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>MagneticDelegate</h1>
+            <h1>UIImage</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MagneticDelegate</span> <span class="p">:</span> <span class="kt">AnyObject</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">extension</span> <span class="kt">UIImage</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -94,9 +92,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didSelect:"></a>
-                    <a name="//apple_ref/swift/Method/magnetic(_:didSelect:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didSelect:">magnetic(_:didSelect:)</a>
+                    <a name="/s:So7UIImageC8MagneticE10aspectFillyABSo6CGSizeVF"></a>
+                    <a name="//apple_ref/swift/Method/aspectFill(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7UIImageC8MagneticE10aspectFillyABSo6CGSizeVF">aspectFill(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -111,7 +109,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">magnetic</span><span class="p">(</span><span class="n">_</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt"><a href="../Classes/Magnetic.html">Magnetic</a></span><span class="p">,</span> <span class="n">didSelect</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="../Classes/Node.html">Node</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">aspectFill</span><span class="p">(</span><span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span></code></pre>
 
                         </div>
                       </div>
@@ -121,9 +119,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didDeselect:"></a>
-                    <a name="//apple_ref/swift/Method/magnetic(_:didDeselect:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didDeselect:">magnetic(_:didDeselect:)</a>
+                    <a name="/s:So7UIImageC8MagneticE6resizeyABSo6CGSizeVF"></a>
+                    <a name="//apple_ref/swift/Method/resize(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:So7UIImageC8MagneticE6resizeyABSo6CGSizeVF">resize(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -138,35 +136,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">magnetic</span><span class="p">(</span><span class="n">_</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt"><a href="../Classes/Magnetic.html">Magnetic</a></span><span class="p">,</span> <span class="n">didDeselect</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="../Classes/Node.html">Node</a></span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didRemove:"></a>
-                    <a name="//apple_ref/swift/Method/magnetic(_:didRemove:)" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@M@Magnetic@objc(pl)MagneticDelegate(im)magnetic:didRemove:">magnetic(_:didRemove:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@objc</span>
-<span class="kd">optional</span> <span class="kd">func</span> <span class="nf">magnetic</span><span class="p">(</span><span class="n">_</span> <span class="nv">magnetic</span><span class="p">:</span> <span class="kt"><a href="../Classes/Magnetic.html">Magnetic</a></span><span class="p">,</span> <span class="n">didRemove</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="../Classes/Node.html">Node</a></span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">resize</span><span class="p">(</span><span class="n">_</span> <span class="nv">size</span><span class="p">:</span> <span class="kt">CGSize</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UIImage</span></code></pre>
 
                         </div>
                       </div>

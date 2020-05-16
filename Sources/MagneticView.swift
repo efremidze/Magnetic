@@ -39,6 +39,7 @@ public class MagneticView: SKView {
         magnetic.size = bounds.size
     }
     
+    /// Resets the `MagneticView` by making all visible `Node` objects vanish to a central point with an animation.
     public func reset() {
         let speed = magnetic.physicsWorld.speed
         magnetic.physicsWorld.speed = 0
