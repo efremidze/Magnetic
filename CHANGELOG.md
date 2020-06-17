@@ -1,5 +1,10 @@
 # Change Log
 
+## [Version 3.2.1](https://github.com/efremidze/Magnetic/releases/tag/3.2.1)
+Released on 2020-06-16
+
+- Added Reset Function to MagneticView, Enabled Mac Catalyst on Example, Refactoring
+
 ## [Version 3.2.0](https://github.com/efremidze/Magnetic/releases/tag/3.2.0)
 Released on 2020-04-05
 

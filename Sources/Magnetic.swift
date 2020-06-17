@@ -188,4 +188,58 @@ extension Magnetic {
         return nodes(at: point).compactMap { $0 as? Node }.filter { $0.path!.contains(convert(point, to: $0)) }.first
     }
     
+    /// Resets the `MagneticView` by making all visible `Node` objects vanish to a point.
+    open func reset() {
+        let speed = physicsWorld.speed
+        physicsWorld.speed = 0
+        let actions = removalActions()
+        run(.sequence(actions)) { [unowned self] in
+            self.physicsWorld.speed = speed
+        }
+    }
+    
+}
+
+/// An extension to handle the reset animation.
+extension Magnetic {
+    /// Retrieves an array of `Node` objects softed by distance.
+    ///
+    /// - Returns: `[Node]`
+    ///
+    func sortedNodes() -> [Node] {
+        return children.compactMap { $0 as? Node }.sorted { node, nextNode in
+            let distance = node.position.distance(from: magneticField.position)
+            let nextDistance = nextNode.position.distance(from: magneticField.position)
+            return distance < nextDistance && node.isSelected
+        }
+    }
+    
+    /// Retrieves an array of `SKAction`s that are setup for reset animation.
+    ///
+    /// - Returns: `[SKAction]`
+    ///
+    func removalActions() -> [SKAction] {
+        var actions = [SKAction]()
+        for (index, node) in sortedNodes().enumerated() {
+            node.physicsBody = nil
+            let action = SKAction.run { [unowned self, unowned node] in
+                if node.isSelected {
+                    let point = CGPoint(x: self.size.width / 2, y: self.size.height + 40)
+                    let movingXAction = SKAction.moveTo(x: point.x, duration: 0.2)
+                    let movingYAction = SKAction.moveTo(y: point.y, duration: 0.4)
+                    let resize = SKAction.scale(to: 0.3, duration: 0.4)
+                    let throwAction = SKAction.group([movingXAction, movingYAction, resize])
+                    node.run(throwAction) { [unowned node] in
+                        node.removeFromParent()
+                    }
+                } else {
+                    node.removeFromParent()
+                }
+            }
+            actions.append(action)
+            let delay = SKAction.wait(forDuration: TimeInterval(index) * 0.002)
+            actions.append(delay)
+        }
+        return actions
+    }
 }
