@@ -12,10 +12,9 @@
 import SwiftUI
 
 @available(iOS 13.0, *)
-struct MagneticView_SwiftUI: UIViewRepresentable {
-    func makeUIView(context: Context) -> MagneticView {
+public struct MagneticView_SwiftUI: UIViewRepresentable {
+    public func makeUIView(context: Context) -> MagneticView {
         MagneticView()
     }
-    
-    func updateUIView(_ uiView: MagneticView, context: Context) {}
+    public func updateUIView(_ uiView: MagneticView, context: Context) {}
 }
