@@ -6,6 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        run: swift build -v
-      - name: Run tests
-        run: swift test -v
+        run: set -o pipefail && xcodebuild -project "$PROJECT" -scheme "$EXAMPLE_SCHEME" clean build | xcpretty;
