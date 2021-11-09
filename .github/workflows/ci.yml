@@ -6,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build
-        run: set -o pipefail && xcodebuild -project "Magnetic.xcodeproj" -scheme "Example" -configuration Debug ONLY_ACTIVE_ARCH=NO clean build | xcpretty
+        run: set -o pipefail && xcodebuild -project "Magnetic.xcodeproj" -scheme "Example" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO clean build | xcpretty
