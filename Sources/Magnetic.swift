@@ -78,6 +78,7 @@ import SpriteKit
     }
     
     func commonInit() {
+        if #available(iOS 11.0, *) { accessibilityContainerType = .list }
         backgroundColor = .white
         scaleMode = .aspectFill
         configure()

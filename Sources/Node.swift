@@ -65,9 +65,30 @@ import SpriteKit
             guard isSelected != oldValue else { return }
             if isSelected {
                 selectedAnimation()
+                accessibilityTraits = .selected
             } else {
                 deselectedAnimation()
+                accessibilityTraits = .none
             }
+        }
+    }
+
+    /**
+     The internal accessibilityPath used by the node.
+     */
+    private var overridenAccessibilityPath: UIBezierPath?
+
+    open override var accessibilityPath: UIBezierPath? {
+        get {
+            if let path = self.overridenAccessibilityPath {
+                return path
+            }
+
+            return UIBezierPath(ovalIn: self.accessibilityFrame)
+        }
+
+        set {
+            self.overridenAccessibilityPath = newValue
         }
     }
     
@@ -194,6 +215,10 @@ import SpriteKit
     public init(text: String? = nil, image: UIImage? = nil, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
         super.init()
         self.path = path
+
+        self.isAccessibilityElement = true
+        self.shouldGroupAccessibilityChildren = true
+
         regeneratePhysicsBody(withPath: path)
         self.color = color
         self.strokeColor = .white
@@ -223,6 +248,7 @@ import SpriteKit
     }
     
     open func configure(text: String?, image: UIImage?, color: UIColor) {
+        self.accessibilityLabel = text
         self.text = text
         self.image = image
         self.color = color
