@@ -30,8 +30,6 @@ public class MagneticView: SKView {
     }
     
     func commonInit() {
-        _ = magnetic
-        
         accessibilityCreateSelectionRotor(withName: "Selected", usingScene: magnetic)
     }
     

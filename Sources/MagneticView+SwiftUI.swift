@@ -11,7 +11,6 @@
 
 import SwiftUI
 
-@available(iOS 13.0, *)
 public struct MagneticView_SwiftUI: UIViewRepresentable {
     public func makeUIView(context: Context) -> MagneticView {
         MagneticView()
