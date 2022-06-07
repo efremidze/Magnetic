@@ -1,5 +1,10 @@
 # Change Log
 
+## [Version 3.3.0](https://github.com/efremidze/Magnetic/releases/tag/3.3.0)
+Released on 2022-06-06
+
+- Adds custom accessibilityRotor and accessibilityFrame/label to each node (#58)
+
 ## [Version 3.2.1](https://github.com/efremidze/Magnetic/releases/tag/3.2.1)
 Released on 2020-06-16
 

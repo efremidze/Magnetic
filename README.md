@@ -27,8 +27,7 @@ $ pod try Magnetic
 
 ## Requirements
 
-- iOS 9.0+
-- Xcode 9.0+
+- iOS 10.0+
 - Swift 5 (Magnetic 3.x), Swift 4 (Magnetic 2.x), Swift 3 (Magnetic 1.x)
 
 ## Usage

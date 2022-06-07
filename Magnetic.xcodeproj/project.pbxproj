@@ -46,6 +46,7 @@
 		8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6914DC1E70F6CF0007896C /* Magnetic.swift */; };
 		8B6AA4721E873E1700909A36 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA4711E873E1700909A36 /* Extensions.swift */; };
 		95899B5A24333EEA00F2490D /* SKAction+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95899B5924333EEA00F2490D /* SKAction+Color.swift */; };
+		C07CDB0C284ECB020000CF0E /* MagneticView+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C07CDB0B284ECB020000CF0E /* MagneticView+Accessibility.swift */; };
 		F41069572738FD8C00AE220B /* MagneticView+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = F41069562738FD8C00AE220B /* MagneticView+SwiftUI.swift */; };
 /* End PBXBuildFile section */
 
@@ -115,6 +116,7 @@
 		8B6914DC1E70F6CF0007896C /* Magnetic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Magnetic.swift; sourceTree = "<group>"; };
 		8B6AA4711E873E1700909A36 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		95899B5924333EEA00F2490D /* SKAction+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKAction+Color.swift"; sourceTree = "<group>"; };
+		C07CDB0B284ECB020000CF0E /* MagneticView+Accessibility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagneticView+Accessibility.swift"; sourceTree = "<group>"; };
 		F41069562738FD8C00AE220B /* MagneticView+SwiftUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MagneticView+SwiftUI.swift"; sourceTree = "<group>"; };
 		F4AD375C2499EB8F00EEAED4 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -199,6 +201,7 @@
 				71835A701EC44BC100782066 /* SKMultilineLabelNode.swift */,
 				95899B5924333EEA00F2490D /* SKAction+Color.swift */,
 				F41069562738FD8C00AE220B /* MagneticView+SwiftUI.swift */,
+				C07CDB0B284ECB020000CF0E /* MagneticView+Accessibility.swift */,
 			);
 			name = Magnetic;
 			path = Sources;
@@ -363,6 +366,7 @@
 			files = (
 				F41069572738FD8C00AE220B /* MagneticView+SwiftUI.swift in Sources */,
 				8B170D0E1E8B2FAD005F45AB /* MagneticView.swift in Sources */,
+				C07CDB0C284ECB020000CF0E /* MagneticView+Accessibility.swift in Sources */,
 				8B6914DD1E70F6CF0007896C /* Magnetic.swift in Sources */,
 				8B6107141E8771A5000FF664 /* Extensions.swift in Sources */,
 				8B61070C1E876D13000FF664 /* Node.swift in Sources */,
@@ -461,7 +465,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -518,7 +522,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -543,7 +547,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.2.1;
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.efremidze.Magnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -564,7 +568,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Sources/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 3.2.1;
+				MARKETING_VERSION = 3.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.efremidze.Magnetic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

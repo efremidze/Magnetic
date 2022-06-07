@@ -79,17 +79,8 @@ import SpriteKit
     private var overridenAccessibilityPath: UIBezierPath?
 
     open override var accessibilityPath: UIBezierPath? {
-        get {
-            if let path = self.overridenAccessibilityPath {
-                return path
-            }
-
-            return UIBezierPath(ovalIn: self.accessibilityFrame)
-        }
-
-        set {
-            self.overridenAccessibilityPath = newValue
-        }
+        get { overridenAccessibilityPath ?? UIBezierPath(ovalIn: self.accessibilityFrame) }
+        set { self.overridenAccessibilityPath = newValue }
     }
     
     /**
@@ -215,15 +206,13 @@ import SpriteKit
     public init(text: String? = nil, image: UIImage? = nil, color: UIColor, path: CGPath, marginScale: CGFloat = 1.01) {
         super.init()
         self.path = path
-
-        self.isAccessibilityElement = true
-        self.shouldGroupAccessibilityChildren = true
-
         regeneratePhysicsBody(withPath: path)
         self.color = color
         self.strokeColor = .white
         _ = self.text
         configure(text: text, image: image, color: color)
+        self.isAccessibilityElement = true
+        self.shouldGroupAccessibilityChildren = true
     }
     
     /**
@@ -248,10 +237,10 @@ import SpriteKit
     }
     
     open func configure(text: String?, image: UIImage?, color: UIColor) {
-        self.accessibilityLabel = text
         self.text = text
         self.image = image
         self.color = color
+        self.accessibilityLabel = text
     }
     
     override open func removeFromParent() {
