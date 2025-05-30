@@ -1,10 +1,11 @@
 # Magnetic
 
-[![Language](https://img.shields.io/badge/Swift-5-orange.svg?style=flat)](https://swift.org)
-[![Version](https://img.shields.io/cocoapods/v/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
-[![License](https://img.shields.io/cocoapods/l/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
-[![Platform](https://img.shields.io/cocoapods/p/Magnetic.svg?style=flat)](http://cocoapods.org/pods/Magnetic)
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![CI](https://github.com/efremidze/Magnetic/actions/workflows/ci.yml/badge.svg)](https://github.com/efremidze/Magnetic/actions/workflows/ci.yml)
+[![CocoaPods](https://img.shields.io/cocoapods/v/Magnetic.svg)](https://cocoapods.org/pods/Magnetic)
+[![Carthage](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
+[![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
+[![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
+[![License](https://img.shields.io/github/license/efremidze/Magnetic.svg)](https://github.com/efremidze/Magnetic/blob/master/LICENSE)
 
 **Magnetic** is a customizable bubble picker like the Apple Music genre selection.
 
