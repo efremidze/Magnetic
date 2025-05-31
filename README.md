@@ -17,7 +17,7 @@ pod try Magnetic
 
 ---
 
-## ✨ Features
+## Features
 
 - Add/remove nodes dynamically
 - Smooth selection/deselection/removal animations
@@ -27,7 +27,7 @@ pod try Magnetic
 
 ---
 
-## 📋 Requirements
+## Requirements
 
 | Version         | iOS        | Swift    |
 |----------------|------------|----------|
@@ -38,7 +38,7 @@ pod try Magnetic
 
 ---
 
-## 🚀 Usage
+## Usage
 
 `Magnetic` is an [`SKScene`](https://developer.apple.com/documentation/spritekit/skscene) subclass that is presented from an [`SKView`](https://developer.apple.com/documentation/spritekit/skview).
 
@@ -58,7 +58,7 @@ class ViewController: UIViewController {
 }
 ```
 
-### 🧠 Properties
+### Properties
 
 ```swift
 var magneticDelegate: MagneticDelegate? // Delegate
@@ -68,11 +68,11 @@ var selectedChildren: [Node] // Currently selected nodes
 
 ---
 
-## 🟣 Nodes
+## Nodes
 
 A `Node` is a subclass of `SKShapeNode`.
 
-### ➕ Interaction
+### Interaction
 
 ```swift
 let node = Node(text: "Italy", image: UIImage(named: "italy"), color: .red, radius: 30)
@@ -84,7 +84,7 @@ magnetic.addChild(customNode)
 node.removeFromParent()
 ```
 
-### ⚙️ Node Properties
+### Node Properties
 
 ```swift
 var text: String?
@@ -92,7 +92,7 @@ var image: UIImage?
 var color: UIColor
 ```
 
-### 🎞️ Animations
+### Animations
 
 ```swift
 override func selectedAnimation() {
@@ -110,7 +110,7 @@ override func removedAnimation(completion: @escaping () -> Void) {
 
 ---
 
-## 🔄 Delegation
+## Delegation
 
 Use `MagneticDelegate` to observe selection state changes:
 
@@ -126,7 +126,7 @@ func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
 
 ---
 
-## 🎨 Customization
+## Customization
 
 Subclass `Node` to define your own behavior or visuals:
 
@@ -145,7 +145,7 @@ class ImageNode: Node {
 
 ---
 
-## 📦 Installation
+## Installation
 
 ### CocoaPods
 
@@ -162,13 +162,13 @@ github "efremidze/Magnetic"
 
 ---
 
-## 📰 Mentions
+## Mentions
 
 - [Natasha The Robot's Newsletter #126](https://swiftnews.curated.co/issues/126#start)
 
 ---
 
-## 🤝 Contributing
+## Contributing
 
 - Found a bug? [Open an issue](https://github.com/efremidze/Magnetic/issues)
 - Have a feature request? [Open an issue](https://github.com/efremidze/Magnetic/issues)
@@ -176,7 +176,7 @@ github "efremidze/Magnetic"
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 Inspired by [igalata/Bubble-Picker](https://github.com/igalata/Bubble-Picker)
 
