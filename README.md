@@ -46,7 +46,6 @@ pod try Magnetic
 import Magnetic
 
 class ViewController: UIViewController {
-
     var magnetic: Magnetic?
 
     override func loadView() {
@@ -182,6 +181,6 @@ Inspired by [igalata/Bubble-Picker](https://github.com/igalata/Bubble-Picker)
 
 ---
 
-## 📄 License
+## License
 
 Magnetic is available under the MIT license. See the [LICENSE](LICENSE) file for details.
