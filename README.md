@@ -60,9 +60,14 @@ class ViewController: UIViewController {
 ### Properties
 
 ```swift
-var magneticDelegate: MagneticDelegate? // Delegate
-var allowsMultipleSelection: Bool // Defaults to true
-var selectedChildren: [Node] // Currently selected nodes
+/// Delegate to handle node interactions
+var magneticDelegate: MagneticDelegate?
+
+/// Enables multiple node selection (default: true)
+var allowsMultipleSelection: Bool
+
+/// Returns all currently selected nodes
+var selectedChildren: [Node]
 ```
 
 ---
@@ -104,6 +109,7 @@ override func deselectedAnimation() {
 
 override func removedAnimation(completion: @escaping () -> Void) {
     // Customize removal animation
+    // Call completion() when done
 }
 ```
 
@@ -133,12 +139,18 @@ Subclass `Node` to define your own behavior or visuals:
 class ImageNode: Node {
     override var image: UIImage? {
         didSet {
+            // Update the texture when the image changes
             texture = image.map { SKTexture(image: $0) }
         }
     }
 
-    override func selectedAnimation() {}
-    override func deselectedAnimation() {}
+    override func selectedAnimation() {
+        // Define custom behavior when the node is selected
+    }
+
+    override func deselectedAnimation() {
+        // Define custom behavior when the node is deselected
+    }
 }
 ```
 
