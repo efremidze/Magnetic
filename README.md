@@ -5,166 +5,194 @@
 [![Carthage](https://img.shields.io/badge/Carthage-compatible-brightgreen.svg)](https://github.com/Carthage/Carthage)
 [![SPM](https://img.shields.io/badge/SPM-compatible-brightgreen.svg)](https://swift.org/package-manager/)
 [![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
-[![License](https://img.shields.io/github/license/efremidze/Magnetic.svg)](https://github.com/efremidze/Magnetic/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/efremidze/Magnetic.svg)](LICENSE)
 
-**Magnetic** is a customizable bubble picker like the Apple Music genre selection.
+**Magnetic** is a customizable bubble picker inspired by Apple Music’s genre selection.
 
 <img src="/Images/demo2.gif" width="250" />
 
+```sh
+pod try Magnetic
 ```
-$ pod try Magnetic
-```
+
+---
 
 ## Features
 
-- [x] Adding/Removing Nodes
-- [x] Selection/Deselection/Removed Animations
-- [x] Multiple Selection
-- [x] Images
-- [x] Multiline Label
-- [x] [Documentation](https://efremidze.github.io/Magnetic)
+- Add/remove nodes dynamically
+- Smooth selection/deselection/removal animations
+- Multiple selection support
+- Node images and multiline labels
+- [Documentation](https://efremidze.github.io/Magnetic)
+
+---
 
 ## Requirements
 
-- iOS 13.0+ (Magnetic 3.3.x), iOS 9.0+ (Magnetic 3.2.1)
-- Swift 5 (Magnetic 3.x), Swift 4 (Magnetic 2.x), Swift 3 (Magnetic 1.x)
+| Version         | iOS        | Swift    |
+|----------------|------------|----------|
+| Magnetic 3.3.x | iOS 13.0+  | Swift 5  |
+| Magnetic 3.2.1 | iOS 9.0+   | Swift 5  |
+| Magnetic 2.x   | iOS 9.0+   | Swift 4  |
+| Magnetic 1.x   | iOS 9.0+   | Swift 3  |
+
+---
 
 ## Usage
 
-A `Magnetic` object is an [SKScene](https://developer.apple.com/reference/spritekit/skscene).
-
-To display, you present it from an [SKView](https://developer.apple.com/reference/spritekit/skview) object.
+`Magnetic` is an [`SKScene`](https://developer.apple.com/documentation/spritekit/skscene) subclass that is presented from an [`SKView`](https://developer.apple.com/documentation/spritekit/skview).
 
 ```swift
 import Magnetic
 
 class ViewController: UIViewController {
-
     var magnetic: Magnetic?
-    
+
     override func loadView() {
         super.loadView()
-        
-        let magneticView = MagneticView(frame: self.view.bounds)
+        let magneticView = MagneticView(frame: view.bounds)
         magnetic = magneticView.magnetic
-        self.view.addSubview(magneticView)
+        view.addSubview(magneticView)
     }
-
 }
 ```
 
-#### Properties
+### Properties
 
 ```swift
-var magneticDelegate: MagneticDelegate? // magnetic delegate
-var allowsMultipleSelection: Bool // controls whether you can select multiple nodes. defaults to true
-var selectedChildren: [Node] // returns selected chidren
+/// Delegate to handle node interactions
+var magneticDelegate: MagneticDelegate?
+
+/// Enables multiple node selection (default: true)
+var allowsMultipleSelection: Bool
+
+/// Returns all currently selected nodes
+var selectedChildren: [Node]
 ```
 
-### Nodes
+---
 
-A `Node` object is a SKShapeNode subclass.
+## Nodes
 
-#### Interaction
+A `Node` is a subclass of `SKShapeNode`.
+
+### Interaction
 
 ```swift
-// add circular node
 let node = Node(text: "Italy", image: UIImage(named: "italy"), color: .red, radius: 30)
 magnetic.addChild(node)
 
-// add custom node
-let node = Node(text: "France", image: UIImage(named: "france"), color: .blue, path: path, marginScale: 1.1)
-magnetic.addChild(node)
+let customNode = Node(text: "France", image: UIImage(named: "france"), color: .blue, path: path, marginScale: 1.1)
+magnetic.addChild(customNode)
 
-// remove node
 node.removeFromParent()
 ```
 
-#### Properties
+### Node Properties
 
 ```swift
-var text: String? // node text
-var image: UIImage? // node image
-var color: UIColor // node color
+var text: String?
+var image: UIImage?
+var color: UIColor
 ```
 
-#### Animations
+### Animations
 
 ```swift
 override func selectedAnimation() {
-    // override selected animation
+    // Customize selected animation
 }
 
 override func deselectedAnimation() {
-    // override deselected animation
+    // Customize deselected animation
 }
 
 override func removedAnimation(completion: @escaping () -> Void) {
-    // override removed animation
+    // Customize removal animation
+    // Call completion() when done
 }
 ```
 
-### Delegation
+---
 
-The `MagneticDelegate` protocol provides a number of functions for observing the current state of nodes.
+## Delegation
+
+Use `MagneticDelegate` to observe selection state changes:
 
 ```swift
 func magnetic(_ magnetic: Magnetic, didSelect node: Node) {
-    // handle node selection
+    // Handle selection
 }
 
 func magnetic(_ magnetic: Magnetic, didDeselect node: Node) {
-    // handle node deselection
+    // Handle deselection
 }
 ```
 
-### Customization
+---
 
-Subclass the Node for customization.
+## Customization
 
-For example, a node with an image by default:
+Subclass `Node` to define your own behavior or visuals:
 
 ```swift
 class ImageNode: Node {
     override var image: UIImage? {
         didSet {
+            // Update the texture when the image changes
             texture = image.map { SKTexture(image: $0) }
         }
     }
-    override func selectedAnimation() {}
-    override func deselectedAnimation() {}
+
+    override func selectedAnimation() {
+        // Define custom behavior when the node is selected
+    }
+
+    override func deselectedAnimation() {
+        // Define custom behavior when the node is deselected
+    }
 }
 ```
+
+---
 
 ## Installation
 
 ### CocoaPods
-To install with [CocoaPods](http://cocoapods.org/), simply add this in your `Podfile`:
+
 ```ruby
 use_frameworks!
 pod "Magnetic"
 ```
 
 ### Carthage
-To install with [Carthage](https://github.com/Carthage/Carthage), simply add this in your `Cartfile`:
-```ruby
+
+```bash
 github "efremidze/Magnetic"
 ```
 
+---
+
 ## Mentions
 
-- [Natasha The Robot's Newsleter 126](https://swiftnews.curated.co/issues/126#start)
+- [Natasha The Robot's Newsletter #126](https://swiftnews.curated.co/issues/126#start)
 
-## Communication
+---
 
-- If you **found a bug**, open an issue.
-- If you **have a feature request**, open an issue.
-- If you **want to contribute**, submit a pull request.
+## Contributing
 
-## Credits
+- Found a bug? [Open an issue](https://github.com/efremidze/Magnetic/issues)
+- Have a feature request? [Open an issue](https://github.com/efremidze/Magnetic/issues)
+- Want to contribute? [Submit a pull request](https://github.com/efremidze/Magnetic/pulls)
 
-https://github.com/igalata/Bubble-Picker
+---
+
+## Acknowledgments
+
+Inspired by [igalata/Bubble-Picker](https://github.com/igalata/Bubble-Picker)
+
+---
 
 ## License
 
-Magnetic is available under the MIT license. See the LICENSE file for more info.
+Magnetic is available under the MIT license. See the [LICENSE](LICENSE) file for details.
